@@ -1,0 +1,27 @@
+<?php
+    include("conexao.php");
+    include("menu.php");
+?>
+<head>
+</head>
+<body>
+<div class="container">
+            <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" style="margin-top:-80px;">
+                <div class="card card-signin my-5" style="border-color:#828282;">
+                <div class="card-body">
+                    <h4 class="card-title text-center"style="color:#828282;">Bem-vindo(a) ao Nível 1!</h4>
+                    <h5 class="card-title text-center"style="color:#828282;">Escolha por onde começar</h5>
+                    <form class="form-signin">
+                    <button class="btn btn-lg btn-google btn-block text-uppercase" style="border-color:#828282;background-color:#828282;color:white;" type="submit" onclick = "location.href='parametros_libras.php'"><i class="fab fa-google mr-2"></i> 5 Parametros da Libras</button>
+                    <button class="btn btn-lg btn-google btn-block text-uppercase" style="border-color:#828282;background-color:#828282;color:white;" type="submit" onclick = "location.href='parametros_libras.php'"><i class="fab fa-google mr-2"></i> 5 Parametros da Libras</button>
+                    <button class="btn btn-lg btn-google btn-block text-uppercase" style="border-color:#828282;background-color:#828282;color:white;" type="submit" onclick = "location.href='parametros_libras.php'"><i class="fab fa-google mr-2"></i> 5 Parametros da Libras</button>
+
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
