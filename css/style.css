@@ -1,0 +1,79 @@
+html 
+{
+    background: url("../img/fundo/index.png") no-repeat ;
+    width:100%; 
+    overflow: hidden;
+}
+a:link
+{
+    text-decoration: none;
+}
+.placa_esquerda
+{
+    width:90%; 
+    margin-top:-440px;
+    margin-left:767px;
+}
+@media(width:640px)
+{
+    html 
+{
+    background: url("../img/medias/index.png") no-repeat ;
+    width:100%; 
+    overflow: hidden;
+}
+    .placa_cabo
+    {
+        width:100%; 
+        margin-top:250px;
+        margin-left:200px;
+    }
+    
+
+.mapa
+{
+    margin-top:-216px;
+    font-size:30px;
+    margin-left:450px;
+}
+.logout
+{
+    margin-top:30px;
+    font-size:30px;
+    margin-left:644px;
+}
+}
+@media (width:)
+{
+
+}
+.placa_direita
+{
+    width:90%; 
+    margin-top:-200px;
+    margin-left:900px;
+}
+.mapa
+{
+    margin-top:-216px;
+    font-size:30px;
+    margin-left:450px;
+}
+.logout
+{
+    margin-top:30px;
+    font-size:30px;
+    margin-left:644px;
+}
+.login
+{
+    margin-top:-216px;
+    font-size:30px;
+    margin-left:430px;
+}
+.cadastro
+{
+    margin-top:30px;
+    font-size:27px;
+    margin-left:630px;
+}
