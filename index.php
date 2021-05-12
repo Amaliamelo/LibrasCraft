@@ -34,6 +34,7 @@ session_start();
     a:link
     {
         text-decoration: none;
+        color:white;
     }
     .placa_esquerda
     {
