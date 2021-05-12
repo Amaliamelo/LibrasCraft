@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.bodyIndex{
+    background-image: url("../img/fundo/index.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.cont {
+    background-color: rgba(136, 136, 136, 0.5);
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
