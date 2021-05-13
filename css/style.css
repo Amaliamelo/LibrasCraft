@@ -34,3 +34,8 @@ footer {
     width: 100%;
     color: white;
 }
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .bodyIndex{
+        background-image: url("../img/fundo/index_mobile.png");
+    }
+  }

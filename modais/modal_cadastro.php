@@ -17,20 +17,20 @@
                     </div>
                     <!-- EMAIIL -->
                     <div class="form-label-group" style="color:#828282;">
-                    <label for="inputEmail">Endereço de Email</label><div id="status_email"></div>
-                        <input type="text" id="email" class="form-control" name = "email" placeholder="Email" required autofocus>
-                    <br />
+                        <label for="inputEmail">Endereço de Email</label><div id="status_email"></div>
+                            <input type="text" id="email" class="form-control" name = "email" placeholder="Email" required autofocus>
+                        <br />
                     </div>
                     <!-- SENHA -->
                     <div class="form-label-group" style="color:#828282;">
-                    <label for="inputSenha">Senha</label>
-                        <input type="password" id="senha" class="form-control " name = "senha" placeholder="Senha" required autofocus>
-                    <br />
+                        <label for="inputSenha">Senha</label>
+                            <input type="password" id="senha" class="form-control " name = "senha" placeholder="Senha" required autofocus>
+                        <br />
                     </div>
                     <!-- DATA NASCIMENTO -->
                     <div class="form-label-group" style="color:#828282;">
-                    <label for="inputData">Data de Nascimento</label>
-                        <input type="date" id="data" class="form-control " name = "data_nascimento" placeholder="Data de Nascimento" required autofocus>
+                        <label for="inputData">Data de Nascimento</label>
+                            <input type="date" id="data" class="form-control " name = "data_nascimento" placeholder="Data de Nascimento" required autofocus>
                         <br />
                     </div>
                     <!-- SEXO -->
