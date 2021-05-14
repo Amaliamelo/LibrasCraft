@@ -8,12 +8,13 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="msg"></div>
                 <form  id="form_login" method="post" action="autenticacao.php">
                     <div class="form-group">
-                        <input type="email" name="email_login"  placeholder = "Email..." class="form-control" >
+                        <input type="email" name="email_login"  placeholder = "Email..." class="form-control" required autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senha_login" placeholder = "Senha ..." class="form-control">
+                        <input type="password" name="senha_login" id="senha_login" placeholder = "Senha ..." class="form-control" required>
                     </div>
                 </form>
             </div>

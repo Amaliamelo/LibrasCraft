@@ -1,9 +1,27 @@
 $(document).ready(function(){
-    
-    $("#logar").click(function(){ // para criptografar a senha
-        senha_md5=$.md5($("#senha").val());//pega a senha e codifica para a variavel md5
-        $("#senha").val(senha_md5); // muda o valor da senha para md5(32 caracteres)
-        console.log(senha_md5);
-        $("#form_login").submit(); 
-    })
+
+    $("#logar").click(function() {
+        var senha= $("input[name='senha_login']").val();      
+        senha = $.md5(senha);
+		$("input[name='senha_login']").val(senha);
+
+		var dados = {"email":$("input[name='email_login']").val(),
+					"senha":$("input[name='senha_login']").val()
+				};
+        
+                
+		$.post("autenticacao.php", dados, function(retorno){
+            console.log(retorno);
+			if( retorno == "0"){
+				window.location.href ="index.php";
+			}
+			else{
+				$(".msg").html('<div id="erro" class="alert alert-danger col-6 text-center" role="alert">Credenciais Inválidas</div>');
+				$(".autenticar").val("autenticando...");
+			}
+		});	
+		$("#logar").val("Logando...");
+	});
+
+   
 });

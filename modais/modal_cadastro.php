@@ -63,7 +63,7 @@
             <div class="modal-footer">
                 <div class="align-center">
                     <button type="button" class="btn btn-danger m-3" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success autenticar m-3" id="login">Autenticar</button>
+                    <button type="button" class="btn btn-success m-3" id="cadastrar">Cadatrar</button>
                 </div>
             </div>
         </div>

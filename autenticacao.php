@@ -5,8 +5,8 @@ session_start();
         
         include "conexao.php";
         
-        $email = $_POST["email_login"];
-        $senha = $_POST["senha_login"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
 
         $sql =" SELECT * FROM usuario WHERE email = ? AND senha = ?";
         
@@ -19,8 +19,6 @@ session_start();
             $resultado = mysqli_stmt_get_result($stmt);
             
             if(mysqli_num_rows($resultado) == "1") {
-                
-                session_start();
 
                 $linha = mysqli_fetch_assoc($resultado);
                 
@@ -31,12 +29,15 @@ session_start();
                 else{
                     $_SESSION["condicao_auditiva"]="ouvinte";
                 }
-                header("location: index.php");
+                echo "0";
             }
             else {
-                echo'<div id="erro" class="alert alert-danger col-6 text-center" role="alert">Credenciais InvÃ¡lidas</div>';
+                echo "1";
             }
             mysqli_stmt_close($stmt);
+
+        }else{
+            echo "2";
         }
         mysqli_close($conexao);
     }

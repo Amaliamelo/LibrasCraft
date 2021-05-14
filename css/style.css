@@ -17,6 +17,16 @@
     align-items: center; 
     justify-content: center;
 }
+.bodyMapa{
+    background-image: url("../img/fundo/mapa.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
 .cont {
     background-color: rgba(136, 136, 136, 0.5);
     padding: 2rem;
@@ -37,5 +47,8 @@ footer {
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     .bodyIndex{
         background-image: url("../img/fundo/index_mobile.png");
+    }
+    .bodyMapa{
+        background-image: url("../img/fundo/mapa_mobile.png");
     }
   }
