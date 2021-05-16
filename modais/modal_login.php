@@ -18,14 +18,16 @@
                     </div>
                 </form>
             </div>
-            <div class="center row">
-                <button type="button" class="btn btn-danger m-3" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success autenticar m-3" id="logar">Autenticar</button>
+            <div class="row m-2">
+                <div class="col text-left">
+                    <button type="button" class="btn btn-danger " data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success autenticar" id="logar">Autenticar</button>
+                </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer m-2">
                 <div class="row">
                     <label for="cadastrar ">Ainda não é cadastrado? Cadastre-se já!</label>
-                    <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" type="button" data-toggle="modal" data-target="#modal_cadastro"> Cadastrar-se</button>
+                    <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary " type="button" data-toggle="modal" data-target="#modal_cadastro"> Cadastrar-se</button>
                 </div>
             </div>
         </div>
