@@ -3,12 +3,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="color:#828282;">Cadastre-se no LibrasCraft</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form  name="cadastro_usuario">
+                <div class="msg_cad"></div>
+                <form class="form" name="cadastro_usuario" action="cadastro_usuario.php">
                     <!--NOME-->
                     <div class="form-label-group" style="color:#828282;">
                         <label for="inputNome">Nome:</label>
@@ -18,19 +19,19 @@
                     <!-- EMAIIL -->
                     <div class="form-label-group" style="color:#828282;">
                         <label for="inputEmail">Endereço de Email</label><div id="status_email"></div>
-                            <input type="text" id="email" class="form-control" name = "email" placeholder="Email" required autofocus>
+                            <input type="text" id="email_cad" class="form-control email" name = "email_cad" placeholder="Email" required autofocus>
                         <br />
                     </div>
                     <!-- SENHA -->
                     <div class="form-label-group" style="color:#828282;">
                         <label for="inputSenha">Senha</label>
-                            <input type="password" id="senha" class="form-control " name = "senha" placeholder="Senha" required autofocus>
+                            <input type="password" id="senha_cad" class="form-control" name="senha_cad" placeholder="Senha" required autofocus>
                         <br />
                     </div>
                     <!-- DATA NASCIMENTO -->
                     <div class="form-label-group" style="color:#828282;">
                         <label for="inputData">Data de Nascimento</label>
-                            <input type="date" id="data" class="form-control " name = "data_nascimento" placeholder="Data de Nascimento" required autofocus>
+                            <input type="date" id="data" class="form-control" name = "data_nascimento" placeholder="Data de Nascimento" required autofocus>
                         <br />
                     </div>
                     <!-- SEXO -->
@@ -62,8 +63,8 @@
             </div>
             <div class="modal-footer">
                 <div class="align-center">
-                    <button type="button" class="btn btn-danger m-3" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success m-3" id="cadastrar">Cadatrar</button>
+                    <button type="reset" class="btn btn-danger m-3" id="limpar">Limpar</button>
+                    <button type="button" class="btn btn-success m-3" id="cadastrar">Cadastrar</button>
                 </div>
             </div>
         </div>

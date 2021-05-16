@@ -14,7 +14,7 @@
             }
             else{
                 echo '<div class="cont">
-                    <button type="button"  data-toggle="modal"data-target="#modal_login" name="login" class="btn btn-dark m-3">Entrar</button>
+                    <button type="button"  data-toggle="modal"data-target="#modal_login" name="login" class="btn btn-dark m-3" id="log">Entrar</button>
                     <button class="btn btn-dark m-3" type="button" data-toggle="modal" data-target="#modal_cadastro" > Cadastrar</button>
                 </div> ';
             }
