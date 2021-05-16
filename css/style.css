@@ -44,11 +44,14 @@ footer {
     width: 100%;
     color: white;
 }
-@media only screen and (min-width: 600px) and (max-width: 1200px) {
+@media only screen and (max-device-width: 600px) {
     .bodyIndex{
         background-image: url("../img/fundo/index_mobile.png");
     }
     .bodyMapa{
         background-image: url("../img/fundo/mapa_mobile.png");
+    }
+    footer{
+        font-size: small;
     }
   }

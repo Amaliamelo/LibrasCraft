@@ -51,7 +51,7 @@ $(document).ready(function(){
 					jQuery('#log')[0].click();
 				}, 3000);
 				
-			}if(resultado==2){
+			}else if(resultado==2){
 				$(".msg_cad").html("EMAIL JÁ CADASTRADO!")
 				$(".msg_cad").css("color","RED");
 				$(".msg_cad").css("text-align","center");
@@ -68,7 +68,7 @@ $(document).ready(function(){
 				}, 3000);
 			}
 		});	
-		$("#cadastrar").val("Autenticando...");
+		$("#cadastrar").val("Cadastrando...");
 	});
 
    

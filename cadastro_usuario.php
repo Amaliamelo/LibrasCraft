@@ -10,11 +10,11 @@
             $condicao = $_POST["condicao_auditiva"];
 
             if(($nome!='' && $email!='')&&(($senha!='' && $sexo!='')&&($data!='' && $condicao!=''))){
-                $sql = "SELECT email FROM usuario WHERE email=?";
+                $sql = "SELECT email FROM usuario WHERE email=? ";
         
                 if($stmt = mysqli_prepare($conexao, $sql)) { 
 
-                    mysqli_stmt_bind_param($stmt, "ss", $email);
+                    mysqli_stmt_bind_param($stmt, "s", $email);
 
                     mysqli_stmt_execute($stmt);
 
