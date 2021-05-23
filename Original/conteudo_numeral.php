@@ -20,7 +20,7 @@
             if(posicao!=0) 
             {
                 $("#anterior").show();
-                
+            
             }
             else
             {
