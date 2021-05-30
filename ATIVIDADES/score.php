@@ -1,7 +1,8 @@
 <?php
+session_start();
 include "../conexao.php";
-include "cabecalho_atividade.php";
-include "menu_atividade.php";
+include "../ABC/cabecalho_abc.php";
+include "../ABC/menu_abc.php";
 
 //// Monta vetor de palavras do sistema
 $select = "SELECT id_palavra, palavra FROM palavra";
@@ -86,13 +87,13 @@ $select.= "  INNER JOIN fase ON
 
 //NOME DA SUBFASE
 if(isset($_GET["pagina"])){
-$pagina=$_GET["pagina"];
-$consulta2 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
-$resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
-$linha = mysqli_fetch_assoc($resultado2);
-}
-else{
-  $linha["nome"]="scores";
+    $pagina=$_GET["pagina"];
+    $consulta2 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
+    $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
+    $linha = mysqli_fetch_assoc($resultado2);
+  }
+  else{
+    $linha["nome"]="scores";
 }
 
 include "pagina_score.php";

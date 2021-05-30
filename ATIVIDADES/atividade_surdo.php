@@ -1,7 +1,7 @@
 <?php
   include '../conexao.php';
-  include 'cabecalho_atividade.php';
-  include 'menu_atividade.php';
+  include "../ABC/cabecalho_ABC.php";
+  include "../ABC/menu_abc.php";
   $pagina = $_GET["pagina"];
 
 //consulta para pegar aleatoriamente palavras que nao foram respondidas nesta subfase para este usuario
@@ -37,7 +37,7 @@ if($qtd>0){
 	$resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
 	$linha = mysqli_fetch_assoc($resultado2);
 	?>
-	<main class="bodyABC">
+	<main class="body<?php echo $linha["nome"];?>">
 		<!-- A - div principal-->
 		<div class="container align-middle" >
 			<!-- B (filha da principal - A)-->

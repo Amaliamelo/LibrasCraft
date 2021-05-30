@@ -1,12 +1,12 @@
 <?php
-
+	session_start();
 	include "../conexao.php";
-	include "cabecalho_atividade.php";
-	include "menu_atividade.php";
+	include "../ABC/cabecalho_ABC.php";
+	include "../ABC/menu_abc.php";
 	include "alternativas.php"
 
 ?>
-<main class="bodyABC">
+<main class="body<?php echo $linha["nome"];?>">
 <!-- A - div principal-->
 		<div class="container align-middle" >
 			<!-- B (filha da principal - A)-->

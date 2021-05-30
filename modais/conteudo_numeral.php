@@ -67,7 +67,7 @@
                         </div>   
                         <div class="modal-footer">
                             <button class="btn btn-lg btn-secondary text-uppercase" id="anterior" style="display:none;">Anterior</button>
-                            <button class="btn btn-lg btn-secondary text-uppercase" id="proximo" style="">Próximo</button>
+                            <button class="btn btn-lg btn-secondary text-uppercase" id="proximo" >Próximo</button>
                             <button class="btn btn-lg btn-success text-uppercase " id="btn-modal-finalizar" style="display:none;" data-dismiss="modal" data-toggle="modal" data-target="#modal-mensagem">FINALIZAR</button> <!-- BOTAO MODAL FINALIZAR -->
                             
                         </div> 
@@ -85,7 +85,7 @@
                 <h5 class="text-center"style="color:#828282;">Vamos colocar em prática oque aprendemos?</h5>
 
                 <br />
-                <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=7'">Sim, vamos lá!</button>
+                <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=7'">Sim, vamos lá!</button>
                 <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='../mapa.php'"> Não, voltar para o mapa!</button>
             </div>
             <div class="modal-footer">

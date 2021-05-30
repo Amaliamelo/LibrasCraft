@@ -82,7 +82,7 @@
                     <h5 class="text-center"style="color:#828282;">Vamos colocar em prática oque aprendemos?</h5>
 
                     <br />
-                    <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=7'">Sim, vamos lá!</button>
+                    <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=7'">Sim, vamos lá!</button>
                     <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit" onclick = "location.href='../mapa.php'"> Não, voltar para o mapa!</button>
                 </div>
                 <div class="modal-footer">

@@ -60,15 +60,38 @@
     align-items: center; 
     justify-content: center;
 }
-.bodyABC{
-    background: url("../img/fundo/sub_abc.png");
+.bodyCASA{
+    background: url("../img/fundo/submapa_casa.png") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodySALA{
+    background: url("../img/fundo/SALA.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyCOZINHA{
+    background: url("../img/fundo/COZINHA.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyBANHEIRO{
+    background: url("../img/fundo/BANHEIRO.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyQUARTO{
+    background: url("../img/fundo/QUARTO.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
 }
 .bodyABC-parametros{
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
-    height: 100vh;
 }
 .card_atv{
     margin-top: 7%;
@@ -86,7 +109,7 @@ footer {
     width: 100%;
     bottom: 0;
     text-align:center;
-    color: rgb(163, 162, 162);
+    color: rgb(88, 88, 88);
 }
 .abc
 {
@@ -115,7 +138,50 @@ footer {
     margin-left: 40%;
 
 }
-
+.sala
+{
+    margin-top:30%;
+    margin-left:-10%;
+    cursor:pointer;
+    opacity:1;
+}
+.cozinha 
+{
+    margin-top:-390px;
+    margin-left:240px;
+    cursor:pointer;
+    opacity:1;
+}
+.banheiro 
+{
+    margin-top:-380px;
+    margin-left:550px;
+    cursor:pointer;
+    opacity:1;
+}
+.quarto 
+{
+    margin-top:-377px;
+    margin-left:870px;
+    cursor:pointer;
+    opacity:1;
+}
+.sala:hover
+{
+    opacity:0.5;
+}
+.cozinha:hover
+{
+    opacity:0.5;
+}
+.banheiro:hover
+{
+    opacity:0.5;
+}
+.quarto:hover
+{
+    opacity:0.5;
+}
 
 @media only screen and (max-device-width: 600px) {
     .bodyIndex{
@@ -191,3 +257,12 @@ footer {
         margin-top: 16%;
     }
   }
+  @media only screen and (min-device-height: 800px) and (min-device-width: 430px) {
+    .linha {
+        height: 400px;
+    }
+    .linha2{
+        height: 400px;
+    }
+  }
+  
