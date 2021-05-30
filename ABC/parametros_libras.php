@@ -5,7 +5,7 @@
     include 'menu_abc.php';
 ?>
 
-<main class="" style=" background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; ">
+<main class="bodyABC-parametros">
     <div class="container" style="text-align:center;">
         <div class="row">
             <div class="card-body"  style = "background-color:#F0F8FF;  margin-top:15%;">

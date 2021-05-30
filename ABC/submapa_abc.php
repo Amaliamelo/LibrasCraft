@@ -5,7 +5,7 @@
      include 'menu_abc.php';
 
 ?>
-<main class="bodyABC">
+<main class="bodyABC" >
     <div class="row container justify-content-center align-items-center"> 
         <div class="row justify-content-center alfabeto_numeral">
             <div class="col m-5 ">

@@ -17,6 +17,39 @@
     align-items: center; 
     justify-content: center;
 }
+.logo{
+    position: absolute;
+    margin-left: 80vh;
+}
+.menu ul{
+    margin-left: 20vh;
+}
+.btn1, .btn2{
+    background-color: #0E8E4A;
+    border: 2px solid white ;
+    border-spacing: 10px;
+    border-radius: 4px;
+    align-items: center;
+    width: 20vw;
+    height: 10vh;
+    z-index: 2;
+    position: relative;
+
+}
+.linha {
+	border-left: 20px solid rgb(168, 167, 167); 
+    height: 400px;
+    z-index: 1;
+    position: absolute;
+}
+.linha2{
+    border-left: 20px solid rgb(168, 167, 167); 
+    height: 400px;
+    z-index: 1;
+    position: absolute;
+    margin-left: 19.5%;
+    margin-top: 1%;
+}
 .bodyMapa{
     background-image: url("../img/fundo/mapa.png");
     background-size: cover;
@@ -28,12 +61,20 @@
     justify-content: center;
 }
 .bodyABC{
-    background: url("../img/fundo/sub_abc.png") no-repeat center top fixed;
+    background: url("../img/fundo/sub_abc.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    width: 100vw;
+}
+.bodyABC-parametros{
+    background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
+    height: 100vh;
+}
+.card_atv{
+    margin-top: 7%;
 }
 .cont {
-    background-color: rgba(136, 136, 136, 0.5);
+    background-color: rgba(26, 107, 60, 0.5);
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -43,13 +84,14 @@ footer {
     position: absolute;
     height: 50px;
     width: 100%;
-    bottom: 0   ;
+    bottom: 0;
     text-align:center;
     color: rgb(163, 162, 162);
 }
 .abc
 {
-    margin-top:35px;
+    position:static;
+    margin-top:20px;
     margin-left:183px;
     opacity:1;
 }
@@ -59,8 +101,9 @@ footer {
     }
 .casa
 {
-    margin-top:198px;
-    margin-left:-70px;
+    position: static;
+    margin-top:75px;
+    margin-left:250px;
     opacity:1;
 }
 .casa:hover
@@ -78,6 +121,30 @@ footer {
     .bodyIndex{
         background-image: url("../img/fundo/index_mobile.png");
     }
+    .logo{
+        position: relative;
+        margin-left: 0vh;
+    }
+    .menu ul{
+        margin-left:0vh;
+    }
+    .menu {
+        margin-left: -9vh;
+    }
+    .btn1, .btn2{
+        width: 50vw;
+        height: 10vh;
+    }
+    .linha {
+        border-left: 20px solid rgb(168, 167, 167); 
+        height: 350px;
+        margin-left: 45%;
+    }
+    .linha2{
+        height: 350px;
+        margin-left: 48%;
+        margin-top: 5%;
+    }
     .bodyMapa{
         background-image: url("../img/fundo/mapa_mobile.png");
         background-size: cover;
@@ -88,8 +155,8 @@ footer {
         align-items: center; 
         justify-content: center;
     }
-    .bodyABC{
-        margin-top: 5% ;
+    .bodyABC-parametros{
+        background: url('../img/fundo/sub_abc_mobile.png') no-repeat; 
 
     }
     .alfabeto_numeral{
@@ -102,15 +169,15 @@ footer {
     }
     .casa
     {
-        position: static;
-        margin-top:-148px;
-        margin-left:135px;
+        position:absolute;
+        margin-top:150px;
+        margin-left:105px;
     }
     .abc
     {
-        position: static;
-        margin-top:500px;
-        margin-left:147px;
+        position:absolute;
+        margin-top:200px;
+        margin-left:127px;
     }   
     .casa img{
         width: 50%;
@@ -119,5 +186,8 @@ footer {
     .abc img{
         width: 80%;
         height: 90%;
+    }
+    .card_atv{
+        margin-top: 16%;
     }
   }
