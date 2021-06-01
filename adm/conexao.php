@@ -6,7 +6,7 @@
     $senha = "lib15900!";
     $bd = "bsts_librascraft";
     /*$local = "localhost";
-	$bd = "librascraft";
+	$bd = "librascraft2";
 	$usuario = "root";
 	$senha = "usbw";*/
 

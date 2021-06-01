@@ -108,7 +108,7 @@
 <!-- BOTAO NUMERAL -->
     <div class="numeral"> 
         <img src="img/icones/submapa_abc/botao_123.png" class="btn border-bottom-0 border-dark" style="width:200px; heigt:200px; background-color:#FFFFF0; margin-left:99px; margin-top:-260px;" id="btn-mensagem-numeral" data-toggle="modal" data-target="#modal-mensagem">
-         </div>
+        </div>
          <button class="btn border-dark" style="width:200px;height:40px; margin-left:-200px; margin-top:-40px; background-color:#FFFFF0;" id="btn-mensagem-numeral2" data-toggle="modal" data-target="#modal-mensagem">NUMERAL</button>
    
 

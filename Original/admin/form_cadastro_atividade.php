@@ -151,8 +151,8 @@
                 <input type="text" id="aternativa_a" class="form-control col-10" name = "alternativa_a" placeholder="Alternativa A:">
                
            
-                        <input type="text" id="aternativa_b" class="form-control col-10" name = "alternativa_b" placeholder="Alternativa B:">
-                </div>
+                <input type="text" id="aternativa_b" class="form-control col-10" name = "alternativa_b" placeholder="Alternativa B:">
+            </div>
                 </br >
 
            <!-- ATERNATIVA C -->

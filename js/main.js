@@ -1,6 +1,16 @@
 $(document).ready(function(){
+	
+	if($('#header').hasClass('menu')){
+		var tam = $(window).width();
+		console.log(tam);
+		if (tam >=1024){
+		  $("#menu1").show();
+		}else{
+		  $("#menu2").hide();
+		} 	
+	}
 
-    $("#logar").click(function() {
+	    $("#logar").click(function() {
         var senha= $("input[name='senha_login']").val();      
         senha = $.md5(senha);
 		$("input[name='senha_login']").val(senha);
@@ -19,8 +29,10 @@ $(document).ready(function(){
 				$(".msg").html("CREDENCIAIS INVÁLIDAS!")
 				$(".msg").css("color","RED");
 				$(".msg").css("text-align","center");
+				$("input[name='email_login']").val("");
+				$("input[name='senha_login']").val("");
 				setTimeout(function(){ 
-					$(".msg_cad").html("")
+					$(".msg").html("")
 				}, 3000);
 				$(".autenticar").val("autenticando...");
 			}
@@ -92,6 +104,7 @@ $(document).ready(function(){
 		
 		$("#cadastrar").val("Cadastrando...");
 	});
+
 
    
 });

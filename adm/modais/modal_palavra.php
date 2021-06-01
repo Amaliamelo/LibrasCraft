@@ -1,3 +1,11 @@
+<?php
+$consulta_fase = "SELECT * FROM fase ORDER BY nome ";
+$resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
+
+$consulta_subfase = "SELECT * FROM subfase ORDER BY nome";
+$resultado_subfase = mysqli_query($conexao,$consulta_subfase) or die ("Erro Subfase");
+?>
+
 <div class="modal fade" id="modal_palavra" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -9,7 +17,7 @@
             </div>
             <div class="modal-body">
                 <div class="msg"></div>
-                <form  id="form_login" method="post" action="autenticacao_adm.php">
+                <form  id="form_login" method="post" action="">
                     <!-- NIVEL -->
                     <select class="custom-select" id ="fase" name ="cod_fase">
                         <option selected>Fase</option>';
@@ -38,8 +46,8 @@
                     </div>
                     <br/>
                     <!-- BOTAO CADASTRAR -->
-                        <button class=" btn_cadastra btn btn-lg btn-primary btn-block text-uppercase "  type="submit" id="btn_cadastra" style="border-color:#828282;background-color:#828282;">Cadastrar</button>
-                        <button class=" btn btn-lg btn-primary btn-block text-uppercase " onclick = "location.href=\'palavras_cadastradas.php\'" style="border-color:#828282;background-color:#828282;">Palavras Cadastradas</button>
+                        <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase"  type="submit" id="btn_cadastra">Cadastrar</button>
+                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="palavras_cadastradas.php">Palavras Cadastradas</a>
                     </form>
                         <div id = "status"></div>
                 </form>
