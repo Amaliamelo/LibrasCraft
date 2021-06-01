@@ -8,7 +8,7 @@
 ?>
 <main class="body<?php echo $linha["nome"];?>">
 <!-- A - div principal-->
-		<div class="container align-middle" >
+		<div class="container align-middle " >
 			<!-- B (filha da principal - A)-->
 			<div class="row justify-content-center ">
 				<div class="row card_atv">
@@ -35,7 +35,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col p-3 py-6 px-md-6">
+								<div class="col p-3 py-6 px-md-6 card_atv2">
 								    <div class="video"><?php echo $atividade;?></div>
 								</div>
 							</div>

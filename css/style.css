@@ -60,6 +60,12 @@
     align-items: center; 
     justify-content: center;
 }
+.bodyLETRAS, .bodyNUMEROS, .bodyABC{
+    background: url('../img/fundo/sub_abc.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
 .bodyCASA{
     background: url("../img/fundo/submapa_casa.png") ;
     background-size: cover;
@@ -94,7 +100,7 @@
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
 }
 .card_atv{
-    margin-top: 7%;
+    margin-top: 8%;
 }
 .cont {
     background-color: rgba(26, 107, 60, 0.5);
@@ -104,7 +110,7 @@
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     height: 50px;
     width: 100%;
     bottom: 0;
@@ -118,20 +124,12 @@ footer {
     margin-left:183px;
     opacity:1;
 }
-.abc:hover
-    {
-        opacity:0.5;
-    }
 .casa
 {
     position: static;
     margin-top:75px;
     margin-left:250px;
     opacity:1;
-}
-.casa:hover
-{
-    opacity:0.5;
 }
 .alfabeto_numeral{
     margin-top: 10%;
@@ -166,20 +164,7 @@ footer {
     cursor:pointer;
     opacity:1;
 }
-.sala:hover
-{
-    opacity:0.5;
-}
-.cozinha:hover
-{
-    opacity:0.5;
-}
-.banheiro:hover
-{
-    opacity:0.5;
-}
-.quarto:hover
-{
+.sala:hover, .cozinha:hover, .banheiro:hover, .quarto:hover, .abc:hover, .casa:hover{
     opacity:0.5;
 }
 
@@ -202,11 +187,12 @@ footer {
         height: 10vh;
     }
     .linha {
-        border-left: 20px solid rgb(168, 167, 167); 
+        border-left: 0px solid rgb(168, 167, 167); 
         height: 350px;
         margin-left: 45%;
     }
     .linha2{
+        border-left: 0px solid rgb(168, 167, 167); 
         height: 350px;
         margin-left: 48%;
         margin-top: 5%;
@@ -225,12 +211,50 @@ footer {
         background: url('../img/fundo/sub_abc_mobile.png') no-repeat; 
 
     }
+    .bodyCASA{
+        background: url("../img/fundo/submapa_casa_mobile.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100vw;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .sala{
+        position: absolute;
+        margin-top:35%;
+        margin-left:40%;
+    }
+    .cozinha {
+        position: absolute;
+        margin-top:-6%;
+        margin-left:15%;
+    }
+    .banheiro {
+        position: absolute;
+        margin-top:-37%;
+        margin-left:-10%;
+    }
+    .quarto {
+        position: absolute;
+        margin-top:-73%;
+        margin-left:-34%;
+    } 
+    .sala img, .cozinha img, .quarto img, .banheiro img{
+        width: 65%;
+        height: 90%;
+        transform: rotate(270deg);
+    }
     .alfabeto_numeral{
         margin-top: 0%;
         margin-left: 0%;
     
     }
     footer{
+        text-align: center;
+        height: 10%;
+        width: 100%;
         font-size: small;
     }
     .casa
@@ -254,7 +278,10 @@ footer {
         height: 90%;
     }
     .card_atv{
-        margin-top: 16%;
+        margin-top: 20%;
+    }
+    .card_atv2{
+        width: 10%;
     }
   }
   @media only screen and (min-device-height: 800px) and (min-device-width: 430px) {

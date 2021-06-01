@@ -24,8 +24,8 @@
                 <h5 class="text-center"style="color:#828282;">Nesse módulo você irá aprender quais são os sinais dos objetos da sala</h5>
 
                 <br />
-                <button class="btn btn-lg  btn-secondary text-uppercase  ml-5 " type="submit" onclick = "location.href='introducao.php?pagina=1'"> Introdução </button>
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5 " type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=1'">Atividades</button>
+                <button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='introducao.php?pagina=1'"> Introdução </button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=1'">Atividades</button>
  
              </div>
              <div class="modal-footer">
@@ -54,8 +54,8 @@
                 <h5 class="text-center"style="color:#828282;">Nesse módulo você irá aprender quais são os sinais dos objetos da cozinha</h5>
 
                 <br />
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='introducao.php?pagina=2'"> Introdução </button>
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=2'">Atividades</button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=2'"> Introdução </button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=2'">Atividades</button>
  
              </div>
              <div class="modal-footer">
@@ -84,8 +84,8 @@
                 <h5 class="text-center"style="color:#828282;">Nesse módulo você irá aprender quais são os sinais dos objetos da banheiro</h5>
 
                 <br />
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='introducao.php?pagina=3'"> Introdução </button>
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=3'">Atividades</button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=3'"> Introdução </button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=3'">Atividades</button>
  
              </div>
              <div class="modal-footer">
@@ -113,8 +113,8 @@
                 <h5 class="text-center"style="color:#828282;">Nesse módulo você irá aprender quais são os sinais dos objetos da quarto</h5>
 
                 <br />
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='introducao.php?pagina=4'"> Introdução </button>
-                <button class="btn btn-lg btn-secondary text-uppercase  ml-5" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=4'">Atividades</button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=4'"> Introdução </button>
+                <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=4'">Atividades</button>
  
              </div>
              <div class="modal-footer">
