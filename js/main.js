@@ -29,8 +29,10 @@ $(document).ready(function(){
 				$(".msg").html("CREDENCIAIS INVÁLIDAS!")
 				$(".msg").css("color","RED");
 				$(".msg").css("text-align","center");
+				$("input[name='email_login']").val("");
+				$("input[name='senha_login']").val("");
 				setTimeout(function(){ 
-					$(".msg_cad").html("")
+					$(".msg").html("")
 				}, 3000);
 				$(".autenticar").val("autenticando...");
 			}
