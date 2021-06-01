@@ -31,10 +31,13 @@
     border-radius: 4px;
     align-items: center;
     width: 20vw;
-    height: 10vh;
+    height: 15vh;
     z-index: 2;
     position: relative;
 
+}
+.btn1 button, .btn2 button{
+    height: 50%;
 }
 .linha {
 	border-left: 20px solid rgb(168, 167, 167); 
@@ -115,7 +118,7 @@ footer {
     width: 100%;
     bottom: 0;
     text-align:center;
-    color: rgb(88, 88, 88);
+    color: rgb(43, 43, 43);
 }
 .abc
 {
@@ -184,7 +187,7 @@ footer {
     }
     .btn1, .btn2{
         width: 50vw;
-        height: 10vh;
+        height: 15vh;
     }
     .linha {
         border-left: 0px solid rgb(168, 167, 167); 
