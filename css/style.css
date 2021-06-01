@@ -17,6 +17,7 @@
     align-items: center; 
     justify-content: center;
 }
+<<<<<<< HEAD
 .bodyIndexADM{
     background-image: url("../img/fundo/index_adm.png");
     background-size: cover;
@@ -27,6 +28,40 @@
     display: flex; 
     align-items: center; 
     justify-content: center;
+=======
+.logo{
+    position: absolute;
+    margin-left: 80vh;
+}
+.menu ul{
+    margin-left: 20vh;
+}
+.btn1, .btn2{
+    background-color: #0E8E4A;
+    border: 2px solid white ;
+    border-spacing: 10px;
+    border-radius: 4px;
+    align-items: center;
+    width: 20vw;
+    height: 10vh;
+    z-index: 2;
+    position: relative;
+
+}
+.linha {
+	border-left: 20px solid rgb(168, 167, 167); 
+    height: 400px;
+    z-index: 1;
+    position: absolute;
+}
+.linha2{
+    border-left: 20px solid rgb(168, 167, 167); 
+    height: 400px;
+    z-index: 1;
+    position: absolute;
+    margin-left: 19.5%;
+    margin-top: 1%;
+>>>>>>> c0aae6215918b69fa50e7319c101b93fe143ed51
 }
 .bodyMapa{
     background-image: url("../img/fundo/mapa.png");
@@ -38,56 +73,142 @@
     align-items: center; 
     justify-content: center;
 }
-.bodyABC{
-    background: url("../img/fundo/sub_abc.png") no-repeat center top fixed;
+.bodyLETRAS, .bodyNUMEROS, .bodyABC{
+    background: url('../img/fundo/sub_abc.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    width: 100vw;
+}
+.bodyCASA{
+    background: url("../img/fundo/submapa_casa.png") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodySALA{
+    background: url("../img/fundo/SALA.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyCOZINHA{
+    background: url("../img/fundo/COZINHA.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyBANHEIRO{
+    background: url("../img/fundo/BANHEIRO.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyQUARTO{
+    background: url("../img/fundo/QUARTO.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bodyABC-parametros{
+    background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
+}
+.card_atv{
+    margin-top: 8%;
 }
 .cont {
-    background-color: rgba(136, 136, 136, 0.5);
+    background-color: rgba(26, 107, 60, 0.5);
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     height: 50px;
     width: 100%;
-    bottom: 0   ;
+    bottom: 0;
     text-align:center;
-    color: rgb(163, 162, 162);
+    color: rgb(88, 88, 88);
 }
 .abc
 {
-    margin-top:35px;
+    position:static;
+    margin-top:20px;
     margin-left:183px;
     opacity:1;
 }
-.abc:hover
-    {
-        opacity:0.5;
-    }
 .casa
 {
-    margin-top:198px;
-    margin-left:-70px;
+    position: static;
+    margin-top:75px;
+    margin-left:250px;
     opacity:1;
-}
-.casa:hover
-{
-    opacity:0.5;
 }
 .alfabeto_numeral{
     margin-top: 10%;
     margin-left: 40%;
 
 }
-
+.sala
+{
+    margin-top:30%;
+    margin-left:-10%;
+    cursor:pointer;
+    opacity:1;
+}
+.cozinha 
+{
+    margin-top:-390px;
+    margin-left:240px;
+    cursor:pointer;
+    opacity:1;
+}
+.banheiro 
+{
+    margin-top:-380px;
+    margin-left:550px;
+    cursor:pointer;
+    opacity:1;
+}
+.quarto 
+{
+    margin-top:-377px;
+    margin-left:870px;
+    cursor:pointer;
+    opacity:1;
+}
+.sala:hover, .cozinha:hover, .banheiro:hover, .quarto:hover, .abc:hover, .casa:hover{
+    opacity:0.5;
+}
 
 @media only screen and (max-device-width: 600px) {
     .bodyIndex{
         background-image: url("../img/fundo/index_mobile.png");
+    }
+    .logo{
+        position: relative;
+        margin-left: 0vh;
+    }
+    .menu ul{
+        margin-left:0vh;
+    }
+    .menu {
+        margin-left: -9vh;
+    }
+    .btn1, .btn2{
+        width: 50vw;
+        height: 10vh;
+    }
+    .linha {
+        border-left: 0px solid rgb(168, 167, 167); 
+        height: 350px;
+        margin-left: 45%;
+    }
+    .linha2{
+        border-left: 0px solid rgb(168, 167, 167); 
+        height: 350px;
+        margin-left: 48%;
+        margin-top: 5%;
     }
     .bodyMapa{
         background-image: url("../img/fundo/mapa_mobile.png");
@@ -99,9 +220,44 @@ footer {
         align-items: center; 
         justify-content: center;
     }
-    .bodyABC{
-        margin-top: 5% ;
+    .bodyABC-parametros{
+        background: url('../img/fundo/sub_abc_mobile.png') no-repeat; 
 
+    }
+    .bodyCASA{
+        background: url("../img/fundo/submapa_casa_mobile.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100vw;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .sala{
+        position: absolute;
+        margin-top:35%;
+        margin-left:40%;
+    }
+    .cozinha {
+        position: absolute;
+        margin-top:-6%;
+        margin-left:15%;
+    }
+    .banheiro {
+        position: absolute;
+        margin-top:-37%;
+        margin-left:-10%;
+    }
+    .quarto {
+        position: absolute;
+        margin-top:-73%;
+        margin-left:-34%;
+    } 
+    .sala img, .cozinha img, .quarto img, .banheiro img{
+        width: 65%;
+        height: 90%;
+        transform: rotate(270deg);
     }
     .alfabeto_numeral{
         margin-top: 0%;
@@ -109,19 +265,22 @@ footer {
     
     }
     footer{
+        text-align: center;
+        height: 10%;
+        width: 100%;
         font-size: small;
     }
     .casa
     {
-        position: static;
-        margin-top:-148px;
-        margin-left:135px;
+        position:absolute;
+        margin-top:150px;
+        margin-left:105px;
     }
     .abc
     {
-        position: static;
-        margin-top:500px;
-        margin-left:147px;
+        position:absolute;
+        margin-top:200px;
+        margin-left:127px;
     }   
     .casa img{
         width: 50%;
@@ -131,8 +290,27 @@ footer {
         width: 80%;
         height: 90%;
     }
+<<<<<<< HEAD
     .card{
         margin-top: 150px;
         height:50%;
     }
   }
+=======
+    .card_atv{
+        margin-top: 20%;
+    }
+    .card_atv2{
+        width: 10%;
+    }
+  }
+  @media only screen and (min-device-height: 800px) and (min-device-width: 430px) {
+    .linha {
+        height: 400px;
+    }
+    .linha2{
+        height: 400px;
+    }
+  }
+  
+>>>>>>> c0aae6215918b69fa50e7319c101b93fe143ed51
