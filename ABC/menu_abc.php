@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $id_usuario=$_SESSION["autorizado"];
 
     $consulta = "SELECT nome FROM usuario WHERE id_usuario=$id_usuario";

@@ -10,6 +10,7 @@
 	$usuario = "root";
 	$senha = "usbw";
 
+
     $conexao = mysqli_connect($local,$usuario,$senha,$bd) 
                     or die("ERRO");
     mysqli_set_charset($conexao,"utf8");

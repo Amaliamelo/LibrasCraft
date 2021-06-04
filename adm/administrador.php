@@ -26,14 +26,8 @@
          
     
        <?php
-            //MODAL LOGIN
-            include "modais/modal_login_adm.php";
             //MODAL PALAVRA
             include "modais/modal_palavra.php";
-            //MODAL ATIVIDADE OUVINTE
-            include "modais/modal_atv_ouvinte.php";
-            //MODAL ATIVIDADE SURDO
-            include "modais/modal_atv_surdo.php";
             //RODAPE
             include "../rodape.php";
        ?>

@@ -42,10 +42,13 @@
     border-radius: 4px;
     align-items: center;
     width: 20vw;
-    height: 10vh;
+    height: 15vh;
     z-index: 2;
     position: relative;
 
+}
+.btn1 button, .btn2 button{
+    height: 50%;
 }
 .linha {
 	border-left: 20px solid rgb(168, 167, 167); 
@@ -85,9 +88,8 @@
 }
 .bodySALA{
     background: url("../img/fundo/SALA.png");
-    background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
 }
 .bodyCOZINHA{
     background: url("../img/fundo/COZINHA.png");
@@ -121,12 +123,13 @@
 }
 
 footer {
+    padding-top:2%;
     position: fixed;
     height: 50px;
     width: 100%;
     bottom: 0;
     text-align:center;
-    color: rgb(88, 88, 88);
+    color: rgb(43, 43, 43);
 }
 .abc
 {
@@ -195,7 +198,7 @@ footer {
     }
     .btn1, .btn2{
         width: 50vw;
-        height: 10vh;
+        height: 15vh;
     }
     .linha {
         border-left: 0px solid rgb(168, 167, 167); 
@@ -288,7 +291,10 @@ footer {
         width: 80%;
         height: 90%;
     }
+
     .card_palav_cad{
+
+   
         margin-top: 150px;
         height:50%;
     }
@@ -307,4 +313,3 @@ footer {
         height: 400px;
     }
   }
-  

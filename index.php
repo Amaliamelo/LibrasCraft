@@ -26,8 +26,8 @@
                 echo '<div class="col-ofsset-12 cont2">
                 <div class="linha m-3"> </div>
                 <div class="linha2"> </div>
-                    <div class="row btn1  m-3 "><button  class="btn btn-lg btn-outline-light m-2" type="button" data-toggle="modal"data-target="#modal_login" name="login" id="log">Entrar</button></div>
-                    <div class="row btn2 m-3"><button class="btn btn-lg btn-outline-light m-2" type="button" data-toggle="modal" data-target="#modal_cadastro" > Cadastrar</button></div>
+                    <div class="row btn1  m-3 "><button  class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal"data-target="#modal_login" name="login" id="log">Entrar</button></div>
+                    <div class="row btn2 m-3"><button class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal" data-target="#modal_cadastro" > Cadastrar</button></div>
                     </div> ';
             }
         ?>

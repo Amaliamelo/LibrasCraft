@@ -15,6 +15,7 @@
         $matriz[]=$linha;
     }
     
+    //print_r($cod_fase);
     
     echo json_encode($matriz);
 
