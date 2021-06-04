@@ -8,7 +8,7 @@
     /*$local = "localhost";
 	$bd = "librascraft2";
 	$usuario = "root";
-	$senha = "usbw";*/
+	$senha = "";*/
 
     $conexao = mysqli_connect($local,$usuario,$senha,$bd) 
                     or die("ERRO");
