@@ -13,40 +13,40 @@
 ?>
 
 <main class="bodyIndexADM">
-<div class="card" style="height:450px; overflow-y: scroll;">
+<div class="card card_palav_cad" style="height:400px; overflow-y: scroll;">
   <div class="card-header text-center">
     <h5 style="color:#828282;">Palavras Cadastradas</h5>
   </div>
   <div class="card-body">
     
-        <form class="form">
-            <!--CAMPO PARA ATUALIZACAO -->
+        <!--<form class="form">
+            CAMPO PARA ATUALIZACAO 
             <div class="form-label-group" style="color:#828282;">
             <div class="row">
-                <!--NIVEL -->
+                NIVEL 
                 <div class="col-lg-6">
                     <input  type ="text" class=" form-control" id ="nivel" name ="cod_fase" placeholder="Nivel" ><br />
                 </div>
                 
-                <!--SUBNIVEL -->
+                SUBNIVEL 
                 <div class="col-lg-6">
                     <input  type = "text" class="form-control" id ="subnivel" name ="cod_subfase" placeholder="Subnivel"  ><br />
                 </div>
             </div>
             <div class="row">
-                <!--PALAVRA-->
+                -PALAVRA
                 <div class="col-lg-6">
                     <input  type = "text" class="form-control" id ="palavra" name ="cod_palavra" placeholder="Palavra"><br />
                 </div>
 
-                <!--LINK VIDEO -->
+                LINK VIDEO 
                 <div class="col-lg-6">
                     <input  type = "text" class="form-control" id ="video_sinal" name ="video_sinal" placeholder="Link do video"><br />
                 </div>
             </div>
-            <!-- BOTAO ALTERACAO -->
+             BOTAO ALTERACAO 
             <button class="btn btn-secondary w-100"  type="submit" id="btn_altera">Alteração</button>
-        </form><br /><br />
+        </form><br /><br />-->
         <div id = "status"></div>
         <form name = "filtro">
             <div class="form-group">
@@ -56,7 +56,6 @@
             </div>
         </form>
         </div>
-        <br />
 
         <table class="table table-striped table-bordered table-hover table-rounded table-responsive">
             <thead  style="color:#828282;">
@@ -69,9 +68,7 @@
             </tbody>
         </table>
         <div id="paginacao" style="text-align:center;">
-            <?php
-                include "paginacao_palavra.php";
-            ?>
+           
         </div>
         <br />
         <button class="btn btn-lg btn-secondary btn-block text-uppercase"  data-target="#modal_palavra">Cadastrar Palavras </button>

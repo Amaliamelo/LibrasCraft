@@ -1,13 +1,13 @@
 <?php
     header("Content-type: application/json");
 
-    include "conexao.php";
+    include("conexao.php");
 
     $p= $_POST["pg"];
 
     $sql = "SELECT * FROM palavra
-            INNER JOIN subfase ON palavra.cod_subfase=subfase.id_subfase
-            INNER JOIN fase ON subfase.cod_fase=fase.id_fase ";
+            INNER JOIN fase ON palavra.cod_fase=fase.id_fase
+            LEFT JOIN subfase ON palavra.cod_subfase=subfase.id_subfase ";
 
     if(isset($_POST["nome_filtro"]))
     {
@@ -26,3 +26,4 @@
 
 
 
+?>

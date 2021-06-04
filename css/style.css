@@ -17,7 +17,6 @@
     align-items: center; 
     justify-content: center;
 }
-<<<<<<< HEAD
 .bodyIndexADM{
     background-image: url("../img/fundo/index_adm.png");
     background-size: cover;
@@ -28,7 +27,7 @@
     display: flex; 
     align-items: center; 
     justify-content: center;
-=======
+}
 .logo{
     position: absolute;
     margin-left: 80vh;
@@ -61,7 +60,6 @@
     position: absolute;
     margin-left: 19.5%;
     margin-top: 1%;
->>>>>>> c0aae6215918b69fa50e7319c101b93fe143ed51
 }
 .bodyMapa{
     background-image: url("../img/fundo/mapa.png");
@@ -290,13 +288,10 @@ footer {
         width: 80%;
         height: 90%;
     }
-<<<<<<< HEAD
-    .card{
+    .card_palav_cad{
         margin-top: 150px;
         height:50%;
     }
-  }
-=======
     .card_atv{
         margin-top: 20%;
     }
@@ -313,4 +308,3 @@ footer {
     }
   }
   
->>>>>>> c0aae6215918b69fa50e7319c101b93fe143ed51

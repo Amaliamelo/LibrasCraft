@@ -1,5 +1,5 @@
 <?php
-    //session_start();
+    session_start();
     include "cabecalho.php";
     include "conexao.php";
     include "menu.php";
@@ -11,11 +11,13 @@
             if(isset($_SESSION["autorizado_adm"]))
             {
                 
-                echo '<div class="cont">
-                        <button type="button" data-toggle="modal" data-target="#modal_palavra" class="btn btn-dark m-3">PALAVRA</a>
-                        <button type="button" data-toggle="modal" data-target="#modal_atv_ouvinte"class="btn btn-dark m-3">ATIVIDADE OUVINTE</button>
-                        <button type="button" data-toggle="modal" data-target="#modal_atv_surdo" class="btn btn-dark m-3">ATIVIDADE SURDO</button>
-                    </div> ';
+                echo '
+                <div class="col-ofsset-12 cont2">
+                    <div class="linha m-3"> </div>
+                    <div class="linha2"> </div>
+                    <div class="row btn1  m-3 "><button type="button" data-toggle="modal" data-target="#modal_palavra" class="btn btn-lg btn-outline-light m-2">PALAVRAS</button></div>
+                    <div class="row btn1  m-3 "><button type="button" data-toggle="modal" data-target="#" class="btn btn-lg btn-outline-light m-2">FRASES</button></div>
+                </div>';
             }
             else{
                 header('Location: index.php');

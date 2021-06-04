@@ -47,7 +47,7 @@ $resultado_subfase = mysqli_query($conexao,$consulta_subfase) or die ("Erro Subf
                     <br/>
                     <!-- BOTAO CADASTRAR -->
                         <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase"  type="submit" id="btn_cadastra">Cadastrar</button>
-                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="palavras_cadastradas.php">Palavras Cadastradas</a>
+                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="palavras_cadastradas.php" id="palavras_cadastradas">Palavras Cadastradas</a>
                     </form>
                         <div id = "status"></div>
                 </form>

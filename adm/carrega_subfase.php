@@ -1,9 +1,11 @@
 <?php
     header("Content-type: application/json");
-    session_start();
-    include("conexao.php");
+    //session_start();
+    include "conexao.php";
 
     $cod_fase= $_POST["cod_fase"];
+
+    //$cod_fase=1;
 
     $sql = "SELECT * FROM subfase WHERE cod_fase ='$cod_fase'";
 
@@ -12,7 +14,8 @@
     {
         $matriz[]=$linha;
     }
-
+    
+    
     echo json_encode($matriz);
 
 

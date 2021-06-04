@@ -1,5 +1,5 @@
 <?php
-session_start();
+    //session_start();
     $id_adm=$_SESSION["autorizado_adm"];
 
     $consulta = "SELECT nome FROM adiministrador WHERE id_adm=$id_adm";

@@ -29,14 +29,38 @@ $(document).ready(function(){
 	});
 	
 	$("#fase").change(function(){	 
-		$.ajax
-		({
+		cod_fase=$("select[name='cod_fase']").val();
+		//chega aqui com o id certo
+		$.post("../carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
+			console.log(dados);
+			if(dados!=null)
+			{
+				$("#subfase").html("<option selected>Subfase</option>"); //select vazio
+				for(i=0;i<dados.length;i++) 
+				{
+					atual = $("#subfase").html(); // recebe o valor do subfase
+					option="<option value='" + dados[i].id_subfase + "'>" + dados[i].nome + "</option>"; 
+					$("#subfase").html(atual+option);
+					console.log(dados[i].nome)
+				}
+				
+			}else
+			{
+				$("#status").html("ERRO");
+				$("#status").css("color","red");
+				$("#status").css("text-align","center");
+			}
+			if(isset(dados)){
+				$("#status").html("ERRO 2");
+				$("#status").css("color","red");
+				$("#status").css("text-align","center");
+			}
+		/*$.ajax({
 			url:"../carrega_subfase.php",
 			type:"post",
 			data:
 			{
 				cod_fase:$("select[name='cod_fase']").val()
-				
 			},
 			success:function(dados)
 			{
@@ -60,11 +84,11 @@ $(document).ready(function(){
 			},
 			error:function(e)
 			{
-                console.log($("select[name='cod_fase']").val());
+                console.log();
 				$("#status").html("ERRO: Sistema indisponivel!");
 				$("#status").css("color","red");
 				$("#status").css("text-align","center");
-			}
+			}*/
 		});
 	}
     );
@@ -72,45 +96,34 @@ $(document).ready(function(){
 
 
 //PALAVRAS CADASTRADAS ..........................................................................................
-	paginacao(0);
+paginacao(0);
+function paginacao(p)
+{
+	$.ajax
+	({
+		url:"carrega_palavra.php",
+		type:"post",
+		data:{pg:p, nome_filtro: filtro},
+		success:function(matriz)
+		{
+			console.log(matriz);
+			$("#tb").html("");
+			for (i=0;i<matriz.length;i++)
+			{
+				linha = "<tr>";
+				linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
+				linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
+				linha += "<td class = 'cod_palavra'>" + matriz[i].cod_palavra + "</td>";
+				
+				linha += "<td class = 'video_s'>" + matriz[i].video_s + "</td>";
+				
+				linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
+				linha += "</tr>";
+				$("#tb").append(linha); 
+			}
+		}
+	});
+}
 
-    //PAGINACAO
-    function paginacao(p){
-        //aqui ele entra 
-        console.log("oii");
-        $.ajax(
-        {
-            url:"../carrega_palavra.php",
-            type:"post",
-            data:{pg:p, nome_filtro: filtro},
-            success:function(matriz)
-            { //aqui não entra
-               console.log("chegou");
-                $("#tb").html("");
-                for (i=0;i<matriz.length;i++)
-                {
-                    linha = "<tr>";
-                    linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
-                    linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
-                    linha += "<td class = 'cod_palavra'>" + matriz[i].cod_palavra + "</td>";
-                   
-                    linha += "<td class = 'video_s'>" + matriz[i].video_s + "</td>";
-                   
-                    linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-                    linha += "</tr>";
-                    $("#tb").append(linha); 
-                }
-            }
-        });
-    }
-            
 
-    // CLICAR NA PAGINACAO 
-    $(document).on("click",".pg",function(){                                                       
-        p = $(this).val();
-        p = (p-1)*5;
-        paginacao(p);   
-    });
-
-    
 });
