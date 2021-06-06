@@ -20,10 +20,10 @@
             <div class='collapse navbar-collapse menu' id='menucollapse'>
                         <ul class="navbar-nav mr-auto"  >
                             <li class="nav-item active  mr-5 ml-5">
-                                <a href="../mapa.php" style="color:white;"> <i class="fas fa-undo-alt"></i></a>
+                                <a href="submapa_casa.php" style="color:white;"> <i class="fas fa-undo-alt"></i></a>
                             </li>
                             <li class="nav-item active  mr-5 ml-5">
-                                <a href="../ATIVIDADES/score.php" style="color:white;"><img height= "50vh" width="50vw" src="../img/icones/menu/score.png" alt="Score" ><alt</a>
+                                <a href="#" style="color:white;"><img height= "50vh" width="50vw" src="../img/icones/menu/score.png" alt="Score" ><alt</a>
                             </li>
                         </ul> 
                         <ul class="navbar-nav">

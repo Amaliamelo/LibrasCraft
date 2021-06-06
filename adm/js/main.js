@@ -31,9 +31,7 @@ $(document).ready(function(){
 	$("#fase").change(function(){	 
 		cod_fase=$("select[name='cod_fase']").val();
 		//chega aqui com o id certo
-		console.log(cod_fase);
 		$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
-			console.log(dados);
 			if(dados!=null)
 			{
 				$("#subfase").html("<option selected>Subfase</option>"); //select vazio
@@ -42,7 +40,6 @@ $(document).ready(function(){
 					atual = $("#subfase").html(); // recebe o valor do subfase
 					option="<option value='" + dados[i].id_subfase + "'>" + dados[i].nome + "</option>"; 
 					$("#subfase").html(atual+option);
-					console.log(dados[i].nome)
 				}
 				
 			}else
@@ -57,27 +54,47 @@ $(document).ready(function(){
 	);
 	
 //PALAVRAS CADASTRADAS
+function tabela_palavras_cadatradas(matriz){
+	$("#tb").html("");
+	for (i=0;i<matriz.length;i++)
+	{
+		linha = "<tr>";
+		linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
+		linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
+		linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
+		
+		linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
+		
+		linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
+		linha += "</tr>";
+		$("#tb").append(linha); 
+	}
+}
 
 
 //FILTRO PALAVRA ...................................................................................
 $("input[name='nome_filtro']").change(function(){
-	nome_filtro=$("input[name='nome_filtro']").val();
+	var nome_filtro=$("input[name='nome_filtro']").val();
 	console.log(nome_filtro);
 	$.post("carrega_palavra.php", {nome_filtro:"nome_filtro"}, function(matriz){
-		$("#tb").html("");
-		for (i=0;i<matriz.length;i++)
-		{
-			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
-			linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
-			linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
-			
-			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
-			
-			linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-			linha += "</tr>";
-			$("#tb").append(linha); 
-		}
+		console.log(matriz);
+		tabela_palavras_cadatradas(matriz);
+	});
+});
+$("select[name='cod_fase']").change(function(){
+	var fase = $("select[name='cod_fase']").val();
+	console.log(fase);
+	$.post("carrega_palavra.php", {"fase":fase}, function(matriz){
+		tabela_palavras_cadatradas(matriz);
+
+	});
+});
+$("select[name='cod_subfase']").change(function(){
+	var subfase = $("select[name='cod_subfase']").val();
+	console.log(subfase);
+	$.post("carrega_palavra.php", {"subfase":subfase}, function(matriz){
+		tabela_palavras_cadatradas(matriz);
+
 	});
 });
 

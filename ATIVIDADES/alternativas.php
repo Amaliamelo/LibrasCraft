@@ -21,7 +21,7 @@ if($qtd>0){
 		$atividade= "<center><img width='200px;' src='../img/".$linha_questao["video_sinal"]."' /></center>";
 	}
 	else{
-		$atividade= '<iframe id="link_video" width="500" height="300" src="https://www.youtube.com/embed/'.$linha_questao["video_sinal"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+		$atividade= '<iframe id="link_video" width="340" height="200" src="https://www.youtube.com/embed/'.$linha_questao["video_sinal"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 		 
 	}//
 	//PEGA PALAVRA CORRETA

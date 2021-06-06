@@ -8,37 +8,38 @@
     $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
 ?>
 <script>
-$(document).ready(function(){
-	$.post("carrega_palavra.php", function(matriz){
-		$("#tb").html("");
-		for (i=0;i<matriz.length;i++)
-		{
-			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
-			linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
-			linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
-			
-			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
-			
-			linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-			linha += "</tr>";
-			$("#tb").append(linha); 
-		}
-	});
-});
+    $(document).ready(function(){
+        $.post("carrega_palavra.php", function(matriz){
+            $("#tb").html("");
+            for (i=0;i<matriz.length;i++)
+            {
+                linha = "<tr>";
+                linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
+                linha += "<td class = 'cod_subfase'>" + matriz[i].cod_subfase + "</td>";
+                linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
+                
+                linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
+                
+                linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
+                linha += "</tr>";
+                $("#tb").append(linha); 
+            }
+        });
+    });
 </script>
+
 <main class="bodyIndexADM">
 <div class="card card_palav_cad" style="height:400px; overflow-y: scroll;">
   <div class="card-header text-center">
     <h5 style="color:#828282;">Palavras Cadastradas</h5>
   </div>
   <div class="card-body">
-        <form name = "filtro">
+        <form name = "filtro" method="POST">
             <div class="form-group row m-2">
                 <input type="text" class="form-control m-1" name="nome_filtro" placeholder="Busca pelo nome...">
                 <div class="col">
                     <select class="custom-select" id ="fase" name ="cod_fase">
-                        <option selected>Fase</option>';
+                        <option selected>Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
@@ -63,7 +64,6 @@ $(document).ready(function(){
                 </tr>
             </thead>
             <tbody id = "tb">
-
             </tbody>
         </table>
         <br />

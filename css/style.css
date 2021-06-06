@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
 .bodyIndex{
     background-image: url("../img/fundo/index.png");
     background-size: cover;
@@ -88,8 +89,9 @@
 }
 .bodySALA{
     background: url("../img/fundo/SALA.png");
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100vh;
 }
 .bodyCOZINHA{
     background: url("../img/fundo/COZINHA.png");
@@ -104,10 +106,13 @@
     height: 100vh;
 }
 .bodyQUARTO{
-    background: url("../img/fundo/QUARTO.png");
+    background: url("../img/fundo/QUARTO.png")no-repeat center top fixed;
     background-size: cover;
-    background-repeat: no-repeat;
     height: 100vh;
+}
+.bodyscores{
+    background: url("../img/fundo/scores.png")no-repeat center top fixed;
+    background-size: cover;
 }
 .bodyABC-parametros{
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
@@ -123,11 +128,6 @@
 }
 
 footer {
-    padding-top:2%;
-    position: fixed;
-    height: 50px;
-    width: 100%;
-    bottom: 0;
     text-align:center;
     color: rgb(43, 43, 43);
 }
@@ -225,6 +225,16 @@ footer {
         background: url('../img/fundo/sub_abc_mobile.png') no-repeat; 
 
     }
+    
+    .bodyLETRAS, .bodyNUMEROS, .bodyABC{
+          background: url('../img/fundo/sub_abc_mobile.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 100vw;
+          display: flex; 
+          align-items: center; 
+          justify-content: center;
+    }
     .bodyCASA{
         background: url("../img/fundo/submapa_casa_mobile.png");
         background-size: cover;
@@ -266,9 +276,7 @@ footer {
     
     }
     footer{
-        text-align: center;
-        height: 10%;
-        width: 100%;
+        margin-bottom: -8%;
         font-size: small;
     }
     .casa

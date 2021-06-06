@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include "../conexao.php";
 	include "../ABC/cabecalho_abc.php";
 	include "../ABC/menu_abc.php";
@@ -11,10 +10,10 @@
 		<div class="container align-middle " >
 			<!-- B (filha da principal - A)-->
 			<div class="row justify-content-center ">
-				<div class="row card_atv">
-					<div class="col flex-column justify-content-center align-items-center">
+				<div class="col card_atv">
+					<div class="row flex-column justify-content-center align-items-center">
 						<!-- C (filha da div B) -->
-						<div class="col-12 border bg-white">
+						<div class="col-lg-6 col-md-12 border bg-white">
 							<!-- D (filha da div C) : LINHA -->
 							<?php
 							if($qtd>0){
