@@ -24,7 +24,7 @@ if($qtd>0){
 		$atividade= "<center><img width='200px;' src='../img/".$linha_questao["video_sinal"]."' /></center>";
 	}
 	else{
-		$atividade= '<iframe id="link_video" width="500" height="300" src="https://www.youtube.com/embed/'.$linha_questao["video_sinal"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+		$atividade= '<iframe id="link_video" class="iframe_video" src="https://www.youtube.com/embed/'.$linha_questao["video_sinal"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 		 
 	}
 
@@ -42,10 +42,10 @@ if($qtd>0){
 		<div class="container align-middle" >
 			<!-- B (filha da principal - A)-->
 			<div class="row justify-content-center">
-				<div class="row card_atv">
-					<div class="col d-flex flex-column justify-content-center align-items-center">
+				<div class="col card_atv">
+					<div class="row flex-column justify-content-center align-items-center">
 						<!-- C (filha da div B) -->
-						<div class="col-12 border bg-white">
+						<div class="col-lg-6 col-md-12 border bg-white">
 							<!-- D (filha da div C) : LINHA -->
 							<?php
 							if($qtd>0){
@@ -58,7 +58,7 @@ if($qtd>0){
 								//monta html com os dados coletados
 								?>
 							<div class="row">
-								<div class="col py-3 px-md-3  bg-light d-flex flex-column justify-content-center align-items-center" style="color:#828282;">
+								<div class="col  bg-light d-flex flex-column justify-content-center align-items-center" style="color:#828282;">
 									<h4>ATIVIDADE DO NÍVEL <?php echo $linha["nome"];?> </h4>
 									<h5 style="text-align:center;"> Escreva <?php echo $objeto;?> que corresponde ao sinal do vídeo</h5>
 								</div>

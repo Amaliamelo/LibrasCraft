@@ -13,7 +13,7 @@
 				<div class="col card_atv">
 					<div class="row flex-column justify-content-center align-items-center">
 						<!-- C (filha da div B) -->
-						<div class="col-lg-6 col-md-12 border bg-white">
+						<div class="col-lg-8 col-md-6 border bg-white">
 							<!-- D (filha da div C) : LINHA -->
 							<?php
 							if($qtd>0){
@@ -34,7 +34,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col p-3 py-6 px-md-6 card_atv2">
+								<div class="col d-flex flex-column justify-content-center align-items-center">
 								    <div class="video"><?php echo $atividade;?></div>
 								</div>
 							</div>

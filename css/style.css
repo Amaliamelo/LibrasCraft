@@ -18,6 +18,13 @@
     align-items: center; 
     justify-content: center;
 }
+.img_datilografia{
+    width: 70px;
+}
+.iframe_video{
+    width: 540px;
+    height:300px;
+}
 .bodyIndexADM{
     background-image: url("../img/fundo/index_adm.png");
     background-size: cover;
@@ -183,6 +190,13 @@ footer {
 }
 
 @media only screen and (max-device-width: 600px) {
+    .iframe_video{
+        width: 320px;
+        height:200px;
+    }
+    .img_datilografia{
+        width: 24px;
+    }
     .bodyIndex{
         background-image: url("../img/fundo/index_mobile.png");
     }

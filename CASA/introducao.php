@@ -35,7 +35,7 @@ include "funcao_trocar_palavra.php";
 													}
 													else
 													{	
-														echo "<td><img src='../img/alfabeto/".$palavra[$i].".gif' style='width:58px;'/></td>"; 
+														echo "<td ><img src='../img/alfabeto/".$palavra[$i].".gif' class='img_datilografia'/></td>"; 
 													} 												
 												}
 											?>
@@ -46,7 +46,7 @@ include "funcao_trocar_palavra.php";
 							<!-- IMAGEM DO OBJETO -->
 							<div class="row">
 								<div class="col border bg-light d-flex flex-column justify-content-center align-items-center">
-									<img src="../img/objetos/<?php echo $img_palavra;?>" class="rounded float-left" id="img_palavra" style="width:70%;">
+									<img src="../img/objetos/<?php echo $img_palavra;?>" class="rounded float-left" id="img_palavra" style="width:50%;">
 								</div>
 								<!-- VIDEO EM LIBRAS -->
 								<div class="col border bg-light d-flex flex-column justify-content-center align-items-center border bg-light" >

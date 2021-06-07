@@ -8,9 +8,9 @@
     $sql = "SELECT * FROM palavra
             INNER JOIN fase ON palavra.cod_fase=fase.id_fase
             LEFT JOIN subfase ON palavra.cod_subfase=subfase.id_subfase ";
-    
+
     if(!empty($_POST)){
-        $select .= " WHERE (1=1) ";
+        $sql .= " WHERE (1=1) ";
 
         if($_POST["nome_filtro"]!=""){
             $nome = $_POST["nome_filtro"];
