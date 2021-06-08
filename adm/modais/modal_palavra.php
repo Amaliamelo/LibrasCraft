@@ -15,10 +15,10 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
             </div>
             <div class="modal-body">
                 <div class="msg"></div>
-                <form  id="form_login" method="post" action="">
+                <form  id="form_login">
                     <!-- NIVEL -->
                     <select class="custom-select" id ="fase" name ="cod_fase">
-                        <option selected>Fase</option>';
+                        <option selected>Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
@@ -44,9 +44,9 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                     </div>
                     <br/>
                     <!-- BOTAO CADASTRAR -->
-                        <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase"  type="submit" id="btn_cadastra">Cadastrar</button>
+                        <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase" id="btn_cadastra">Cadastrar</button>
                         <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="palavras_cadastradas.php" id="palavras_cadastradas">Palavras Cadastradas</a>
-                    </form>
+                   
                         <div id = "status"></div>
                 </form>
             </div>

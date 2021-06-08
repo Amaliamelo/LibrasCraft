@@ -19,8 +19,9 @@ $(document).ready(function(){
 			linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
 			
 			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
-			
-			linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
+            
+            linha += "<td><img src='img/altera.png'  height='20' width='20'> <img src='img/remove.png'  height='20' width='15'></td>";
+			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
 			linha += "</tr>";
 			$("#tb").append(linha); 
 		}
@@ -28,7 +29,7 @@ $(document).ready(function(){
 });
 </script>
 <main class="bodyIndexADM">
-<div class="card card_palav_cad" style="height:400px; overflow-y: scroll;">
+<div class="card card_palav_cad" style="height:500px; overflow-y: scroll; margin-top:100px;">
   <div class="card-header text-center">
     <h5 style="color:#828282;">Palavras Cadastradas</h5>
   </div>
@@ -67,7 +68,7 @@ $(document).ready(function(){
             </tbody>
         </table>
         <br />
-        <button class="btn btn-lg btn-secondary btn-block text-uppercase"  data-target="#modal_palavra">Cadastrar Palavras </button>
+        <button type="button" data-toggle="modal" data-target="#modal_palavra" class="btn btn-lg btn-secondary btn-block text-uppercase">CADASTRAR PALAVRAS</button>
   </div>
 </div>
 
