@@ -10,7 +10,7 @@
                 header('Location: administrador.php');
             }
             else{
-                echo '<div class="col-ofsset-12 cont2">
+                echo '<div class="col-ofsset-12 center">
                 <div class="linha m-3"> </div>
                 <div class="linha2"> </div>
                     <div class="row btn1 m-3 " style="color:white;"><h5 style="position: absolute;  margin-left:17%;">ADMINISTRADOR</h5></div>

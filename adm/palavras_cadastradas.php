@@ -28,18 +28,19 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 <main class="bodyIndexADM">
 <div class="card card_palav_cad" style="height:500px; overflow-y: scroll; margin-top:100px;">
   <div class="card-header text-center">
     <h5 style="color:#828282;">Palavras Cadastradas</h5>
   </div>
   <div class="card-body">
-        <form name = "filtro">
+        <form name = "filtro" method="POST">
             <div class="form-group row m-2">
                 <input type="text" class="form-control m-1" name="nome_filtro" placeholder="Busca pelo nome...">
                 <div class="col">
                     <select class="custom-select" id ="fase" name ="cod_fase">
-                        <option selected>Fase</option>';
+                        <option selected>Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
@@ -64,7 +65,6 @@ $(document).ready(function(){
                 </tr>
             </thead>
             <tbody id = "tb">
-
             </tbody>
         </table>
         <br />

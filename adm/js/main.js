@@ -103,7 +103,9 @@ function tabela_palavras_cadatradas(matriz){
 //FILTRO PALAVRA ...................................................................................
 $("input[name='nome_filtro']").change(function(){
 	var nome_filtro=$("input[name='nome_filtro']").val();
+	
 	$.post("carrega_palavra.php", {nome_filtro:"nome_filtro"}, function(matriz){
+
 		tabela_palavras_cadatradas(matriz);
 	});
 });

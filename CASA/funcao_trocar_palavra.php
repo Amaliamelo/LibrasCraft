@@ -49,7 +49,7 @@
 					}
 					else
 					{
-						tr+="<td><img src= '../img/alfabeto/"+palavra[i]+".gif' style='width:70px;' /></td>";
+						tr+="<td><img src= '../img/alfabeto/"+palavra[i]+".gif' class='img_datilografia' /></td>";
 					}
 					
 				}
@@ -63,7 +63,6 @@
 			
 			link_img="../img/objetos/"+palavra+".png";
 			link_video="https://www.youtube.com/embed/"+video;
-			console.log(link_img);
             $("#img_palavra").attr("src",link_img);
             $("#link_video").attr("src",link_video);
 		}

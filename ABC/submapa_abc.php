@@ -1,5 +1,4 @@
 <?php
-     session_start();
      include '../conexao.php';
      include 'cabecalho_abc.php';
      include 'menu_abc.php';
