@@ -20,7 +20,10 @@ $(document).ready(function(){
 			
 			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
             
-            linha += "<td><img src='img/altera.png'  height='20' width='20'> <img src='img/remove.png'  height='20' width='15'></td>";
+            linha += "<td>";
+            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
+            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "</td>";
 			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
 			linha += "</tr>";
 			$("#tb").append(linha); 
@@ -75,6 +78,10 @@ $(document).ready(function(){
 <?php
     //MODAL PALAVRA
     include "modais/modal_palavra.php";
+    //MODAL REMOVER
+    include "modais/modal_remover.php";
+    //MODAL REMOVER
+    include "modais/modal_alterar.php";
     //RODAPE
     include "../rodape.php";
 ?>
