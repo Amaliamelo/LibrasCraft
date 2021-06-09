@@ -56,7 +56,7 @@ $(document).ready(function(){
                 <div class="col">
                     <!--SUBNIVEL -->
                     <select class="custom-select" id ="subfase" name ="cod_subfase">
-                        <option selected>Subfase</option>
+                        <option selected value="0">Subfase</option>
                     </select>
                 </div>
 			</div>

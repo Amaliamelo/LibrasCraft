@@ -15,19 +15,20 @@
         if($_POST["nome_filtro"]!=""){
             $nome = $_POST["nome_filtro"];
 
-            $sql .= "AND palavra like '%$nome%'";
+            $sql .= " AND palavra like '%$nome%'";
         }   
-        if($_POST["fase"]!=""){
+        if($_POST["fase"]!="0"){
             $fase = $_POST["fase"];
 
-            $sql .= "WHERE cod_fase = '$fase' ORDER BY palavra";
+            $sql .= " AND palavra.cod_fase = '$fase' ";
         }   
-        if($_POST["subfasefase"]!=""){
-            $fase = $_POST["subfase"];
+        if($_POST["subfase"]!="0"){
+            $subfase = $_POST["subfase"];
 
-            $sql .= "WHERE cod_subfase = '$subfase' ORDER BY palavra";
+            $sql .= " AND cod_subfase = '$subfase'";
         }   
     }
+    $sql .= " ORDER BY palavra";
     /*if(isset($_POST["nome_filtro"]))
     {
         print_r($_POST["nome_filtro"]);

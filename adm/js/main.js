@@ -34,7 +34,7 @@ $(document).ready(function(){
 		$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
 			if(dados!=null)
 			{
-				$("#subfase").html("<option selected>Subfase</option>"); //select vazio
+				$("#subfase").html("<option selected value='0'>Subfase</option>"); //select vazio
 				for(i=0;i<dados.length;i++) 
 				{
 					atual = $("#subfase").html(); // recebe o valor do subfase
@@ -65,9 +65,14 @@ $(".btn_cadastra").click(function(){
 		console.log(data);
 		if(data==1)
 		{
+			
 			$("#status").html("PALAVRA CADASTRADO COM SUCESSO!")
 			$("#status").css("color","green");
 			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('#fechar')[0].click();
+				$(".msg_cad").html("")
+			}, 20000);
 		}
 		else
 		{
@@ -101,29 +106,27 @@ function tabela_palavras_cadatradas(matriz){
 
 
 //FILTRO PALAVRA ...................................................................................
-$("input[name='nome_filtro']").change(function(){
-	var nome_filtro=$("input[name='nome_filtro']").val();
-	
-	$.post("carrega_palavra.php", {nome_filtro:"nome_filtro"}, function(matriz){
-
-		tabela_palavras_cadatradas(matriz);
-	});
+$("input[name='nome_filtro']").keyup(function(){
+	filtro_palavra();
 });
 $("select[name='cod_fase']").change(function(){
-	var fase = $("select[name='cod_fase']").val();
-	$.post("carrega_palavra.php", {"fase":fase}, function(matriz){
-		tabela_palavras_cadatradas(matriz);
-
-	});
+	filtro_palavra();
 });
 $("select[name='cod_subfase']").change(function(){
-	var subfase = $("select[name='cod_subfase']").val();
-	$.post("carrega_palavra.php", {"subfase":subfase}, function(matriz){
-		tabela_palavras_cadatradas(matriz);
-
-	});
+	filtro_palavra();
 });
+function filtro_palavra(){
+	var nome_filtro=$("input[name='nome_filtro']").val();
+	var fase=$("select[name='cod_fase']").val();
+	var subfase=$("select[name='cod_subfase']").val();
 
+
+	$.post("carrega_palavra.php", {nome_filtro:nome_filtro, fase:fase, subfase:subfase }, function(matriz){
+		tabela_palavras_cadatradas(matriz);
+		console.log(matriz);
+	});
+
+}
 
 
 });
