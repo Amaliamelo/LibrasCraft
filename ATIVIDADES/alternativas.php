@@ -5,7 +5,8 @@
      $consulta = "SELECT id_palavra, palavra, video_sinal FROM palavra WHERE cod_subfase = $pagina 
 				AND id_palavra NOT IN (
 					SELECT cod_palavra FROM resposta WHERE cod_usuario='".$_SESSION["autorizado"]."'
-				) 
+				)
+
 				ORDER BY RAND() LIMIT 1";
 	//BUSCANDO NO BANCO A PALAVRA/LETRA/NUMERAL DA ATIVIDADE PRINCIPAL E VERIFICANDO SE ELA JÁ NÃO FOI ACERTADA PELO USARIO, CASO FOI, SELECIONA OUTRA
 

@@ -2,7 +2,10 @@
     session_cache_expire(10000000);
     session_start();
     $id_usuario=$_SESSION["autorizado"];
-
+    if (!isset($_SESSION[ "autorizado" ]))
+    {
+        header("location: index.php");
+    }
 
     $consulta = "SELECT nome FROM usuario WHERE id_usuario=$id_usuario";
     $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta");
@@ -30,7 +33,7 @@
                         </ul> 
                         <ul class="navbar-nav">
                             <li class="nav-item active  mr-5 ml-5">
-                            <b><h7 style="color:white;">Bem-Vindo(a) <?php echo $linha["nome"]?></h7></b>
+                            <b><a href="ABC/perfil.php" style="color:white;"><h7 >Bem-Vindo(a) <?php echo $linha["nome"]?></h7></a></b>
                             </li>
                             <li class="nav-item active mr-5 ml-5 ">
                                 <a href="logout.php" style="color:white;"> <i class="fas fa-sign-out-alt"></i> </a>

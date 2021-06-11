@@ -65,7 +65,14 @@
         $msg_status = "<h2>EM ANDAMENTO</h2>
                 <a href='atividade_".$_SESSION["condicao_auditiva"].".php?pagina=".$linha["id_subfase"]."'style='color:white;'>CONTINUAR TAREFA!</a>";
         }
-        $porcentagem = $acerto_subfase_usuario[$linha["id_subfase"]]/$subfase[$linha["id_subfase"]];
+        if(isset($acerto_subfase_usuario[$linha["id_subfase"]])){
+            $porcentagem = $acerto_subfase_usuario[$linha["id_subfase"]]/$subfase[$linha["id_subfase"]];
+            $qtd_acerto=$acerto_subfase_usuario[$linha["id_subfase"]];
+        }
+        else{
+            $qtd_acerto=0;
+            $porcentagem=0;
+        }
         $porcentagem = number_format($porcentagem*100,2);
         echo '
             <tr id="id_'.$subfase_atual.'">
@@ -74,7 +81,7 @@
                 Respondido: ('.$subfase_usuario[$linha["id_subfase"]].' de 
                 '.$subfase[$linha["id_subfase"]].')</h5>
                 <b>Acertos</b>:
-                '.$acerto_subfase_usuario[$linha["id_subfase"]].'/'.
+                '.$qtd_acerto.'/'.
                     $subfase[$linha["id_subfase"]].' - '.$porcentagem.'%
                 <br />
                 '.$msg_status.'   
@@ -115,10 +122,10 @@
 
    echo '<tr class=" subfase_'.$subfase_atual.'" style="display:none;">
             <th style="height:70px;">                                                
-                '.$palavra[$linha["resposta"]].'
+                '.$palavra[$linha["questao"]].'
             </th>
             <th>
-                '.$palavra[$linha["questao"]].'
+                '.$palavra[$linha["resposta"]].'
             </th>
             <th>
                 <img src="../img/icones/score/'.$img_status.'.png" width="50px" />

@@ -9,17 +9,14 @@
 ?>
 <script>
 $(document).ready(function(){
-	$.post("carrega_palavra.php", function(matriz){
+	$.post("carrega_subfase.php", function(matriz){
 		$("#tb").html("");
 		for (i=0;i<matriz.length;i++)
 		{
 			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].nome_fase + "</td>";
-			linha += "<td class = 'cod_subfase'>" + matriz[i].nome_subfase + "</td>";
-			linha += "<td class = 'cod_palavra'>" + matriz[i].palavra + "</td>";
-			
-			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
-            
+			linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
+			linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
+		            
             linha += "<td>";
             linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
             linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
@@ -33,17 +30,16 @@ $(document).ready(function(){
 </script>
 
 <main class="bodyIndexADM">
-<div class="card card_palav_cad" style="height:500px; overflow-y: scroll; margin-top:100px;">
+<div class="card card_palav_cad" style=" height:500px; overflow-y: scroll; margin-top:40px;">
   <div class="card-header text-center">
-    <h5 style="color:#828282;">Palavras Cadastradas</h5>
+    <h5 style="color:#828282;">Subfases Cadastradas</h5>
   </div>
-  <div class="card-body">
+  <div class="card-body text-center">
         <form name = "filtro" method="POST">
             <div class="form-group row m-2">
-                <input type="text" class="form-control m-1" name="nome_filtro" placeholder="Busca pelo nome...">
                 <div class="col">
-                    <select class="custom-select" id ="fase" name ="cod_fase">
-                        <option selected value="0">Fase</option>
+                    <select class="custom-select" id ="fase_subfase" name ="cod_fase_subfase">
+                        <option selected value="">Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
@@ -53,31 +49,25 @@ $(document).ready(function(){
                         ?>
                     </select>
                 </div>
-                <div class="col">
-                    <!--SUBNIVEL -->
-                    <select class="custom-select" id ="subfase" name ="cod_subfase">
-                        <option selected value="0">Subfase</option>
-                    </select>
-                </div>
 			</div>
         </form>
         <table class="table table-striped table-bordered table-hover table-rounded table-responsive">
             <thead  style="color:#828282;">
                 <tr>
-                    <th>Fase</th> <th>Subfase</th> <th>Palavra</th> <th>Video Sinal</th> <th>Ação</th>
+                    <th>Fase</th> <th>Subfase</th> <th>Ação</th>
                 </tr>
             </thead>
             <tbody id = "tb">
             </tbody>
         </table>
         <br />
-        <button type="button" data-toggle="modal" data-target="#modal_palavra" class="btn btn-lg btn-secondary btn-block text-uppercase">CADASTRAR PALAVRAS</button>
+        <button type="button" data-toggle="modal" data-target="#modal_subfase" class="btn btn-lg btn-secondary btn-block text-uppercase">CADASTRAR SUBFASE</button>
   </div>
 </div>
 
 <?php
     //MODAL PALAVRA
-    include "modais/modal_palavra.php";
+    include "modais/modal_subfase.php";
     //MODAL REMOVER
     include "modais/modal_remover.php";
     //MODAL REMOVER

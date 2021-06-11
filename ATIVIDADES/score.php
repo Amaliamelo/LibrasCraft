@@ -27,6 +27,7 @@ or die(mysqli_error($conexao));
    while($linha=mysqli_fetch_assoc($resultado)){
      $subfase[$linha["subfase"]]=$linha["qtd"];
    }
+
 /////////////////////////////////////////////////////////////////////////////
 
 /// Conta quantas palavras o usuario respondeu na subfase
@@ -52,15 +53,16 @@ or die(mysqli_error($conexao));
 /// Nota da subfase para o usuário
 $select = "SELECT COUNT(resposta) as qtd, cod_subfase FROM
            resposta            
-           where cod_usuario='".$_SESSION["autorizado"]."'
+           WHERE cod_usuario='".$_SESSION["autorizado"]."'
            AND resposta=cod_palavra
           GROUP BY cod_subfase";
- 
+
 $resultado = mysqli_query($conexao,$select)
 or die(mysqli_error($conexao));
    while($linha=mysqli_fetch_assoc($resultado)){
      $acerto_subfase_usuario[$linha["cod_subfase"]]=$linha["qtd"];
    }   
+
 /////////////////////////////////////////////////////////////////////////////
 
 ////////Consulta de palavras agrupadas pelo id do usuario

@@ -58,6 +58,12 @@
 .btn1 button, .btn2 button{
     height: 50%;
 }
+.linha3 {
+    height: 500px;
+    border-left: 20px solid rgb(168, 167, 167); 
+    z-index: 1;
+    position: absolute;
+}
 .linha {
 	border-left: 20px solid rgb(168, 167, 167); 
     height: 400px;
