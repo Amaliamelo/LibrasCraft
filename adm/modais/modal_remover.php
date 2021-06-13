@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="color:#828282;">Remover</h5>
+                <h5 class="modal-title" style="color:#828282;"><?=$titulo_remover;?></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,7 +13,7 @@
         
             <div class="modal-footer m-2">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-success">Sim</button>
+                <button type="button" class="btn btn-success" id="<?=$remover;?>">Sim</button>
             </div>
         </div>
     </div>

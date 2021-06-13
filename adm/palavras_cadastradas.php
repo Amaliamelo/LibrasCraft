@@ -21,8 +21,8 @@ $(document).ready(function(){
 			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
             
             linha += "<td>";
-            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "<button  type='button' data-toggle='modal' class='alterar_palavra' data-target='#alterar' value='"+matriz[i].id_palavra+"' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></button>";
+            linha += "<button type='button' data-toggle='modal' id='remover_palavra' value='"+matriz[i].id_palavra+"'  data-target='#remover'><img src='img/remove.png'  height='20' width='15'></button>";
             linha += "</td>";
 			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
 			linha += "</tr>";
@@ -76,6 +76,12 @@ $(document).ready(function(){
 </div>
 
 <?php
+
+    $remover="remover_palavras";
+    $nome_form="PALAVRAS/form_alterar_palavra.php";
+    $titulo_remover="Remover Palavras";
+    $titulo_alterar="Alterar Palavras";
+    $salvar="salvar_palavra";
     //MODAL PALAVRA
     include "modais/modal_palavra.php";
     //MODAL REMOVER
