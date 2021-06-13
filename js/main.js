@@ -2,7 +2,6 @@ $(document).ready(function(){
 	
 	if($('#header').hasClass('menu')){
 		var tam = $(window).width();
-		console.log(tam);
 		if (tam >=1024){
 		  $("#menu1").show();
 		}else{
@@ -21,7 +20,6 @@ $(document).ready(function(){
         
                 
 		$.post("autenticacao.php", dados, function(retorno){
-            console.log(retorno);
 			if( retorno == "0"){
 				window.location.href ="index.php";
 			}
@@ -59,7 +57,6 @@ $(document).ready(function(){
 						};
 
 			$.post("cadastro_usuario.php", cadastro, function(resultado){
-				console.log(resultado);
 				
 				if(resultado==1){
 					$(".msg_cad").html("USUÁRIO CADASTRADO COM SUCESSO!")
@@ -139,7 +136,6 @@ $("#salvar_alteracao_usuario").click(function(){
 	};   
 	
 	$.post("atualizar_usuario.php",p,function(r){
-		console.log(r);
 		if(r=='1'){
 			$("#msg").html("Usuario alterado com sucesso.");
 			$(".close").click();
@@ -158,11 +154,8 @@ $("#remover_usuario").click(function(){
 	t="usuario";
 	p={tabela: t, id: i, coluna:c}
 		$.post("remover_usuario.php",p, function(r){
-			console.log(r);
-
 			if(r=='1'){
-
-				location.reload();
+				location.href = "../logout.php";
 			}
 			else{
 				$("#msg").html("Essa ação não pode ser efetuada!");

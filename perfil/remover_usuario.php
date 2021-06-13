@@ -7,11 +7,15 @@
 
 
 
-  $delete="DELETE FROM $tabela WHERE $coluna=$id";
-  $delete.=" AND ( DELETE FROM resposta WHERE cod_usuario=$id)";
+  $delete="DELETE FROM resposta WHERE cod_usuario=$id";
 
   mysqli_query($conexao,$delete)
   or die("Erro:".mysqli_error($conexao));
 
+  $delete=" DELETE FROM $tabela WHERE $coluna=$id";
+
+  mysqli_query($conexao,$delete)
+  or die("Erro:".mysqli_error($conexao));
+  
   echo"1";
 ?>
