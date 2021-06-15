@@ -126,6 +126,8 @@
 .bodyscores{
     background: url("../img/fundo/scores.png")no-repeat center top fixed;
     background-size: cover;
+    height: 100vh;
+
 }
 .bodyABC-parametros{
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 

@@ -5,7 +5,7 @@
 	include "alternativas.php"
 
 ?>
-<main class="body<?php echo $linha["nome"];?>">
+<main class="body<?php echo $linha["nome"];?>" style="height:100vh;">
 <!-- A - div principal-->
 		<div class="container align-middle " >
 			<!-- B (filha da principal - A)-->
@@ -34,7 +34,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col d-flex flex-column justify-content-center align-items-center">
+								<div class="col m-2 d-flex flex-column justify-content-center align-items-center">
 								    <div class="video"><?php echo $atividade;?></div>
 								</div>
 							</div>

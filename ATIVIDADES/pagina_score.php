@@ -5,7 +5,7 @@
  $primeiro = true;
  
  echo '	<!-- A - div principal-->
- <main class="body'.$linha["nome"].'">
+ <main class="body'.$linha["nome"].'" style="height:100%;">
     <div class="container align-middle" >
      <!-- B (filha da principal - A)-->
      <div class="row justify-content-center">

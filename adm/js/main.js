@@ -106,7 +106,7 @@ function tabela_palavras_cadatradas(matriz){
 			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
 			
 			linha += "<td>";
-            linha += "<button value='"+matriz[i].id_palavra+"' type='button' id='alterar_palavra' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></button>";
+            linha += "<button value='"+matriz[i].id_palavra+"' type='button'  data-toggle='modal' data-target='#alterar' style='margin-right:10px;' id='alterar_palavra'><img src='img/altera.png'  height='20' width='20'></button>";
             linha += "<button value='"+matriz[i].id_palavra+"' type='button' id='remover_palavra' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></button>";
             linha += "</td>";
 			$("#tb").append(linha); 
@@ -140,16 +140,9 @@ function filtro_palavra(){
 }
 
 //ALTERAR PALAVRA--------------------------------------------------------
-$(".alterar_palavra").click(function(){
+$("#alterar_palavra").click(function(){
 	console.log("oi");
-	i = $(this).val();
-	aux=1;
-	$.post("seleciona.php?id="+i,{"aux":aux}, function(matriz){
-		$("select[name='cod_fase']").val(matriz.cod_fase);
-		$("select[name='cod_subfase']").val(matriz.cod_subfase);
-		$("input[name='palavra']").val(matriz.palavra);
-		$("input[name='video_sinal']").val(matriz.video_sinal);	
-	});
+	
 });
 
 //FILTRO SUBFASE --------------------------------------------------------
