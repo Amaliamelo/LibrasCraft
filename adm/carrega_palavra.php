@@ -9,7 +9,6 @@
             INNER JOIN subfase ON palavra.cod_subfase=subfase.id_subfase INNER JOIN fase ON subfase.cod_fase=fase.id_fase";
 
     if(!empty($_POST)){
-        $sql .= " WHERE (1=1) ";
 
         if($_POST["nome_filtro"]!=""){
             $nome = $_POST["nome_filtro"];
@@ -25,7 +24,10 @@
             $subfase = $_POST["subfase"];
 
             $sql .= " AND cod_subfase = '$subfase'";
-        }   
+        } 
+        if($_POST["fase"]=="0"){
+            $sql .= " WHERE (1=1) ";
+        }  
     }
     $sql .= " ORDER BY palavra";
     /*if(isset($_POST["nome_filtro"]))

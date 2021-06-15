@@ -1,4 +1,15 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
+-- version 4.0.4.2
+-- http://www.phpmyadmin.net
+--
+-- Máquina: localhost
+-- Data de Criação: 15-Jun-2021 às 16:28
+-- Versão do servidor: 5.6.13
+-- versão do PHP: 5.4.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+=======
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
@@ -9,16 +20,17 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Banco de dados: `bsts_librascraft`
+-- Base de Dados: `bsts_librascraft`
 --
 
 -- --------------------------------------------------------
@@ -27,12 +39,13 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `adiministrador`
 --
 
-CREATE TABLE `adiministrador` (
-  `id_adm` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `adiministrador` (
+  `id_adm` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `senha` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_adm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `adiministrador`
@@ -48,10 +61,11 @@ INSERT INTO `adiministrador` (`id_adm`, `nome`, `email`, `senha`) VALUES
 -- Estrutura da tabela `fase`
 --
 
-CREATE TABLE `fase` (
-  `id_fase` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `fase` (
+  `id_fase` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_fase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `fase`
@@ -62,6 +76,24 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 (2, 'ESCOLA'),
 (3, 'RESTAURANTE'),
 (4, 'ABC 123');
+<<<<<<< HEAD
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `frase`
+--
+
+CREATE TABLE IF NOT EXISTS `frase` (
+  `id_frase` int(11) NOT NULL AUTO_INCREMENT,
+  `frase` varchar(500) NOT NULL,
+  `video_frase` varchar(500) NOT NULL,
+  `cod_palavra` int(11) NOT NULL,
+  PRIMARY KEY (`id_frase`),
+  KEY `cod_palavra` (`cod_palavra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+=======
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 -- --------------------------------------------------------
 
@@ -69,12 +101,20 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 -- Estrutura da tabela `palavra`
 --
 
-CREATE TABLE `palavra` (
-  `id_palavra` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `palavra` (
+  `id_palavra` int(11) NOT NULL AUTO_INCREMENT,
   `palavra` varchar(100) NOT NULL,
   `video_sinal` varchar(500) NOT NULL,
+<<<<<<< HEAD
+  `cod_subfase` int(11) NOT NULL,
+  PRIMARY KEY (`id_palavra`),
+  UNIQUE KEY `palavra` (`palavra`),
+  KEY `cod_subfase` (`cod_subfase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
+=======
   `cod_subfase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 --
 -- Extraindo dados da tabela `palavra`
@@ -168,8 +208,12 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 (107, '6', 'numeral/6.gif', 7),
 (108, '7', 'numeral/7.gif', 7),
 (109, '8', 'numeral/8.gif', 7),
+<<<<<<< HEAD
+(110, '9', 'numeral/9.gif', 7);
+=======
 (110, '9', 'numeral/9.gif', 7),
 (111, 'TESTE', 'xxxxxxxxxx', 8);
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 -- --------------------------------------------------------
 
@@ -177,12 +221,16 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 -- Estrutura da tabela `resposta`
 --
 
-CREATE TABLE `resposta` (
+CREATE TABLE IF NOT EXISTS `resposta` (
   `id_resposta` int(11) DEFAULT NULL,
   `resposta` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `cod_subfase` int(11) NOT NULL,
-  `cod_palavra` int(11) NOT NULL
+  `cod_palavra` int(11) NOT NULL,
+  PRIMARY KEY (`resposta`,`cod_usuario`,`cod_subfase`,`cod_palavra`),
+  KEY `cod_subfase` (`cod_subfase`),
+  KEY `cod_palavra` (`cod_palavra`),
+  KEY `cod_usuario` (`cod_usuario`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1244,11 +1292,14 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 -- Estrutura da tabela `subfase`
 --
 
-CREATE TABLE `subfase` (
-  `id_subfase` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subfase` (
+  `id_subfase` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `cod_fase` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cod_fase` int(11) NOT NULL,
+  PRIMARY KEY (`id_subfase`),
+  KEY `cod_fase` (`cod_fase`),
+  KEY `cod_fase_2` (`cod_fase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Extraindo dados da tabela `subfase`
@@ -1273,15 +1324,17 @@ INSERT INTO `subfase` (`id_subfase`, `nome`, `cod_fase`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) NOT NULL,
   `data_nascimento` date NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `sexo` char(1) NOT NULL,
-  `condicao_auditiva` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `condicao_auditiva` char(1) NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -1355,6 +1408,9 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o');
 
 --
+<<<<<<< HEAD
+-- Constraints for dumped tables
+=======
 -- Índices para tabelas despejadas
 --
 
@@ -1432,13 +1488,14 @@ ALTER TABLE `subfase`
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 --
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
--- Restrições para despejos de tabelas
+-- Limitadores para a tabela `frase`
 --
+ALTER TABLE `frase`
+  ADD CONSTRAINT `frase_ibfk_1` FOREIGN KEY (`id_frase`) REFERENCES `palavra` (`id_palavra`) ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `palavra`
@@ -1459,7 +1516,6 @@ ALTER TABLE `resposta`
 --
 ALTER TABLE `subfase`
   ADD CONSTRAINT `subfase_ibfk_1` FOREIGN KEY (`cod_fase`) REFERENCES `fase` (`id_fase`) ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -13,7 +13,7 @@
         
             <div class="modal-footer m-2">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-success" id="<?=$remover;?>">Sim</button>
+                <button type="button" class="btn btn-success" id="confirmar_remover">Sim</button>
             </div>
         </div>
     </div>

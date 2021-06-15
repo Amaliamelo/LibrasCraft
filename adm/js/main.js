@@ -86,12 +86,12 @@ $(".btn_cadastra").click(function(){
 
 
 
-//PALAVRAS CADASTRADAS
+//PALAVRAS CADASTRADAS -------------------------------------------------
 function tabela_palavras_cadatradas(matriz){
 	$("#tb").html("");
 	if(matriz==null){
 		linha = "<tr>";
-		linha += "<td colspan='6'>Não há palavras cadastradas</td>";
+		linha += "<td colspan='6' class='text-center'>Não há palavras cadastradas</td>";
 		linha += "</tr>";
 		$("#tb").append(linha); 
 	}
@@ -106,14 +106,55 @@ function tabela_palavras_cadatradas(matriz){
 			linha += "<td class = 'video_s'>" + matriz[i].video_sinal + "</td>";
 			
 			linha += "<td>";
-            linha += "<button value='"+matriz[i].id_palavra+"' type='button'  data-toggle='modal' data-target='#alterar' style='margin-right:10px;' id='alterar_palavra'><img src='img/altera.png'  height='20' width='20'></button>";
-            linha += "<button value='"+matriz[i].id_palavra+"' type='button' id='remover_palavra' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></button>";
+
+            linha += "<button value='"+matriz[i].id_palavra+"' type='button' class='alterar_palavra' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></button>";
+            linha += "<button value='"+matriz[i].id_palavra+"' type='button' class='remover_palavra' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></button>";
             linha += "</td>";
 			$("#tb").append(linha); 
 		}
 	}
 	
 }
+
+	$(document).on('click', '.remover_palavra', function (event) {
+		i=$(this).val();
+		console.log(i);
+	
+		$("#confirmar_remover").click(function(){
+			console.log(i);
+			c="id_palavra";
+			t="palavra";
+			remover(i,c,t);
+		});
+		
+	});
+
+
+// REMOVER PALAVRA --------------------------------------------------------
+function remover(i, c, t){
+		console.log(i);
+		console.log(c);
+		console.log(t);
+
+		$.post("remove.php", {tabela:t, coluna:c, id:i }, function(data){
+			console.log(data);
+
+			if(data == "1"){
+				$("#status").html("PALAVRA REMOVIDA!")
+				$("#status").css("color","green");
+				$("#status").css("text-align","center");
+				$(".close").click();
+				location.reload();
+			}else{
+				$("#status").html("ERRO AO REMOVER")
+				$("#status").css("color","red");
+				$("#status").css("text-align","center");
+				$(".close").click();
+			}
+		});
+	
+}
+
 
 
 //FILTRO PALAVRA ...................................................................................
@@ -180,6 +221,93 @@ $("#btn_cadastra_subfase").click(function(){
 		if(dados==1)
 		{			
 			$("#status").html("SUBFASE CADASTRADO COM SUCESSO!")
+			$("#status").css("color","green");
+			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('#fechar')[0].click();
+				$(".msg_cad").html("")
+			}, 20000);
+		}
+		else
+		{
+			$("#status").html("ERRO AO CADASTRAR")
+			$("#status").css("color","red");
+			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('#fechar')[0].click();
+				$(".msg_cad").html("")
+			}, 20000);
+		}
+
+		
+	});
+});
+
+
+//FILTRO FASE --------------------------------------------------------
+$("select[name='cod_fase_fase']").change(function(){
+	var cod_fase=$("select[name='cod_fase_fase']").val();
+	
+	$.post("carrega_fase.php",{cod_fase:cod_fase}, function(matriz){
+		console.log(matriz);
+		$("#tb").html("");
+		for (i=0;i<matriz.length;i++)
+		{
+			linha = "<tr>";
+			linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
+		            
+            linha += "<td>";
+            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
+            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "</td>";
+			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
+			linha += "</tr>";
+			$("#tb").append(linha); 
+		}
+	});
+
+});
+
+//CADASTRA FASE ------------------------------------------------
+$("#btn_cadastra_fase").click(function(){
+	var fase=$("input[name='fase']").val();
+
+	$.post("insere_fase.php", {fase:fase}, function(dados){
+		if(dados==1)
+		{			
+			$("#status").html("FASE CADASTRADA COM SUCESSO!")
+			$("#status").css("color","green");
+			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('#fechar')[0].click();
+				$(".status").html("")
+			}, 20000);
+		}
+		else
+		{
+			$("#status").html("ERRO AO CADASTRAR")
+			$("#status").css("color","red");
+			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('#fechar')[0].click();
+				$(".status").html("")
+			}, 20000);
+		}
+
+		
+	});
+});
+
+//CADASTRA FRASE ------------------------------------------------
+$("#btn_cadastra_frase").click(function(){
+	var palavra=$("select[name='cod_palavra']").val();
+	var frase=$("input[name='frase']").val();
+	var video_frase=$("input[name='video_sinal_frase']").val();
+
+	$.post("insere_frase.php", {palavra:palavra, frase:frase, video_frase:video_frase}, function(dados){
+		if(dados==1)
+		{			
+			$("#status").html("FRASE CADASTRADA COM SUCESSO!")
 			$("#status").css("color","green");
 			$("#status").css("text-align","center");
 			setTimeout(function(){ 
