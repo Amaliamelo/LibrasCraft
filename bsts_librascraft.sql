@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
@@ -8,6 +9,18 @@
 -- versão do PHP: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+=======
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 13-Jun-2021 às 20:56
+-- Versão do servidor: 10.4.13-MariaDB
+-- versão do PHP: 7.4.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 SET time_zone = "+00:00";
 
 
@@ -19,8 +32,6 @@ SET time_zone = "+00:00";
 --
 -- Base de Dados: `bsts_librascraft`
 --
-CREATE DATABASE IF NOT EXISTS `bsts_librascraft` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bsts_librascraft`;
 
 -- --------------------------------------------------------
 
@@ -65,6 +76,7 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 (2, 'ESCOLA'),
 (3, 'RESTAURANTE'),
 (4, 'ABC 123');
+<<<<<<< HEAD
 
 -- --------------------------------------------------------
 
@@ -80,6 +92,8 @@ CREATE TABLE IF NOT EXISTS `frase` (
   PRIMARY KEY (`id_frase`),
   KEY `cod_palavra` (`cod_palavra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+=======
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 -- --------------------------------------------------------
 
@@ -91,11 +105,16 @@ CREATE TABLE IF NOT EXISTS `palavra` (
   `id_palavra` int(11) NOT NULL AUTO_INCREMENT,
   `palavra` varchar(100) NOT NULL,
   `video_sinal` varchar(500) NOT NULL,
+<<<<<<< HEAD
   `cod_subfase` int(11) NOT NULL,
   PRIMARY KEY (`id_palavra`),
   UNIQUE KEY `palavra` (`palavra`),
   KEY `cod_subfase` (`cod_subfase`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
+=======
+  `cod_subfase` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 --
 -- Extraindo dados da tabela `palavra`
@@ -189,7 +208,12 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 (107, '6', 'numeral/6.gif', 7),
 (108, '7', 'numeral/7.gif', 7),
 (109, '8', 'numeral/8.gif', 7),
+<<<<<<< HEAD
 (110, '9', 'numeral/9.gif', 7);
+=======
+(110, '9', 'numeral/9.gif', 7),
+(111, 'TESTE', 'xxxxxxxxxx', 8);
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 -- --------------------------------------------------------
 
@@ -1384,7 +1408,87 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o');
 
 --
+<<<<<<< HEAD
 -- Constraints for dumped tables
+=======
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `adiministrador`
+--
+ALTER TABLE `adiministrador`
+  ADD PRIMARY KEY (`id_adm`);
+
+--
+-- Índices para tabela `fase`
+--
+ALTER TABLE `fase`
+  ADD PRIMARY KEY (`id_fase`);
+
+--
+-- Índices para tabela `palavra`
+--
+ALTER TABLE `palavra`
+  ADD PRIMARY KEY (`id_palavra`),
+  ADD UNIQUE KEY `palavra` (`palavra`),
+  ADD KEY `cod_subfase` (`cod_subfase`);
+
+--
+-- Índices para tabela `resposta`
+--
+ALTER TABLE `resposta`
+  ADD PRIMARY KEY (`resposta`,`cod_usuario`,`cod_subfase`,`cod_palavra`),
+  ADD KEY `cod_subfase` (`cod_subfase`),
+  ADD KEY `cod_palavra` (`cod_palavra`),
+  ADD KEY `cod_usuario` (`cod_usuario`) USING BTREE;
+
+--
+-- Índices para tabela `subfase`
+--
+ALTER TABLE `subfase`
+  ADD PRIMARY KEY (`id_subfase`),
+  ADD KEY `cod_fase` (`cod_fase`),
+  ADD KEY `cod_fase_2` (`cod_fase`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `adiministrador`
+--
+ALTER TABLE `adiministrador`
+  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `fase`
+--
+ALTER TABLE `fase`
+  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `palavra`
+--
+ALTER TABLE `palavra`
+  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+
+--
+-- AUTO_INCREMENT de tabela `subfase`
+--
+ALTER TABLE `subfase`
+  MODIFY `id_subfase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+>>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 --
 
 --

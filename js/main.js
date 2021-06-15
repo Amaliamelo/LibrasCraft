@@ -2,7 +2,6 @@ $(document).ready(function(){
 	
 	if($('#header').hasClass('menu')){
 		var tam = $(window).width();
-		console.log(tam);
 		if (tam >=1024){
 		  $("#menu1").show();
 		}else{
@@ -21,7 +20,6 @@ $(document).ready(function(){
         
                 
 		$.post("autenticacao.php", dados, function(retorno){
-            console.log(retorno);
 			if( retorno == "0"){
 				window.location.href ="index.php";
 			}
@@ -59,7 +57,6 @@ $(document).ready(function(){
 						};
 
 			$.post("cadastro_usuario.php", cadastro, function(resultado){
-				console.log(resultado);
 				
 				if(resultado==1){
 					$(".msg_cad").html("USUÁRIO CADASTRADO COM SUCESSO!")
@@ -105,5 +102,66 @@ $(document).ready(function(){
 		$("#cadastrar").val("Cadastrando...");
 	});
 
+//ALTERAR USUARIO-------------------------------
 
+$(".alterar_perfil").click(function(){
+	$.post("seleciona_usuario.php", function(r){
+		a = r[0];  
+		$("input[name='nome_alterar']").val(a.nome);
+		$("input[name='email_alterar']").val(a.email);
+	});
+});
+$("input[name='trocar_senha']").change(function(){
+	if($("input[name='trocar_senha']:checked").val()=="1"){
+		$("#trocar_senha").fadeIn();
+	}
+	else{
+		$("input[name='senha_alterar']").val("");
+		$("input[name='confirma_senha_alterar']").val("");
+		$("#trocar_senha").fadeOut();
+	}
+
+});
+$("#salvar_alteracao_usuario").click(function(){ 
+                
+	var senha = $("input[name='senha_alterar'").val();
+	if(senha!=""){
+		senha = $.md5(senha);
+	}
+
+	p = {
+		nome:$("input[name='nome_alterar']").val(),
+		email:$("input[name='email_alterar']").val(),
+		senha:senha
+	};   
+	
+	$.post("atualizar_usuario.php",p,function(r){
+		if(r=='1'){
+			$("#msg").html("Usuario alterado com sucesso.");
+			$(".close").click();
+			location.reload();
+
+		}else{
+			$("#msg").html("Falha ao atualizar Usuario.");
+		}
+	});
+}); 
+
+//REMOVER USUARIO ------------------------------------------------------
+$("#remover_usuario").click(function(){
+	i=$(this).val();
+	c="id_usuario";
+	t="usuario";
+	p={tabela: t, id: i, coluna:c}
+		$.post("remover_usuario.php",p, function(r){
+			if(r=='1'){
+				location.href = "../logout.php";
+			}
+			else{
+				$("#msg").html("Essa ação não pode ser efetuada!");
+				$(".close").click();
+			}
+		});
+	
+});
 });
