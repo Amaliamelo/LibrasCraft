@@ -13,7 +13,7 @@
         
             <div class="modal-footer m-2">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-success">Sim</button>
+                <button type="button" class="btn btn-success" id="confirma">Sim</button>
             </div>
         </div>
     </div>

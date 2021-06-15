@@ -22,10 +22,10 @@ $(document).ready(function(){
             
             linha += "<td>";
             linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "<button type='button' data-toggle='modal' data-target='#remover' value=" + matriz[i].id_palavra +"><img src='img/remove.png' height='20' width='15'></button>";
             linha += "</td>";
-			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-			linha += "</tr>";
+            linha += "</tr>";
+            
 			$("#tb").append(linha); 
 		}
 	});
@@ -38,6 +38,7 @@ $(document).ready(function(){
     <h5 style="color:#828282;">Palavras Cadastradas</h5>
   </div>
   <div class="card-body">
+        <div id="status"></div>
         <form name = "filtro" method="POST">
             <div class="form-group row m-2">
                 <input type="text" class="form-control m-1" name="nome_filtro" placeholder="Busca pelo nome...">
@@ -64,7 +65,11 @@ $(document).ready(function(){
         <table class="table table-striped table-bordered table-hover table-rounded table-responsive">
             <thead  style="color:#828282;">
                 <tr>
-                    <th>Fase</th> <th>Subfase</th> <th>Palavra</th> <th>Video Sinal</th> <th>Ação</th>
+                    <th style="min-width:100px;">Fase</th> 
+                    <th style="min-width:100px;">Subfase</th> 
+                    <th style="min-width:200px;">Palavra</th> 
+                    <th style="min-width:100px;">Video Sinal</th> 
+                    <th style="min-width:100px;">Ação</th>
                 </tr>
             </thead>
             <tbody id = "tb">

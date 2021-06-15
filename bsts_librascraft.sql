@@ -1,25 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
--- https://www.phpmyadmin.net/
+-- version 4.0.4.2
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Tempo de geração: 01-Jun-2021 às 12:35
--- Versão do servidor: 10.3.29-MariaDB-log-cll-lve
--- versão do PHP: 7.3.28
+-- Máquina: localhost
+-- Data de Criação: 15-Jun-2021 às 16:28
+-- Versão do servidor: 5.6.13
+-- versão do PHP: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Banco de dados: `bsts_librascraft`
+-- Base de Dados: `bsts_librascraft`
 --
 CREATE DATABASE IF NOT EXISTS `bsts_librascraft` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bsts_librascraft`;
@@ -30,12 +28,13 @@ USE `bsts_librascraft`;
 -- Estrutura da tabela `adiministrador`
 --
 
-CREATE TABLE `adiministrador` (
-  `id_adm` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `adiministrador` (
+  `id_adm` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `senha` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_adm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `adiministrador`
@@ -51,20 +50,36 @@ INSERT INTO `adiministrador` (`id_adm`, `nome`, `email`, `senha`) VALUES
 -- Estrutura da tabela `fase`
 --
 
-CREATE TABLE `fase` (
-  `id_fase` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `fase` (
+  `id_fase` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_fase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `fase`
 --
 
 INSERT INTO `fase` (`id_fase`, `nome`) VALUES
-(0, 'ABC 123'),
 (1, 'CASA'),
 (2, 'ESCOLA'),
-(3, 'RESTAURANTE');
+(3, 'RESTAURANTE'),
+(4, 'ABC 123');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `frase`
+--
+
+CREATE TABLE IF NOT EXISTS `frase` (
+  `id_frase` int(11) NOT NULL AUTO_INCREMENT,
+  `frase` varchar(500) NOT NULL,
+  `video_frase` varchar(500) NOT NULL,
+  `cod_palavra` int(11) NOT NULL,
+  PRIMARY KEY (`id_frase`),
+  KEY `cod_palavra` (`cod_palavra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -72,107 +87,109 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 -- Estrutura da tabela `palavra`
 --
 
-CREATE TABLE `palavra` (
-  `id_palavra` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `palavra` (
+  `id_palavra` int(11) NOT NULL AUTO_INCREMENT,
   `palavra` varchar(100) NOT NULL,
   `video_sinal` varchar(500) NOT NULL,
   `cod_subfase` int(11) NOT NULL,
-  `cod_fase` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_palavra`),
+  UNIQUE KEY `palavra` (`palavra`),
+  KEY `cod_subfase` (`cod_subfase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
 
 --
 -- Extraindo dados da tabela `palavra`
 --
 
-INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`, `cod_fase`) VALUES
-(8, 'ARMARIO', 'L4mUUEhJneA', 2, 0),
-(9, 'PANELA', 'BrAi2HalIK4', 2, 0),
-(10, 'CAMA', '8y3ZJb2ZUgg', 4, 0),
-(11, 'GARFO', '8XfVuZP2Tzw', 2, 0),
-(12, 'CHUVEIRO', 'GWZIpgfHg0A', 3, 0),
-(15, 'JANELA', 'L_fAKrbAHCI', 1, 0),
-(16, 'VÍDEO GAME', 'osEMS0sY0sY', 1, 0),
-(18, 'SOFÁ', 'HfLiUGqSmAw', 1, 0),
-(20, 'DVD', 'DUobx9a1tCU', 1, 0),
-(22, 'ALMOFADA', 'kVLgsSPq1rs', 1, 0),
-(23, 'CORTINA', 'h_CXY9VQ_5g', 1, 0),
-(24, 'ESTANTE', 'bxFlyaI7YcE', 1, 0),
-(25, 'PORTA', 'U2hvpVWnRjk', 1, 0),
-(26, 'RACK', 'eN_AKLCOx34', 1, 0),
-(27, 'TAPETE', '82zb_Lzncr8', 1, 0),
-(28, 'TELEVISÃO', 'RNHHME7VMLg', 1, 0),
-(37, 'ALMOÇAR', 'CjEjTSfOoMc', 2, 0),
-(38, 'CADEIRA', 'TNX_WmS9aR4', 2, 0),
-(39, 'COLHER', 'BdwGb6OgomU', 2, 0),
-(40, 'COMER', 'Lxl64WR1Plk', 2, 0),
-(41, 'FACA', 'ppeuCc5mo84', 2, 0),
-(42, 'FOGÃO', 'y1zLSsJnyQM', 2, 0),
-(43, 'GELADEIRA', 'FH_6bdAwcwk', 2, 0),
-(44, 'JANTAR', 'j0eUJ2Qq_Qo', 2, 0),
-(45, 'MESA', 'KgAwf8UcAos', 2, 0),
-(46, 'MICROONDAS', '9eXvRMp9QmM', 2, 0),
-(47, 'BUCHA', 'Fr9MWiV77Ng', 3, 0),
-(48, 'BOX', 'sgPdszL0PqM', 3, 0),
-(49, 'CESTO DE ROUPAS', 'AIDpnkAoLb8', 3, 0),
-(50, 'ESCOVA DE DENTE', 'yYGtX8jzb-8', 3, 0),
-(51, 'ESPELHO', 'haA0eTnXKLo', 3, 0),
-(52, 'FIO DENTAL', 'LpkSAkePXJ8', 3, 0),
-(53, 'PENTE', 'ksKWDQOxfJM', 3, 0),
-(54, 'PAPEL HIGIÊNICO', 'GZFVEemRJYY', 3, 0),
-(55, 'VASO SANITÁRIO', 'rqCWKCZLfug', 3, 0),
-(56, 'SABONETE', 'ym1nlbacazM', 3, 0),
-(57, 'PASTA DE DENTE', 'ktBug89nHP0', 3, 0),
-(58, 'SHAMPOO', 'm7k8STHxAjs', 3, 0),
-(59, 'TOALHA DE BANHO', 'FRWLwZMjfKk', 3, 0),
-(60, 'TORNEIRA', 'RUqteBvWoBE', 3, 0),
-(63, 'COBERTOR', 'u6SI1i3wYjY', 4, 0),
-(64, 'COMPUTADOR', 'CeIfw9OlrUw', 4, 0),
-(65, 'DORMIR', '5HkvCb4WF7k', 4, 0),
-(66, 'ESCRIVANINHA', 'GF3eHTop09Y', 4, 0),
-(67, 'GUARDA-ROUPA', 'VpRMsyQTlQI', 4, 0),
-(68, 'MAQUIAGEM', '87Nygnk1T3A', 4, 0),
-(69, 'NOTEBOOK', '9FOLwDzaBB4', 4, 0),
-(70, 'PERFUME', 'mX5SYF5GKj8', 4, 0),
-(71, 'PIJAMA', '59xsFghVwio', 4, 0),
-(72, 'ROUPA', 'JFfL-eybauc', 4, 0),
-(73, 'SAPATO', 'sdAwzROl1wY', 4, 0),
-(74, 'TRAVESSEIRO', 'RlmiezXw2JM', 4, 0),
-(75, 'A', 'alfabeto/A.gif', 8, 0),
-(76, 'B', 'alfabeto/B.gif', 8, 0),
-(77, 'C', 'alfabeto/C.gif', 8, 0),
-(78, 'D', 'alfabeto/D.gif', 8, 0),
-(79, 'E', 'alfabeto/E.gif', 8, 0),
-(80, 'F', 'alfabeto/F.gif', 8, 0),
-(81, 'G', 'alfabeto/G.gif', 8, 0),
-(82, 'H', 'alfabeto/H.gif', 8, 0),
-(83, 'I', 'alfabeto/I.gif', 8, 0),
-(84, 'J', 'alfabeto/J.gif', 8, 0),
-(85, 'K', 'alfabeto/K.gif', 8, 0),
-(86, 'L', 'alfabeto/L.gif', 8, 0),
-(87, 'M', 'alfabeto/M.gif', 8, 0),
-(88, 'N', 'alfabeto/N.gif', 8, 0),
-(89, 'O', 'alfabeto/O.gif', 8, 0),
-(90, 'P', 'alfabeto/P.gif', 8, 0),
-(91, 'Q', 'alfabeto/Q.gif', 8, 0),
-(92, 'R', 'alfabeto/R.gif', 8, 0),
-(93, 'S', 'alfabeto/S.gif', 8, 0),
-(94, 'T', 'alfabeto/T.gif', 8, 0),
-(95, 'U', 'alfabeto/U.gif', 8, 0),
-(96, 'V', 'alfabeto/V.gif', 8, 0),
-(97, 'W', 'alfabeto/W.gif', 8, 0),
-(98, 'X', 'alfabeto/X.gif', 8, 0),
-(99, 'Y', 'alfabeto/Y.gif', 8, 0),
-(100, 'Z', 'alfabeto/Z.gif', 8, 0),
-(101, '0', 'numeral/0.gif', 7, 0),
-(102, '1', 'numeral/1.gif', 7, 0),
-(103, '2', 'numeral/2.gif', 7, 0),
-(104, '3', 'numeral/3.gif', 7, 0),
-(105, '4', 'numeral/4.gif', 7, 0),
-(106, '5', 'numeral/5.gif', 7, 0),
-(107, '6', 'numeral/6.gif', 7, 0),
-(108, '7', 'numeral/7.gif', 7, 0),
-(109, '8', 'numeral/8.gif', 7, 0),
-(110, '9', 'numeral/9.gif', 7, 0);
+INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VALUES
+(8, 'ARMARIO', 'L4mUUEhJneA', 2),
+(9, 'PANELA', 'BrAi2HalIK4', 2),
+(10, 'CAMA', '8y3ZJb2ZUgg', 4),
+(11, 'GARFO', '8XfVuZP2Tzw', 2),
+(12, 'CHUVEIRO', 'GWZIpgfHg0A', 3),
+(15, 'JANELA', 'L_fAKrbAHCI', 1),
+(16, 'VÍDEO GAME', 'osEMS0sY0sY', 1),
+(18, 'SOFÁ', 'HfLiUGqSmAw', 1),
+(20, 'DVD', 'DUobx9a1tCU', 1),
+(22, 'ALMOFADA', 'kVLgsSPq1rs', 1),
+(23, 'CORTINA', 'h_CXY9VQ_5g', 1),
+(24, 'ESTANTE', 'bxFlyaI7YcE', 1),
+(25, 'PORTA', 'U2hvpVWnRjk', 1),
+(26, 'RACK', 'eN_AKLCOx34', 1),
+(27, 'TAPETE', '82zb_Lzncr8', 1),
+(28, 'TELEVISÃO', 'RNHHME7VMLg', 1),
+(37, 'ALMOÇAR', 'CjEjTSfOoMc', 2),
+(38, 'CADEIRA', 'TNX_WmS9aR4', 2),
+(39, 'COLHER', 'BdwGb6OgomU', 2),
+(40, 'COMER', 'Lxl64WR1Plk', 2),
+(41, 'FACA', 'ppeuCc5mo84', 2),
+(42, 'FOGÃO', 'y1zLSsJnyQM', 2),
+(43, 'GELADEIRA', 'FH_6bdAwcwk', 2),
+(44, 'JANTAR', 'j0eUJ2Qq_Qo', 2),
+(45, 'MESA', 'KgAwf8UcAos', 2),
+(46, 'MICROONDAS', '9eXvRMp9QmM', 2),
+(47, 'BUCHA', 'Fr9MWiV77Ng', 3),
+(48, 'BOX', 'sgPdszL0PqM', 3),
+(49, 'CESTO DE ROUPAS', 'AIDpnkAoLb8', 3),
+(50, 'ESCOVA DE DENTE', 'yYGtX8jzb-8', 3),
+(51, 'ESPELHO', 'haA0eTnXKLo', 3),
+(52, 'FIO DENTAL', 'LpkSAkePXJ8', 3),
+(53, 'PENTE', 'ksKWDQOxfJM', 3),
+(54, 'PAPEL HIGIÊNICO', 'GZFVEemRJYY', 3),
+(55, 'VASO SANITÁRIO', 'rqCWKCZLfug', 3),
+(56, 'SABONETE', 'ym1nlbacazM', 3),
+(57, 'PASTA DE DENTE', 'ktBug89nHP0', 3),
+(58, 'SHAMPOO', 'm7k8STHxAjs', 3),
+(59, 'TOALHA DE BANHO', 'FRWLwZMjfKk', 3),
+(60, 'TORNEIRA', 'RUqteBvWoBE', 3),
+(63, 'COBERTOR', 'u6SI1i3wYjY', 4),
+(64, 'COMPUTADOR', 'CeIfw9OlrUw', 4),
+(65, 'DORMIR', '5HkvCb4WF7k', 4),
+(66, 'ESCRIVANINHA', 'GF3eHTop09Y', 4),
+(67, 'GUARDA-ROUPA', 'VpRMsyQTlQI', 4),
+(68, 'MAQUIAGEM', '87Nygnk1T3A', 4),
+(69, 'NOTEBOOK', '9FOLwDzaBB4', 4),
+(70, 'PERFUME', 'mX5SYF5GKj8', 4),
+(71, 'PIJAMA', '59xsFghVwio', 4),
+(72, 'ROUPA', 'JFfL-eybauc', 4),
+(73, 'SAPATO', 'sdAwzROl1wY', 4),
+(74, 'TRAVESSEIRO', 'RlmiezXw2JM', 4),
+(75, 'A', 'alfabeto/A.gif', 8),
+(76, 'B', 'alfabeto/B.gif', 8),
+(77, 'C', 'alfabeto/C.gif', 8),
+(78, 'D', 'alfabeto/D.gif', 8),
+(79, 'E', 'alfabeto/E.gif', 8),
+(80, 'F', 'alfabeto/F.gif', 8),
+(81, 'G', 'alfabeto/G.gif', 8),
+(82, 'H', 'alfabeto/H.gif', 8),
+(83, 'I', 'alfabeto/I.gif', 8),
+(84, 'J', 'alfabeto/J.gif', 8),
+(85, 'K', 'alfabeto/K.gif', 8),
+(86, 'L', 'alfabeto/L.gif', 8),
+(87, 'M', 'alfabeto/M.gif', 8),
+(88, 'N', 'alfabeto/N.gif', 8),
+(89, 'O', 'alfabeto/O.gif', 8),
+(90, 'P', 'alfabeto/P.gif', 8),
+(91, 'Q', 'alfabeto/Q.gif', 8),
+(92, 'R', 'alfabeto/R.gif', 8),
+(93, 'S', 'alfabeto/S.gif', 8),
+(94, 'T', 'alfabeto/T.gif', 8),
+(95, 'U', 'alfabeto/U.gif', 8),
+(96, 'V', 'alfabeto/V.gif', 8),
+(97, 'W', 'alfabeto/W.gif', 8),
+(98, 'X', 'alfabeto/X.gif', 8),
+(99, 'Y', 'alfabeto/Y.gif', 8),
+(100, 'Z', 'alfabeto/Z.gif', 8),
+(101, '0', 'numeral/0.gif', 7),
+(102, '1', 'numeral/1.gif', 7),
+(103, '2', 'numeral/2.gif', 7),
+(104, '3', 'numeral/3.gif', 7),
+(105, '4', 'numeral/4.gif', 7),
+(106, '5', 'numeral/5.gif', 7),
+(107, '6', 'numeral/6.gif', 7),
+(108, '7', 'numeral/7.gif', 7),
+(109, '8', 'numeral/8.gif', 7),
+(110, '9', 'numeral/9.gif', 7);
 
 -- --------------------------------------------------------
 
@@ -180,12 +197,16 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`, `c
 -- Estrutura da tabela `resposta`
 --
 
-CREATE TABLE `resposta` (
+CREATE TABLE IF NOT EXISTS `resposta` (
   `id_resposta` int(11) DEFAULT NULL,
   `resposta` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `cod_subfase` int(11) NOT NULL,
-  `cod_palavra` int(11) NOT NULL
+  `cod_palavra` int(11) NOT NULL,
+  PRIMARY KEY (`resposta`,`cod_usuario`,`cod_subfase`,`cod_palavra`),
+  KEY `cod_subfase` (`cod_subfase`),
+  KEY `cod_palavra` (`cod_palavra`),
+  KEY `cod_usuario` (`cod_usuario`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1247,11 +1268,14 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 -- Estrutura da tabela `subfase`
 --
 
-CREATE TABLE `subfase` (
-  `id_subfase` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subfase` (
+  `id_subfase` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `cod_fase` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cod_fase` int(11) NOT NULL,
+  PRIMARY KEY (`id_subfase`),
+  KEY `cod_fase` (`cod_fase`),
+  KEY `cod_fase_2` (`cod_fase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Extraindo dados da tabela `subfase`
@@ -1264,8 +1288,11 @@ INSERT INTO `subfase` (`id_subfase`, `nome`, `cod_fase`) VALUES
 (4, 'QUARTO', 1),
 (5, 'DIRETORIA', 2),
 (6, 'RECEPÇÃO', 3),
-(7, 'NUMEROS', 0),
-(8, 'LETRAS', 0);
+(7, 'NUMEROS', 4),
+(8, 'LETRAS', 4),
+(20, 'TESTE', 4),
+(21, 'TESTE', 2),
+(22, 'TESTE', 2);
 
 -- --------------------------------------------------------
 
@@ -1273,15 +1300,17 @@ INSERT INTO `subfase` (`id_subfase`, `nome`, `cod_fase`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) NOT NULL,
   `data_nascimento` date NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `sexo` char(1) NOT NULL,
-  `condicao_auditiva` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `condicao_auditiva` char(1) NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -1355,90 +1384,14 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o');
 
 --
--- Índices para tabelas despejadas
+-- Constraints for dumped tables
 --
 
 --
--- Índices para tabela `adiministrador`
+-- Limitadores para a tabela `frase`
 --
-ALTER TABLE `adiministrador`
-  ADD PRIMARY KEY (`id_adm`);
-
---
--- Índices para tabela `fase`
---
-ALTER TABLE `fase`
-  ADD PRIMARY KEY (`id_fase`);
-
---
--- Índices para tabela `palavra`
---
-ALTER TABLE `palavra`
-  ADD PRIMARY KEY (`id_palavra`),
-  ADD UNIQUE KEY `palavra` (`palavra`),
-  ADD KEY `cod_subfase` (`cod_subfase`);
-
---
--- Índices para tabela `resposta`
---
-ALTER TABLE `resposta`
-  ADD PRIMARY KEY (`resposta`,`cod_usuario`,`cod_subfase`,`cod_palavra`),
-  ADD KEY `cod_subfase` (`cod_subfase`),
-  ADD KEY `cod_palavra` (`cod_palavra`),
-  ADD KEY `cod_usuario` (`cod_usuario`) USING BTREE;
-
---
--- Índices para tabela `subfase`
---
-ALTER TABLE `subfase`
-  ADD PRIMARY KEY (`id_subfase`),
-  ADD KEY `cod_fase` (`cod_fase`),
-  ADD KEY `cod_fase_2` (`cod_fase`);
-
---
--- Índices para tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `adiministrador`
---
-ALTER TABLE `adiministrador`
-  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `fase`
---
-ALTER TABLE `fase`
-  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `palavra`
---
-ALTER TABLE `palavra`
-  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
-
---
--- AUTO_INCREMENT de tabela `subfase`
---
-ALTER TABLE `subfase`
-  MODIFY `id_subfase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de tabela `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
-
---
--- Restrições para despejos de tabelas
---
+ALTER TABLE `frase`
+  ADD CONSTRAINT `frase_ibfk_1` FOREIGN KEY (`id_frase`) REFERENCES `palavra` (`id_palavra`) ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `palavra`
@@ -1459,7 +1412,6 @@ ALTER TABLE `resposta`
 --
 ALTER TABLE `subfase`
   ADD CONSTRAINT `subfase_ibfk_1` FOREIGN KEY (`cod_fase`) REFERENCES `fase` (`id_fase`) ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
