@@ -30,6 +30,8 @@ $(document).ready(function(){
 	
 function carrega_subfase(){	 
 		cod_fase=$("select[name='cod_fase']").val();
+		console.log(cod_fase);
+
 		//chega aqui com o id certo
 		$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
 			if(dados!=null)
@@ -115,6 +117,7 @@ function tabela_palavras_cadatradas(matriz){
 	}
 	
 }
+//REMOVER PALAVRA
 
 	$(document).on('click', '.remover_palavra', function (event) {
 		i=$(this).val();
@@ -130,7 +133,7 @@ function tabela_palavras_cadatradas(matriz){
 	});
 
 
-// REMOVER PALAVRA --------------------------------------------------------
+// REMOVER --------------------------------------------------------
 function remover(i, c, t){
 		console.log(i);
 		console.log(c);
@@ -152,9 +155,53 @@ function remover(i, c, t){
 				$(".close").click();
 			}
 		});
-	
 }
 
+//ALTERAR PALAVRA---------------------------------------------------------
+$(document).on('click', '.alterar_palavra', function (event) {
+	i=$(this).val();
+	console.log(i);
+	aux=0;
+	$.post("seleciona.php", {aux:aux, id:i }, function(r){
+		$("select[name='cod_subfase']").val(r.cod_subfase);
+		$("input[name='palavra']").val(r.palavra);
+		$("input[name='video_sinal']").val(r.video_sinal);
+	});
+
+	$("#confirmar_alterar").click(function(){
+		console.log(i);
+		c="id_palavra";
+		t="palavra";
+		remover(i,c,t);
+	});
+	
+});
+
+
+// REMOVER 
+function remover(i, c, t){
+	console.log(i);
+	console.log(c);
+	console.log(t);
+
+	$.post("remove.php", {tabela:t, coluna:c, id:i }, function(data){
+		console.log(data);
+
+		if(data == "1"){
+			$("#status").html("PALAVRA REMOVIDA!")
+			$("#status").css("color","green");
+			$("#status").css("text-align","center");
+			$(".close").click();
+			location.reload();
+		}else{
+			$("#status").html("ERRO AO REMOVER")
+			$("#status").css("color","red");
+			$("#status").css("text-align","center");
+			$(".close").click();
+		}
+	});
+m
+}
 
 
 //FILTRO PALAVRA ...................................................................................
@@ -163,6 +210,31 @@ $("input[name='nome_filtro']").keyup(function(){
 });
 $("select[name='cod_fase']").change(function(){
 	carrega_subfase();
+});
+$("select[name='cod_fase_frase']").change(function(){
+	cod_fase=$("select[name='cod_fase_frase']").val();
+	console.log(cod_fase);
+
+	$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
+		if(dados!=null)
+		{
+			$("#subfase_frase").html("<option selected value='0'>Subfase</option>"); //select vazio
+			for(i=0;i<dados.length;i++) 
+			{
+				atual = $("#subfase_frase").html(); // recebe o valor do subfase
+				option="<option value='" + dados[i].id_subfase + "'>" + dados[i].nome + "</option>"; 
+				$("#subfase_frase").html(atual+option);
+			}
+			
+		}else
+		{
+			$("#status").html("ERRO");
+			$("#status").css("color","red");
+			$("#status").css("text-align","center");
+		}
+		filtro_palavra();
+
+	});
 });
 $("select[name='cod_subfase']").change(function(){
 	filtro_palavra();
@@ -176,15 +248,8 @@ function filtro_palavra(){
 
 	$.post("carrega_palavra.php", {nome_filtro:nome_filtro, fase:fase, subfase:subfase }, function(matriz){
 		tabela_palavras_cadatradas(matriz);
-		console.log(matriz);
 	});
 }
-
-//ALTERAR PALAVRA--------------------------------------------------------
-$("#alterar_palavra").click(function(){
-	console.log("oi");
-	
-});
 
 //FILTRO SUBFASE --------------------------------------------------------
 $("select[name='cod_fase_subfase']").change(function(){

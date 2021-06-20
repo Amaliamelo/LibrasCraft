@@ -17,8 +17,8 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                 <div class="msg"></div>
                 <form  id="form_login">
                     <!-- NIVEL -->
-                    <select class="custom-select" id ="fase" name ="cod_fase">
-                        <option selected>Fase</option>
+                    <select class="custom-select" id ="fase" name ="cod_fase_frase">
+                        <option>Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
@@ -29,18 +29,15 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                     </select>
                     <br/><br/>
                     <!--SUBNIVEL -->
-                    <select class="custom-select" id ="subfase" name ="cod_subfase">
+                    <select class="custom-select" id ="subfase_frase" name ="cod_subfase">
                         <option selected>Subfase</option>
                     </select>
                     <br/><br/>
                     <!-- PALAVRA -->
-                    <select class="custom-select" id ="palavra" name ="cod_palavra">
-                        <option selected>Palavra</option>
-                    </select>
                     <br/><br/>
                     <!-- FRASE  -->
                     <div class="form-label-group" style="color:#828282;">
-                         <input type="text" id="frase" class="form-control" name = "frase" placeholder="Frase" >
+                         <input type="text" id="frase_parte1" class="form-control" name = "frase_parte1" placeholder="Frase" >
                     </div>
                     <br/>
                     <!-- VIDEO SINAL -->
