@@ -7,7 +7,9 @@
 
     //$cod_fase=1;
 
-    $sql = "SELECT * FROM subfase ";
+
+    $sql = "SELECT fase.nome AS nome_fase, subfase.nome, subfase.id_subfase, subfase.cod_fase FROM subfase 
+            INNER JOIN fase ON subfase.cod_fase = fase.id_fase";
 
     if(!empty($_POST)){
         $sql .= " WHERE (1=1) ";   

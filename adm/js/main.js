@@ -115,29 +115,46 @@ function tabela_palavras_cadatradas(matriz){
 	}
 	
 }
-
+// AÇÃO - BOTÃO REMOVER PALAVRA --------------------------
 	$(document).on('click', '.remover_palavra', function (event) {
 		i=$(this).val();
-		console.log(i);
 	
 		$("#confirmar_remover").click(function(){
-			console.log(i);
 			c="id_palavra";
 			t="palavra";
 			remover(i,c,t);
 		});
 		
 	});
+// AÇÃO - BOTÃO REMOVER FASE --------------------------
+	$(document).on('click', '.remover_fase', function (event) {
+		i=$(this).val();
+		
+		$("#confirmar_remover").click(function(){
+			c="id_fase";
+			t="fase";
+			remover(i,c,t);
+		});
+		
+	});
+// AÇÃO - BOTÃO REMOVER FASE --------------------------
+$(document).on('click', '.remover_subfase', function (event) {
+	i=$(this).val();
+	
+	$("#confirmar_remover").click(function(){
+		c="id_subfase";
+		t="subfase";
+		remover(i,c,t);
+	});
+	
+});
 
 
-// REMOVER PALAVRA --------------------------------------------------------
+// REMOVER  --------------------------------------------------------
 function remover(i, c, t){
-		console.log(i);
-		console.log(c);
-		console.log(t);
-
+	console.log(i);
 		$.post("remove.php", {tabela:t, coluna:c, id:i }, function(data){
-			console.log(data);
+			
 
 			if(data == "1"){
 				$("#status").html("PALAVRA REMOVIDA!")
@@ -195,14 +212,13 @@ $("select[name='cod_fase_subfase']").change(function(){
 		for (i=0;i<matriz.length;i++)
 		{
 			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
+			linha += "<td class = 'cod_fase'>" + matriz[i].nome_fase + "</td>";
 			linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
 		            
             linha += "<td>";
-            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "<button type='button' data-toggle='modal' data-target='#alterar'  class='alterar_subfase' value='"+matriz[i].id_subfase+"'style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></button>";
+            linha += "<button type='button' data-toggle='modal' data-target='#remover' class='remover_subfase' value='"+matriz[i].id_subfase+"'><img src='img/remove.png'  height='20' width='15'></button>";
             linha += "</td>";
-			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
 			linha += "</tr>";
 			$("#tb").append(linha); 
 		}
@@ -257,10 +273,9 @@ $("select[name='cod_fase_fase']").change(function(){
 			linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
 		            
             linha += "<td>";
-            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
+            linha += "<button type='button' data-toggle='modal' class='alterar_fase'data-target='#alterar' style='margin-right:10px;' value=" + matriz[i].id_fase + "><img src='img/altera.png'  height='20' width='20'></button>";
+            linha += "<button type='button' data-toggle='modal' class='remover_fase'data-target='#remover' value=" + matriz[i].id_fase + "><img src='img/remove.png'  height='20' width='15'></button>";
             linha += "</td>";
-			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
 			linha += "</tr>";
 			$("#tb").append(linha); 
 		}

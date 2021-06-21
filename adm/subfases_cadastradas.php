@@ -9,23 +9,25 @@
 ?>
 <script>
 $(document).ready(function(){
-	$.post("carrega_subfase.php", function(matriz){
-		$("#tb").html("");
-		for (i=0;i<matriz.length;i++)
-		{
-			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].cod_fase + "</td>";
-			linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
-		            
-            linha += "<td>";
-            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;'><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover'><img src='img/remove.png'  height='20' width='15'></a>";
-            linha += "</td>";
-			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-			linha += "</tr>";
-			$("#tb").append(linha); 
-		}
-	});
+    function atualiza_tabela(){
+        $.post("carrega_subfase.php", function(matriz){
+            $("#tb").html("");
+            for (i=0;i<matriz.length;i++)
+            {
+                linha = "<tr>";
+                linha += "<td class = 'cod_fase'>" + matriz[i].nome_fase + "</td>";
+                linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
+                        
+                linha += "<td>";
+                linha += "<button type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;' class='alterar_subfase' value='"+matriz[i].nome+"'><img src='img/altera.png'  height='20' width='20'></button>";
+                linha += "<button type='button' data-toggle='modal' data-target='#remover' class='remover_subfase' value='"+matriz[i].id_subfase+"'><img src='img/remove.png'  height='20' width='15'></button>";
+                linha += "</td>";
+                linha += "</tr>";
+                $("#tb").append(linha); 
+            }
+        });
+    };
+	atualiza_tabela();
 });
 </script>
 
@@ -66,7 +68,13 @@ $(document).ready(function(){
 </div>
 
 <?php
-    //MODAL PALAVRA
+
+    $remover="remover_subfase";
+    $nome_form="SUBFASE/form_alterar_subfase.php";
+    $titulo_remover="Remover Subfases";
+    $titulo_alterar="Alterar Subfases";
+    $salvar="salvar_subfase";
+    //MODAL SUBFASE
     include "modais/modal_subfase.php";
     //MODAL REMOVER
     include "modais/modal_remover.php";

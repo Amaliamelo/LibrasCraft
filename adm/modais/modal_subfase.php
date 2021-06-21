@@ -8,7 +8,7 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="color:#828282;">Palavras</h5>
+                <h5 class="modal-title" style="color:#828282;">Subfase</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

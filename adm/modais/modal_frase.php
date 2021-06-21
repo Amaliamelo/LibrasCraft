@@ -50,7 +50,7 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                     <br/>
                     <!-- BOTAO CADASTRAR -->
                         <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase" id="btn_cadastra_frase">Cadastrar</button>
-                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="palavras_cadastradas.php" id="palavras_cadastradas">Palavras Cadastradas</a>
+                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="frases_cadastradas.php" id="frases_cadastradas">Frases Cadastradas</a>
                    
                         <div id = "status"></div>
                 </form>

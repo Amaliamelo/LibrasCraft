@@ -9,23 +9,27 @@
 ?>
 <script>
 $(document).ready(function(){
-	$.post("carrega_fase.php", function(matriz){
-		$("#tb").html("");
-		for (i=0;i<matriz.length;i++)
-		{
-			linha = "<tr>";
-			linha += "<td class = 'cod_fase'>" + matriz[i].nome + "</td>";
-            linha += "<td>";
-            linha += "<a type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;' value=" + matriz[i].id_palavra + "><img src='img/altera.png'  height='20' width='20'></a>";
-            linha += "<a type='button' data-toggle='modal' data-target='#remover' class='bot_remover' value=" + matriz[i].id_palavra + "><img src='img/remove.png'  height='20' width='15'></a>";
-            linha += "</td>";
-			//linha += "<td><button type = 'button'  class = 'alterar btn btn-secondary' id='alterar' value='"+ matriz[i].id_palavra + "'>Alterar</button> <button type = 'button' class = 'remover btn btn-secondary' value ='" + matriz[i].id_palavra + "'>Remover</button> </td>";
-			linha += "</tr>";
-			$("#tb").append(linha); 
-		}
-	});
+    function atualiza_tabela(){
+        $.post("carrega_fase.php", function(matriz){
+            $("#tb").html("");
+            for (i=0;i<matriz.length;i++)
+            {
+                linha = "<tr>";
+                linha += "<td class = 'cod_fase'>" + matriz[i].nome + "</td>";
+                linha += "<td>";
+                linha += "<button type='button' data-toggle='modal' data-target='#alterar' class='alterar_fase'style='margin-right:10px;' value=" + matriz[i].id_fase + "><img src='img/altera.png'  height='20' width='20'></button>";
+                linha += "<button type='button' data-toggle='modal' data-target='#remover' class='remover_fase' value=" + matriz[i].id_fase + "><img src='img/remove.png'  height='20' width='15'></button>";
+                linha += "</td>";
+                linha += "</tr>";
+                $("#tb").append(linha); 
+            }
+        });
+    };
+    atualiza_tabela();
+
 });
 </script>
+
 
 <main class="bodyIndexADM">
 <div class="card card_palav_cad" style="height:500px; overflow-y: scroll; margin-top:100px;">
@@ -33,6 +37,7 @@ $(document).ready(function(){
     <h5 style="color:#828282;">Fases Cadastradas</h5>
   </div>
   <div class="card-body">
+    <div id="status"></div>
         <form name = "filtro" method="POST">
             <div class="form-group row">
                 <select class="custom-select m-2" id ="fase" name ="cod_fase_fase">
@@ -62,6 +67,11 @@ $(document).ready(function(){
 </div>
 
 <?php
+    $remover="remover_fase";
+    $nome_form="FASE/form_alterar_fase.php";
+    $titulo_remover="Remover Fase";
+    $titulo_alterar="Alterar Fase";
+    $salvar="salvar_fase";
     //MODAL FASE
     include "modais/modal_fase.php";
     //MODAL REMOVER

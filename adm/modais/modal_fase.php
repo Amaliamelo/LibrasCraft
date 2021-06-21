@@ -20,7 +20,7 @@
                     <br/>
                     <!-- BOTAO CADASTRAR -->
                         <button class="btn_cadastra_fase btn btn-lg btn-secondary btn-block text-uppercase" id="btn_cadastra_fase">Cadastrar</button>
-                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="fases_cadastradas.php" id="fases_cadastradas">Frases Cadastradas</a>
+                        <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="fases_cadastradas.php" id="fases_cadastradas">Fases Cadastradas</a>
                 </form>
             </div>
         
