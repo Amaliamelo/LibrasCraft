@@ -52,6 +52,8 @@
         if($nota>=75){
             $status_fase="green";
             $msg_status = "<h1>APROVADO</h1>";
+            //criar contador para o hanking --- quantidade de fases aprovadas, 
+                //quantidade subfases aprovadas, quantidade de acertos no total ----
         }
         else{
             $status_fase="#EE2C2C";

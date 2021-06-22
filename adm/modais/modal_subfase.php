@@ -18,7 +18,7 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                 <form  id="form_login">
                     <!-- NIVEL -->
                     <select class="custom-select" id ="fase_subfase" name ="fase_subfase">
-                        <option value=''>Fase</option>
+                        <option>Fase</option>
                         <?php
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];

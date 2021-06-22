@@ -32,7 +32,7 @@
                         </ul> 
                         <ul class="navbar-nav">
                             <li class="nav-item active  mr-5 ml-5">
-                            <b><a href="perfil/perfil.php" style="color:white;"><h7>Bem-Vindo(a) <?php echo $linha["nome"]?></h7></a></b>
+                            <b><a href="../perfil/perfil.php" style="color:white;"><h7>Bem-Vindo(a) <?php echo $linha["nome"]?></h7></a></b>
                             </li>
                             <li class="nav-item active mr-5 ml-5 ">
                                 <a href="../logout.php" style="color:white;"> <i class="fas fa-sign-out-alt"></i> </a>
