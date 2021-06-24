@@ -7,7 +7,6 @@ $(document).on('click', '.alterar_subfase', function () {
 	$.post("seleciona.php", {tabela:t, coluna:c, id:i }, function(r){
 		a = r[0];
         $("input[name='subfase_alterar']").val(a.nome);
-        console.log(a.id_subfase);
 		$("input[name='id_subfase_alterar']").val(a.id_subfase);
         
         cod_subfase = a.id_subfase;
