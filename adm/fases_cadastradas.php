@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 <?php
     $remover="remover_fase";
-    $nome_form="FASE/form_alterar_fase.php";
+    $nome_form="FASES/form_alterar_fase.php";
     $titulo_remover="Remover Fase";
     $titulo_alterar="Alterar Fase";
     $salvar="salvar_fase";

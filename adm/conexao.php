@@ -8,7 +8,7 @@
     $local = "localhost";
 	$bd = "bsts_librascraft";
 	$usuario = "root";
-    $senha = "";
+    $senha = "usbw";
 
 
     $conexao = mysqli_connect($local,$usuario,$senha,$bd) 

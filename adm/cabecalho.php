@@ -10,6 +10,8 @@
         <script src="js/jquery-3.5.1.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/alterar_palavra.js"></script>
+        <script src="js/alterar_fase.js"></script>
+        <script src="js/alterar_subfase.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/md5.js"></script>
     </head>

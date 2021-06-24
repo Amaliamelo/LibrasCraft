@@ -19,7 +19,7 @@ $(document).ready(function(){
                 linha += "<td class = 'nome'>" + matriz[i].nome + "</td>";
                         
                 linha += "<td>";
-                linha += "<button type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;' class='alterar_subfase' value='"+matriz[i].nome+"'><img src='img/altera.png'  height='20' width='20'></button>";
+                linha += "<button type='button' data-toggle='modal' data-target='#alterar' style='margin-right:10px;' class='alterar_subfase' value='"+matriz[i].id_subfase+"'><img src='img/altera.png'  height='20' width='20'></button>";
                 linha += "<button type='button' data-toggle='modal' data-target='#remover' class='remover_subfase' value='"+matriz[i].id_subfase+"'><img src='img/remove.png'  height='20' width='15'></button>";
                 linha += "</td>";
                 linha += "</tr>";
@@ -70,7 +70,7 @@ $(document).ready(function(){
 <?php
 
     $remover="remover_subfase";
-    $nome_form="SUBFASE/form_alterar_subfase.php";
+    $nome_form="SUBFASES/form_alterar_subfase.php";
     $titulo_remover="Remover Subfases";
     $titulo_alterar="Alterar Subfases";
     $salvar="salvar_subfase";
