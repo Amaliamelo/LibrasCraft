@@ -16,6 +16,7 @@
      $matriz[]=$linha;
     }
 
+  
     echo json_encode($matriz);
     
     /*switch($POST["aux"]){

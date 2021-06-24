@@ -1,11 +1,6 @@
 <?php
     header("Content-type: application/json");
-    //session_start();
     include "conexao.php";
-
-    //$cod_fase= $_POST["cod_fase"];
-
-    //$cod_fase=1;
 
 
     $sql = "SELECT fase.nome AS nome_fase, subfase.nome, subfase.id_subfase, subfase.cod_fase FROM subfase 
@@ -17,7 +12,7 @@
             $fase = $_POST["cod_fase"];
 
             $sql .= " AND cod_fase = '$fase' ";
-        }     
+        }   
     }
 
     $resultado = mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
@@ -26,7 +21,6 @@
         $matriz[]=$linha;
     }
     
-    //print_r($cod_fase);
     
     echo json_encode($matriz);
 

@@ -32,8 +32,8 @@ function carrega_subfase(){
 		cod_fase=$("select[name='cod_fase']").val();
 		console.log(cod_fase);
 
-		//chega aqui com o id certo
 		$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
+			console.log(dados);
 			if(dados!=null)
 			{
 				$("#subfase").html("<option selected value='0'>Subfase</option>"); //select vazio
@@ -174,41 +174,6 @@ function remover(i, c, t){
 		});
 }
 
-//ALTERAR PALAVRA---------------------------------------------------------
-$(document).on('click', '.alterar_palavra', function (event) {
-	i=$(this).val();
-	console.log(i);
-	c="id_palavra";
-	t="palavra";
-	aux=0;
-	$.post("seleciona.php", {tabela:t, coluna:c, id:i }, function(r){
-		console.log(r[0].cod_subfase);
-	
-		$("input[name='palavra']").val(r[0].palavra);
-		$("input[name='video_sinal']").val(r[0].video_sinal);
-	});
-	
-	
-});
-$("#confirmar_alterar").click(function(){
-	palavra = $("input[name='palavra']").val();
-	video_sinal = $("input[name='video_sinal']").val();
-	valores = [];
-	valores[0]=palavra;
-	valores[1]=video_sinal;
-	console.log(valores[0]);
-	console.log(valores[1]);
-	alterar(i, c, t, valores, aux);
-});
-function alterar(i, c, t, valores, aux){
-	$.post("alterar.php", {tabela:t, coluna:c, id:i, valores:valores}, function(r){
-		console.log(valores[0]);
-		console.log(valores[1]);
-	});
-
-	
-	
-}
 
 
 //FILTRO PALAVRA ...................................................................................

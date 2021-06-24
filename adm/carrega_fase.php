@@ -13,8 +13,6 @@
             $fase = $_POST["cod_fase"];
 
             $sql .= " AND id_fase = '$fase' ";
-        }else{
-        
         }
     }
     $sql .= " ORDER BY nome";
