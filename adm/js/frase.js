@@ -1,7 +1,6 @@
 $(document).ready(function(){
     var frase_id = new Array();
     var frase_texto = new Array();
-    var i=0;
 //SELECT PALAVRA----------------------------------------------------
 $("select[name='cod_subfase_frase']").change(function(){
 	subfase=$("select[name='cod_subfase_frase']").val();
@@ -58,41 +57,87 @@ $("select[name='cod_fase_frase']").change(function(){
 //INPUT FRASE----------------------------------------------------------------------
 $("#pronome_frase").change(function(){
     frase_id[0]=$("select[name='pronome_frase']").val();
-    frase_texto[i] = $("#pronome_frase :selected").text();
+    frase_texto[0] = $("#pronome_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
-    i++;
+	console.log(frase_id);
+	console.log(frase_texto);
 });
 $("#verbo_frase").change(function(){
-    frase[1]=$("select[name='verbo_frase']").val();
-    frase_texto[i]= $("#verbo_frase :selected").text();
+    frase_id[1]=$("select[name='verbo_frase']").val();
+    frase_texto[1]= $("#verbo_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
-    i++;
+	console.log(frase_id);
+	console.log(frase_texto);
 });
 $("#palavra_frase").change(function(){
-    frase[2]=$("select[name='palavra_frase']").val();
-    frase_texto[i]= $("#palavra_frase :selected").text();
+    frase_id[2]=$("select[name='palavra_frase']").val();
+    frase_texto[2]= $("#palavra_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
+	console.log(frase_id);
+	console.log(frase_texto);
 
 
 });
 
 
 //CADASTRA FRASE ------------------------------------------------
-$("#btn_cadastra_frase").click(function(){
-	var palavra=$("select[name='cod_palavra']").val();
+$(".btn_cadastra_frase").click(function(){
+	var subfase=$("#subfase_frase").val();
 	var frase=$("input[name='frase']").val();
 	var video_frase=$("input[name='video_sinal_frase']").val();
+	console.log(subfase);
+	console.log(frase);
+	console.log(video_frase);
 
-	$.post("insere_frase.php", {palavra:palavra, frase:frase, video_frase:video_frase}, function(dados){
+
+	$.post("insere_frase.php", {subfase:subfase, frase:frase, video_frase:video_frase}, function(dados){
+		console.log(dados);
 		if(dados==1)
-		{			
-			$("#status").html("FRASE CADASTRADA COM SUCESSO!")
-			$("#status").css("color","green");
-			$("#status").css("text-align","center");
-			setTimeout(function(){ 
-				jQuery('#fechar')[0].click();
-				$(".msg_cad").html("")
-			}, 20000);
+		{	
+			$.post("carrega_frase.php",{frase:frase}, function(d){
+				console.log(d);
+				cod_frase = d[0].id_frase;
+
+				for(i=0;i<frase_id.length;i++){
+					cod_palavra=frase_id[i];
+
+					if(cod_palavra!=""){
+					console.log(cod_palavra);
+					$.post("insere_frase_palavra.php", {cod_frase:cod_frase, cod_palavra:cod_palavra}, function(f){
+						console.log(f);
+						if(f==1){
+							$("#status").html("FRASE CADASTRADA COM SUCESSO!")
+							$("#status").css("color","green");
+							$("#status").css("text-align","center");
+							setTimeout(function(){ 
+								jQuery('#close')[0].click();
+								$(".msg_cad").html("")
+							}, 20000);
+						}
+						else{
+							$("#status").html("ERRO AO CADASTRAR")
+							$("#status").css("color","red");
+							$("#status").css("text-align","center");
+							setTimeout(function(){ 
+								jQuery('#fechar')[0].click();
+								$(".msg_cad").html("")
+							}, 20000);
+						}
+						
+
+					});
+					}
+					
+
+				}
+			});
+			
+			
+			/*d_frase
+			for(até 3){
+				pega cod_palavra dentro do vetor frase_id
+				grava no banco cod_palavra + id_frase 
+			}*/
 		}
 		else
 		{

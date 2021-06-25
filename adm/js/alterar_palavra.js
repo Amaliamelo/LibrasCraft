@@ -10,12 +10,10 @@ $(document).on('click', '.alterar_palavra', function () {
 		$("input[name='id_palavra_alterar']").val(a.id_palavra);
 
 		cod_subfase = a.cod_subfase;
-		console.log(cod_subfase);
 
 		$.post("PALAVRAS/carrega_fase.php", {"cod_subfase":cod_subfase}, function(fase){
 
 			$("#fase_alterar").val(fase[0].id_fase);
-			console.log(fase);
 
 			cod_fase=fase[0].id_fase;
 			$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
@@ -39,10 +37,9 @@ $(document).on('click', '.alterar_palavra', function () {
 			});
 			$("#fase_alterar").change(function(){
 				cod_fase=$("select[name='cod_fase_alterar']").val();
-				console.log(cod_fase);
 
 				$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
-					console.log(dados);
+			
 					if(dados!=null)
 					{
 						$("#subfase_alterar").html("<option selected value='0'>Subfase</option>"); //select vazio
@@ -75,9 +72,6 @@ $(document).on('click', '.alterar_palavra', function () {
             aux:0
         };
     
-        console.log(c);
-        console.log(t);
-        console.log(atualizar);
 
     	$.post("alterar.php", {tabela:t, coluna:c, atualizar:atualizar}, function(r){
             $("#status").html("PALAVRA ALTERADA COM SUCESSO!");

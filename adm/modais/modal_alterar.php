@@ -8,6 +8,7 @@
             </button>
         </div>
         <div class="modal-body">
+            <div id = "status"></div>
             <?php include $nome_form;?>
         </div>
         <div class="modal-footer">

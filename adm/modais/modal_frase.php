@@ -76,7 +76,7 @@
                     </div>
                     <br/>
                     <!-- BOTAO CADASTRAR -->
-                        <button class="btn_cadastra btn btn-lg btn-secondary btn-block text-uppercase" id="btn_cadastra_frase">Cadastrar</button>
+                        <button class="btn_cadastra_frase btn btn-lg btn-secondary btn-block text-uppercase"  type="button" id="btn_cadastra_frase">Cadastrar</button>
                         <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="frases_cadastradas.php" id="frases_cadastradas">Frases Cadastradas</a>
                    
                         <div id = "status"></div>

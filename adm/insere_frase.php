@@ -1,19 +1,18 @@
 <?php
 		
     include("conexao.php");
-    $palavra = $_POST["palavra"];
+    $subfase = $_POST["subfase"];
     $frase = $_POST["frase"];
     $video_frase = $_POST["video_frase"];
     
     
     
     $insert =
-    "INSERT INTO frase(frase,video_frase,cod_palavra)
+    "INSERT INTO frase(frase,video_frase,cod_subfase)
             VALUES
-        ('$palavra','$video_frase','$cod_palavra')";
+        ('$frase','$video_frase','$subfase')";
 
-    mysqli_query($conexao,$insert) or die("ERRO AO INSERIR");
+    mysqli_query($conexao,$insert) or die($insert);
     
-    
-        echo "1";
+    echo "1";
 ?>
