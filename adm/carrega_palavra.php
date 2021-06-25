@@ -3,8 +3,6 @@
 
     include("conexao.php");
 
-    //$p= $_POST["pg"];
-
     $sql = "SELECT fase.nome as nome_fase, subfase.nome as nome_subfase, palavra, video_sinal, id_palavra FROM palavra
             INNER JOIN subfase ON palavra.cod_subfase=subfase.id_subfase INNER JOIN fase ON subfase.cod_fase=fase.id_fase";
 
@@ -30,13 +28,7 @@
         }  
     }
     $sql .= " ORDER BY palavra";
-    /*if(isset($_POST["nome_filtro"]))
-    {
-        print_r($_POST["nome_filtro"]);
-        $nome = $_POST["nome_filtro"];
-        $sql .= " WHERE palavra LIKE '%$nome%'";
-    }*/
-    //$sql .= " ORDER BY cod_fase LIMIT $p,5";
+
     $resultado = mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
     while($linha=mysqli_fetch_assoc($resultado))
     {

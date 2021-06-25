@@ -1,9 +1,3 @@
-<?php
-$consulta_fase = "SELECT * FROM fase ORDER BY nome ";
-$resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
-
-?>
-
 <div class="modal fade" id="modal_frase" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -15,11 +9,14 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
             </div>
             <div class="modal-body">
                 <div class="msg"></div>
-                <form  id="form_login">
-                    <!-- NIVEL -->
+                <form  id="form_frase">
+                    <!-- FASE -->
                     <select class="custom-select" id ="fase" name ="cod_fase_frase">
                         <option>Fase</option>
                         <?php
+                            $consulta_fase = "SELECT * FROM fase ORDER BY nome ";
+                            $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
+
                             while($linha=mysqli_fetch_assoc($resultado_fase)){
                                 $fk_fase = $linha["id_fase"];
                                 $fase = $linha["nome"];
@@ -28,16 +25,49 @@ $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
                         ?>
                     </select>
                     <br/><br/>
-                    <!--SUBNIVEL -->
-                    <select class="custom-select" id ="subfase_frase" name ="cod_subfase">
+                    <!--SUBFASE -->
+                    <select class="custom-select" id ="subfase_frase" name ="cod_subfase_frase">
                         <option selected>Subfase</option>
                     </select>
                     <br/><br/>
+                    <!-- PRONOME -->
+                    <select class="custom-select" id ="pronome_frase" name ="pronome_frase">
+                        <option>Pronome</option>
+                        <?php
+                            $consulta_pronome= "SELECT id_palavra, palavra FROM `palavra` WHERE cod_subfase = '9' ORDER BY palavra";
+                            $resultado_pronome = mysqli_query($conexao,$consulta_pronome) or die ("Erro Fase");
+
+                            while($linha=mysqli_fetch_assoc($resultado_pronome)){
+                                $fk_pronome = $linha["id_palavra"];
+                                $pronome = $linha["palavra"];
+                                echo "<option value='$fk_pronome'>$pronome</option>";
+                            }
+                        ?>
+                    </select>
+                    <br/><br/>
+                    <!-- VERBO -->
+                    <select class="custom-select" id ="verbo_frase" name ="verbo_frase">
+                        <option>Verbo</option>
+                        <?php
+                            $consulta_verbo = "SELECT id_palavra, palavra FROM `palavra` WHERE cod_subfase = '10' ORDER BY palavra";
+                            $resultado_verbo = mysqli_query($conexao,$consulta_verbo) or die ("Erro Fase");
+
+                            while($linha=mysqli_fetch_assoc($resultado_verbo)){
+                                $fk_verbo = $linha["id_palavra"];
+                                $verbo = $linha["palavra"];
+                                echo "<option value='$fk_verbo'>$verbo</option>";
+                            }
+                        ?>
+                    </select>
+                    <br/><br/>
                     <!-- PALAVRA -->
+                    <select class="custom-select" id ="palavra_frase" name ="palavra_frase">
+                        <option>Palavra</option>
+                    </select>
                     <br/><br/>
                     <!-- FRASE  -->
                     <div class="form-label-group" style="color:#828282;">
-                         <input type="text" id="frase_parte1" class="form-control" name = "frase_parte1" placeholder="Frase" >
+                         <input type="text" class="form-control" id="frase" name = "frase" placeholder="Frase" >
                     </div>
                     <br/>
                     <!-- VIDEO SINAL -->

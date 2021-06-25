@@ -183,31 +183,7 @@ $("input[name='nome_filtro']").keyup(function(){
 $("select[name='cod_fase']").change(function(){
 	carrega_subfase();
 });
-$("select[name='cod_fase_frase']").change(function(){
-	cod_fase=$("select[name='cod_fase_frase']").val();
-	console.log(cod_fase);
 
-	$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
-		if(dados!=null)
-		{
-			$("#subfase_frase").html("<option selected value='0'>Subfase</option>"); //select vazio
-			for(i=0;i<dados.length;i++) 
-			{
-				atual = $("#subfase_frase").html(); // recebe o valor do subfase
-				option="<option value='" + dados[i].id_subfase + "'>" + dados[i].nome + "</option>"; 
-				$("#subfase_frase").html(atual+option);
-			}
-			
-		}else
-		{
-			$("#status").html("ERRO");
-			$("#status").css("color","red");
-			$("#status").css("text-align","center");
-		}
-		filtro_palavra();
-
-	});
-});
 $("select[name='cod_subfase']").change(function(){
 	filtro_palavra();
 });
@@ -260,9 +236,9 @@ $("#btn_cadastra_subfase").click(function(){
 			$("#status").css("color","green");
 			$("#status").css("text-align","center");
 			setTimeout(function(){ 
-				jQuery('#fechar')[0].click();
+				jQuery('.close').click();
 				$(".msg_cad").html("")
-			}, 20000);
+			});
 		}
 		else
 		{
@@ -333,37 +309,7 @@ $("#btn_cadastra_fase").click(function(){
 	});
 });
 
-//CADASTRA FRASE ------------------------------------------------
-$("#btn_cadastra_frase").click(function(){
-	var palavra=$("select[name='cod_palavra']").val();
-	var frase=$("input[name='frase']").val();
-	var video_frase=$("input[name='video_sinal_frase']").val();
 
-	$.post("insere_frase.php", {palavra:palavra, frase:frase, video_frase:video_frase}, function(dados){
-		if(dados==1)
-		{			
-			$("#status").html("FRASE CADASTRADA COM SUCESSO!")
-			$("#status").css("color","green");
-			$("#status").css("text-align","center");
-			setTimeout(function(){ 
-				jQuery('#fechar')[0].click();
-				$(".msg_cad").html("")
-			}, 20000);
-		}
-		else
-		{
-			$("#status").html("ERRO AO CADASTRAR")
-			$("#status").css("color","red");
-			$("#status").css("text-align","center");
-			setTimeout(function(){ 
-				jQuery('#fechar')[0].click();
-				$(".msg_cad").html("")
-			}, 20000);
-		}
-
-		
-	});
-});
 
 
 });

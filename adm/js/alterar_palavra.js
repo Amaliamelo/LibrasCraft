@@ -80,7 +80,13 @@ $(document).on('click', '.alterar_palavra', function () {
         console.log(atualizar);
 
     	$.post("alterar.php", {tabela:t, coluna:c, atualizar:atualizar}, function(r){
-            console.log(r);
+            $("#status").html("PALAVRA ALTERADA COM SUCESSO!");
+			$("#status").css("color","green");
+			$("#status").css("text-align","center");
+			setTimeout(function(){ 
+				jQuery('.close').click();
+				$(".msg_cad").html("")
+			});
         });
     });
 	
