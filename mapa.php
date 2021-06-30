@@ -2,7 +2,11 @@
     include "cabecalho.php";
     include "conexao.php";
 ?>
-    <?php include "menu.php";?>
+    <?php include "menu.php";
+    
+    
+    
+    ?>
 
 
     <main class="bodyMapa">
@@ -11,7 +15,7 @@
                 <img id="btn-mensagem-abc" src="img/icones/mapa/abc.png" data-toggle="modal" data-target="#modal-abc">
             </div>
             <div class=" row casa"><!-- IMAGEM/BOTAO CASA -->
-                <img id="btn-casa" src="img/icones/mapa/casa.png" onclick ="location.href='CASA/submapa_casa.php'">
+                <img id="btn-casa" src="img/icones/mapa/casa.png" onclick ="location.href='INTRODUCAO/submapa.php?fase=1'">
            </div>
     </div>
     <?php

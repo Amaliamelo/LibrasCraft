@@ -98,34 +98,39 @@ $(".btn_cadastra_frase").click(function(){
 				console.log(d);
 				cod_frase = d[0].id_frase;
 
+
 				for(i=0;i<frase_id.length;i++){
-					cod_palavra=frase_id[i];
 
-					if(cod_palavra!=""){
+					if(frase_id[i]==undefined){
+						cod_palavra=0;
+					}
+					else{
+						cod_palavra=frase_id[i];
+					}
+
 					console.log(cod_palavra);
-					$.post("insere_frase_palavra.php", {cod_frase:cod_frase, cod_palavra:cod_palavra}, function(f){
-						console.log(f);
-						if(f==1){
-							$("#status").html("FRASE CADASTRADA COM SUCESSO!")
-							$("#status").css("color","green");
-							$("#status").css("text-align","center");
-							setTimeout(function(){ 
-								jQuery('#close')[0].click();
-								$(".msg_cad").html("")
-							}, 20000);
-						}
-						else{
-							$("#status").html("ERRO AO CADASTRAR")
-							$("#status").css("color","red");
-							$("#status").css("text-align","center");
-							setTimeout(function(){ 
-								jQuery('#fechar')[0].click();
-								$(".msg_cad").html("")
-							}, 20000);
-						}
-						
 
-					});
+					if(cod_palavra!=0){
+						console.log(cod_palavra);
+						$.post("insere_frase_palavra.php", {cod_frase:cod_frase, cod_palavra:cod_palavra}, function(f){
+							console.log(f);
+							if(f=="1"){
+								$("#status_frase").html("FRASE CADASTRADA COM SUCESSO!")
+								$("#status_frase").css("color","green");
+								$("#status_frase").css("text-align","center");
+								setTimeout(function(){ 
+									jQuery('#close_frase')[0].click();
+								}, 20000);
+							}
+							else{
+								$("#status_frase").html("ERRO AO CADASTRAR")
+								$("#status_frase").css("color","red");
+								$("#status_frase").css("text-align","center");
+								setTimeout(function(){ 
+									jQuery('#close_frase')[0].click();
+								}, 20000);
+							}
+						});
 					}
 					
 

@@ -3,8 +3,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="color:#828282;">Frases</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <button type="button" class="close" id="close_frase" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -79,7 +79,7 @@
                         <button class="btn_cadastra_frase btn btn-lg btn-secondary btn-block text-uppercase"  type="button" id="btn_cadastra_frase">Cadastrar</button>
                         <a class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" href="frases_cadastradas.php" id="frases_cadastradas">Frases Cadastradas</a>
                    
-                        <div id = "status"></div>
+                        <div id = "status_frase"></div>
                 </form>
             </div>
         

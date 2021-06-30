@@ -1,4 +1,5 @@
 <?php
+    session_cache_expire(10000000);
     session_start();
     if (!isset($_SESSION[ "autorizado" ]))
     {

@@ -80,7 +80,8 @@ $(document).on('click', '.alterar_palavra', function () {
 			setTimeout(function(){ 
 				jQuery('.close').click();
 				$(".msg_cad").html("")
-			});
+			}, 40000);
+			location.reload();
         });
     });
 	

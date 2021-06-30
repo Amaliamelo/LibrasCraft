@@ -9,7 +9,7 @@
     $insert =
     "INSERT INTO frase_palavra(cod_frase,cod_palavra)
             VALUES
-        ('$cod_frase','$cod_palavraa')";
+        ('$cod_frase','$cod_palavra')";
 
     mysqli_query($conexao,$insert) or die($insert);
     

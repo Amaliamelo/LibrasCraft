@@ -3,6 +3,10 @@
     include "../ABC/cabecalho_abc.php";
     include "../ABC/menu_abc.php";
 
+    //$fase=$_GET["fase"];
+
+    //$sql = "SELECT * FROM subfase WHERE cod_fase=$fase";
+
 ?>
 <!-- IMAGEM/BOTAO SALA -->
 <main class="bodyCASA">
@@ -12,7 +16,7 @@
                     <img id="btn-mensagem-sala" src="../img/icones/submapa_casa/sala.png" data-toggle="modal" data-target="#modal-mensagem-sala">
                 </div>   
             </div>    
-    </div>
+    </div>"
 
 <!-- CONTEUDO MODAL SALA -->
 <div class="modal fade" id="modal-mensagem-sala"> 
@@ -25,7 +29,13 @@
                 <br />
                 <button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='introducao.php?pagina=1'"> Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=1'">Atividades</button>
- 
+
+                <?php
+                //selecionar tabela usuario_subfase --- cod_usuario == usuario sessão e cod_subfase == 1 
+                //se existir --- habilitar botão
+                
+                
+                ?>
              </div>
              <div class="modal-footer">
                  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
