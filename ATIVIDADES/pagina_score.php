@@ -5,7 +5,7 @@
  $primeiro = true;
  
  echo '	<!-- A - div principal-->
- <main class="body'.$linha["nome"].'" style="height:100%;">
+ <main class="body'.$linha["nome"].'" >
     <div class="container align-middle" >
      <!-- B (filha da principal - A)-->
      <div class="row justify-content-center">
@@ -42,6 +42,9 @@
                 </tr>';
         $fase_anterior = $fase_atual;
     }
+
+   
+
     $subfase_atual = $linha["subfase"];
     if($subfase_anterior!=$subfase_atual){
         
@@ -53,10 +56,22 @@
             $status_fase="green";
             $msg_status = "<h1>APROVADO</h1>";
 
-            //desabilitar frase
-            //tabela usuario_subfase - cod_usuario,cod_subfase
-            //selecionar no banco se não existir cod_usuario e cod_subfase -- inserir
-            //se inserir --- abilitar botão frase 
+            $usuario_seleciona=$_SESSION["autorizado"];
+            $subfase_seleciona=$linha['id_subfase'];
+            $qtd_acerto_seleciona=$acerto_subfase_usuario[$linha["id_subfase"]];
+
+            $seleciona = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase=$subfase_seleciona";
+	        $resultado_seleciona = mysqli_query($conexao,$seleciona) or  die(mysqli_error($conexao));
+            if(mysqli_num_rows($resultado_seleciona)==0){
+                $insert = "INSERT INTO usuario_subfase(cod_usuario,cod_subfase,qtd_acertos) VALUES (
+                    '$usuario_seleciona',
+                    '$subfase_seleciona',
+                    '$qtd_acerto_seleciona'
+                    )";
+                mysqli_query($conexao,$insert)
+                or die(mysqli_error($conexao).$insert);
+
+            }
             
         }
         else{
