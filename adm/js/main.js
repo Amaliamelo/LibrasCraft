@@ -30,10 +30,8 @@ $(document).ready(function(){
 	
 function carrega_subfase(){	 
 		cod_fase=$("select[name='cod_fase']").val();
-		console.log(cod_fase);
 
 		$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
-			console.log(dados);
 			if(dados!=null)
 			{
 				$("#subfase").html("<option selected value='0'>Subfase</option>"); //select vazio
@@ -51,6 +49,15 @@ function carrega_subfase(){
 				$("#status").css("text-align","center");
 			}
 			filtro_palavra();
+			/*if(typeof(funcao) != "undefined"){
+				if(funcao == "palavra"){
+					filtro_palavra();
+				}if( funcao == "frase"){
+					filtro_frase();
+				}
+			}*/
+			
+			
 
 		});
 }
@@ -64,7 +71,6 @@ $(".btn_cadastra").click(function(){
 	video_sinal=$("input[name='video_sinal']").val();
 	$.post("insere_palavra.php", {"subnivel":subnivel, "palavra":palavra, "video_sinal":video_sinal }, function(data){
 		
-		console.log(data);
 		if(data==1)
 		{
 			
@@ -140,7 +146,7 @@ function tabela_palavras_cadatradas(matriz){
 		});
 		
 	});
-// AÇÃO - BOTÃO REMOVER FASE --------------------------
+// AÇÃO - BOTÃO REMOVER SUBFASE --------------------------
 $(document).on('click', '.remover_subfase', function (event) {
 	i=$(this).val();
 	
@@ -155,7 +161,6 @@ $(document).on('click', '.remover_subfase', function (event) {
 
 // REMOVER  --------------------------------------------------------
 function remover(i, c, t){
-	console.log(i);
 		$.post("remove.php", {tabela:t, coluna:c, id:i }, function(data){
 			
 
@@ -202,7 +207,6 @@ function filtro_palavra(){
 //FILTRO SUBFASE --------------------------------------------------------
 $("select[name='cod_fase_subfase']").change(function(){
 	var cod_fase=$("select[name='cod_fase_subfase']").val();
-	console.log(cod_fase);
 	$.post("carrega_subfase.php",{cod_fase:cod_fase}, function(matriz){
 		$("#tb").html("");
 		for (i=0;i<matriz.length;i++)
@@ -225,11 +229,8 @@ $("select[name='cod_fase_subfase']").change(function(){
 $("#btn_cadastra_subfase").click(function(){
 	var fase=$("select[name='fase_subfase']").val();
 	var subfase=$("input[name='subfase']").val();
-	console.log(fase);
-	console.log(subfase);
 
 	$.post("insere_subfase.php", {fase:fase, subfase:subfase}, function(dados){
-		console.log(dados);
 		if(dados==1)
 		{			
 			$("#status").html("SUBFASE CADASTRADO COM SUCESSO!")
@@ -261,7 +262,6 @@ $("select[name='cod_fase_fase']").change(function(){
 	var cod_fase=$("select[name='cod_fase_fase']").val();
 	
 	$.post("carrega_fase.php",{cod_fase:cod_fase}, function(matriz){
-		console.log(matriz);
 		$("#tb").html("");
 		for (i=0;i<matriz.length;i++)
 		{
