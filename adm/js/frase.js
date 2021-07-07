@@ -1,15 +1,10 @@
 $(document).ready(function(){
     var frase_id = new Array();
-    var frase_texto = new Array();
-//SELECT PALAVRA----------------------------------------------------
-$("select[name='cod_subfase_frase']").change(function(){
-	subfase=$("select[name='cod_subfase_frase']").val();
-	fase=$("select[name='cod_fase_frase']").val();
-	nome_filtro="";
-
+	var frase_texto = new Array();
+	
+function carrega_palavra(subfase, fase, nome_filtro){
 	$.post("carrega_palavra.php", {"subfase":subfase, fase:fase, nome_filtro:nome_filtro}, function(dados){
-		console.log(dados);
-
+		
 		if(dados!=null)
 		{
 			$("#palavra_frase").html("<option selected value='0'>Palavra</option>"); //select vazio
@@ -18,6 +13,7 @@ $("select[name='cod_subfase_frase']").change(function(){
 				atual = $("#palavra_frase").html(); // recebe o valor do subfase
 				option="<option value='" + dados[i].id_palavra + "'>" + dados[i].palavra + "</option>"; 
 				$("#palavra_frase").html(atual+option);
+				console.log(option);
 			}
 			
 		}else
@@ -27,7 +23,14 @@ $("select[name='cod_subfase_frase']").change(function(){
 			$("#status").css("text-align","center");
 		}
 	});
-
+}
+//SELECT PALAVRA----------------------------------------------------
+$("select[name='cod_subfase_frase']").change(function(){
+	subfase=$("select[name='cod_subfase_frase']").val();
+	fase=$("select[name='cod_fase_frase']").val();
+	nome_filtro="";
+	
+	carrega_palavra(subfase, fase, nome_filtro);
 });
 //SELECT SUBFASE ---------------------------------------------------------------------
 $("select[name='cod_fase_frase']").change(function(){
@@ -59,24 +62,16 @@ $("#pronome_frase").change(function(){
     frase_id[0]=$("select[name='pronome_frase']").val();
     frase_texto[0] = $("#pronome_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
-	// console.log(frase_id);
-	// console.log(frase_texto);
 });
 $("#verbo_frase").change(function(){
     frase_id[1]=$("select[name='verbo_frase']").val();
     frase_texto[1]= $("#verbo_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
-	// console.log(frase_id);
-	// console.log(frase_texto);
 });
 $("#palavra_frase").change(function(){
     frase_id[2]=$("select[name='palavra_frase']").val();
     frase_texto[2]= $("#palavra_frase :selected").text();
     $("input[name='frase']").val(frase_texto);
-	// console.log(frase_id);
-	// console.log(frase_texto);
-
-
 });
 
 
@@ -85,17 +80,12 @@ $(".btn_cadastra_frase").click(function(){
 	var subfase=$("#subfase_frase").val();
 	var frase=$("input[name='frase']").val();
 	var video_frase=$("input[name='video_sinal_frase']").val();
-	// console.log(subfase);
-	// console.log(frase);
-	// console.log(video_frase);
 
 
 	$.post("insere_frase.php", {subfase:subfase, frase:frase, video_frase:video_frase}, function(dados){
-		// console.log(dados);
 		if(dados==1)
 		{	
 			$.post("carrega_frase.php",{frase:frase}, function(d){
-				// console.log(d);
 				cod_frase = d[0].id_frase;
 
 
@@ -108,12 +98,8 @@ $(".btn_cadastra_frase").click(function(){
 						cod_palavra=frase_id[i];
 					}
 
-					//console.log(cod_palavra);
-
 					if(cod_palavra!=0){
-						//console.log(cod_palavra);
 						$.post("insere_frase_palavra.php", {cod_frase:cod_frase, cod_palavra:cod_palavra}, function(f){
-							//console.log(f);
 							if(f=="1"){
 								$("#status_frase").html("FRASE CADASTRADA COM SUCESSO!")
 								$("#status_frase").css("color","green");
@@ -224,7 +210,6 @@ $("input[name='nome_filtro_frase_filtro']").keyup(function(){
 });
 $("select[name='cod_fase']").change(function(){
 	carrega_subfase_frase();
-	console.log("fase - frase_filtro");
 });
 
 $("select[name='cod_subfase']").change(function(){
@@ -235,10 +220,7 @@ function filtro_frase(){
 	var nome_filtro=$("input[name='nome_filtro_frase_filtro']").val();
 	var fase=$("select[name='cod_fase']").val();
 	var subfase=$("select[name='cod_subfase']").val();
-	console.log(nome_filtro);
-	console.log(fase);
 	$.post("carrega_frase_filtro.php", {nome_filtro:nome_filtro, fase:fase, subfase:subfase }, function(matriz){
-		console.log(matriz);
 		tabela_frases_cadatradas(matriz);
 	});
 }
@@ -246,7 +228,6 @@ function filtro_frase(){
 // AÇÃO - BOTÃO REMOVER FRASE --------------------------
 $(document).on('click', '.remover_frase', function (event) {
 	i=$(this).val();
-	console.log(i);
 	$("#confirmar_remover").click(function(){
 		c="id_frase";
 		t="frase";
@@ -256,7 +237,6 @@ $(document).on('click', '.remover_frase', function (event) {
 });
 function remover_frase(i, c, t){
 	$.post("remove.php", {tabela:t, coluna:c, id:i }, function(data){
-		console.log(data);
 		if(data == "1"){
 			$("#status").html("FRASE REMOVIDA!")
 			$("#status").css("color","green");
@@ -314,7 +294,7 @@ $(document).on('click', '.alterar_frase', function () {
 				cod_fase=$("select[name='cod_fase_frase_alterar']").val();
 
 				$.post("carrega_subfase.php", {"cod_fase":cod_fase}, function(dados){
-			
+					
 					if(dados!=null)
 					{
 						$("#cod_subfase_frase_alterar").html("<option selected value='0'>Subfase</option>"); //select vazio
@@ -334,9 +314,53 @@ $(document).on('click', '.alterar_frase', function () {
 
 				});
 			});
-			/*$.post("FRASES/carrega_palavras_frase.php", {"id_frase":a.id_frase}, function(palavras){
-						// select tabela frase_palavra -> pegar as palavras que compõem a frase
-			});*/
+			//SELECT PRONOME
+			$.post("FRASES/carrega_pronome_frase.php", {id_frase:i, cod_subfase:cod_subfase}, function(resultado_pronome){
+				if(resultado_pronome!=null)
+				{
+					$("#pronome_frase_alterar").val(resultado_pronome[0].id_palavra);
+				}else
+				{
+					$("#status").html("ERRO");
+					$("#status").css("color","red");
+					$("#status").css("text-align","center");
+				}
+				
+			});
+			//SELECT VERBO
+			$.post("FRASES/carrega_verbo_frase.php", {id_frase:i, cod_subfase:cod_subfase}, function(resultado_verbo){
+				//console.log(resultado_verbo);
+				if(resultado_verbo!=null)
+				{
+					$("#verbo_frase_alterar").val(resultado_verbo[0].id_palavra);
+				}else
+				{
+					$("#status").html("ERRO");
+					$("#status").css("color","red");
+					$("#status").css("text-align","center");
+				}
+				
+			});
+			//SELECT PALAVRA
+			subfase=cod_subfase;
+			fase=fase[0].id_fase;
+			nome_filtro="";
+			carrega_palavra(subfase, fase, nome_filtro);
+			$.post("FRASES/carrega_palavra_frase.php", {id_frase:i, cod_subfase:cod_subfase}, function(resultado_palavra){
+				
+				console.log(resultado_palavra);
+				if(resultado_palavra!=null)
+				{
+					console.log(resultado_palavra[0].id_palavra);
+					$("#palavra_frase").val(resultado_palavra[0].id_palavra);
+				}else
+				{
+					$("#status").html("ERRO");
+					$("#status").css("color","red");
+					$("#status").css("text-align","center");
+				}
+				
+			});
 		});
 		
 	});

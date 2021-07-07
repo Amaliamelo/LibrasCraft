@@ -50,7 +50,7 @@
     </select>
     <br/><br/>
     <!-- PALAVRA -->
-    <select class="custom-select" id ="palavra_frase_alterar" name ="palavra_frase_alterar">
+    <select class="custom-select" id ="palavra_frase" name ="palavra_frase">
         <option>Palavra</option>
     </select>
     <br/><br/>

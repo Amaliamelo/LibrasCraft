@@ -12,7 +12,7 @@ $(document).ready(function(){
     function atualiza_tabela(){
         $.post("carrega_frase.php", function(matriz){
 		$("#tb").html("");
-		for (i=0;i<matriz.length;i++) // --------------------ARRUMARRRRRRR-------------------------------------------------
+		for (i=0;i<matriz.length;i++) 
 		{
 			linha = "<tr>";
 			linha += "<td class = 'cod_fase'>" + matriz[i].nome_fase + "</td>";
