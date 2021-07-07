@@ -2,17 +2,17 @@ $(document).ready(function(){
     var frase_id = new Array();
 	var frase_texto = new Array();
 	
-function carrega_palavra(subfase, fase, nome_filtro){
+function carrega_palavra(subfase, fase, nome_filtro, id){
 	$.post("carrega_palavra.php", {"subfase":subfase, fase:fase, nome_filtro:nome_filtro}, function(dados){
 		
 		if(dados!=null)
 		{
-			$("#palavra_frase").html("<option selected value='0'>Palavra</option>"); //select vazio
+			$(id).html("<option selected value='0'>Palavra</option>"); //select vazio
 			for(i=0;i<dados.length;i++) 
 			{
-				atual = $("#palavra_frase").html(); // recebe o valor do subfase
+				atual = $(id).html(); // recebe o valor do subfase
 				option="<option value='" + dados[i].id_palavra + "'>" + dados[i].palavra + "</option>"; 
-				$("#palavra_frase").html(atual+option);
+				$(id).html(atual+option);
 				console.log(option);
 			}
 			
@@ -22,6 +22,7 @@ function carrega_palavra(subfase, fase, nome_filtro){
 			$("#status").css("color","red");
 			$("#status").css("text-align","center");
 		}
+		console.log($("#palavra_frase"));
 	});
 }
 //SELECT PALAVRA----------------------------------------------------
@@ -29,8 +30,10 @@ $("select[name='cod_subfase_frase']").change(function(){
 	subfase=$("select[name='cod_subfase_frase']").val();
 	fase=$("select[name='cod_fase_frase']").val();
 	nome_filtro="";
+	id="#palavra_frase";
 	
-	carrega_palavra(subfase, fase, nome_filtro);
+	
+	carrega_palavra(subfase, fase, nome_filtro, id);
 });
 //SELECT SUBFASE ---------------------------------------------------------------------
 $("select[name='cod_fase_frase']").change(function(){
@@ -345,14 +348,14 @@ $(document).on('click', '.alterar_frase', function () {
 			subfase=cod_subfase;
 			fase=fase[0].id_fase;
 			nome_filtro="";
-			carrega_palavra(subfase, fase, nome_filtro);
+			id="#palavra_frase_alterar";
+			carrega_palavra(subfase, fase, nome_filtro, id);
 			$.post("FRASES/carrega_palavra_frase.php", {id_frase:i, cod_subfase:cod_subfase}, function(resultado_palavra){
 				
 				console.log(resultado_palavra);
 				if(resultado_palavra!=null)
 				{
-					console.log(resultado_palavra[0].id_palavra);
-					$("#palavra_frase").val(resultado_palavra[0].id_palavra);
+					$("#palavra_frase_alterar").val(resultado_palavra[0].id_palavra);
 				}else
 				{
 					$("#status").html("ERRO");
@@ -364,28 +367,38 @@ $(document).on('click', '.alterar_frase', function () {
 		});
 		
 	});
-	/*$("#confirmar_alterar").click(function(){
+	$("#confirmar_alterar").click(function(){
         atualizar = {
-            fase:$("select[name='cod_fase_alterar']").val(),
-            subfase:$("select[name='cod_subfase_alterar']").val(),
-            palavra:$("input[name='palavra_alterar']").val(),
-            video_sinal:$("input[name='video_sinal_alterar']").val(),
-            id:$("input[name='id_palavra_alterar']").val(),
-            aux:0
+            fase:$("select[name='cod_fase_frase_alterar']").val(),
+            subfase:$("select[name='cod_subfase_frase_alterar']").val(),
+			pronome:$("select[name='pronome_frase_alterar']").val(),
+			verbo:$("select[name='verbo_frase_alterar']").val(),
+			palavra:$("select[name='palavra_frase_alterar']").val(),
+			frase:$("input[name='frase_alterar']").val(),
+			video_frase:$("input[name='video_sinal_frase_alterar']").val(),
+            id:$("input[name='id_frase_alterar']").val(),
+            aux:3
         };
     
-
     	$.post("alterar.php", {tabela:t, coluna:c, atualizar:atualizar}, function(r){
-            $("#status").html("PALAVRA ALTERADA COM SUCESSO!");
-			$("#status").css("color","green");
-			$("#status").css("text-align","center");
-			setTimeout(function(){ 
-				jQuery('.close').click();
-				$(".msg_cad").html("")
-			}, 40000);
-			location.reload();
+			console.log(r);
+			if(r=="1"){
+				$("#status").html("FRASE ALTERADA COM SUCESSO!");
+				$("#status").css("color","green");
+				$("#status").css("text-align","center");
+				setTimeout(function(){ 
+					jQuery('.close').click();
+					$(".msg_cad").html("")
+				}, 40000);
+				location.reload();
+			}else{
+				$("#status").html("ERRO AO ALTERAR");
+				$("#status").css("color","red");
+				$("#status").css("text-align","center");
+			}
+           
         });
-    });*/
+    });
 	
 });
 
