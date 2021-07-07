@@ -1,36 +1,24 @@
 -- phpMyAdmin SQL Dump
-<<<<<<< HEAD
--- version 4.0.4.2
--- http://www.phpmyadmin.net
---
--- Máquina: localhost
--- Data de Criação: 15-Jun-2021 às 16:28
--- Versão do servidor: 5.6.13
--- versão do PHP: 5.4.17
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-=======
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Jun-2021 às 20:56
+-- Tempo de geração: 30-Jun-2021 às 15:33
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
->>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de Dados: `bsts_librascraft`
+-- Banco de dados: `bsts_librascraft`
 --
 
 -- --------------------------------------------------------
@@ -39,13 +27,12 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `adiministrador`
 --
 
-CREATE TABLE IF NOT EXISTS `adiministrador` (
-  `id_adm` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adiministrador` (
+  `id_adm` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_adm`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `senha` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `adiministrador`
@@ -61,11 +48,10 @@ INSERT INTO `adiministrador` (`id_adm`, `nome`, `email`, `senha`) VALUES
 -- Estrutura da tabela `fase`
 --
 
-CREATE TABLE IF NOT EXISTS `fase` (
-  `id_fase` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_fase`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+CREATE TABLE `fase` (
+  `id_fase` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `fase`
@@ -75,8 +61,8 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 (1, 'CASA'),
 (2, 'ESCOLA'),
 (3, 'RESTAURANTE'),
-(4, 'ABC 123');
-<<<<<<< HEAD
+(4, 'ABC 123'),
+(6, 'ONIBUS');
 
 -- --------------------------------------------------------
 
@@ -84,16 +70,80 @@ INSERT INTO `fase` (`id_fase`, `nome`) VALUES
 -- Estrutura da tabela `frase`
 --
 
-CREATE TABLE IF NOT EXISTS `frase` (
-  `id_frase` int(11) NOT NULL AUTO_INCREMENT,
-  `frase` varchar(500) NOT NULL,
-  `video_frase` varchar(500) NOT NULL,
+CREATE TABLE `frase` (
+  `id_frase` int(11) NOT NULL,
+  `frase` varchar(100) NOT NULL,
+  `video_frase` varchar(100) NOT NULL,
+  `cod_subfase` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `frase`
+--
+
+INSERT INTO `frase` (`id_frase`, `frase`, `video_frase`, `cod_subfase`) VALUES
+(11, 'Eu fechei a geladeria', 'xxxxxxxxxxxxxxxxxxxxxx', 2),
+(13, 'Eu peguei a almofada', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(14, 'Eu liguei o fogão', 'xxxxxxxxxxxxxxxxxxxxxx', 2),
+(15, 'Eu peguei a faca', 'xxxxxxxxxxxxxxxxxxxxxx', 2),
+(16, 'Eu deliguei o DVD', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(17, 'Eu fechei o Armario', 'xxxxxxxxxxxxxxxxxxxxxx', 2),
+(18, 'Pegue a almofada', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(20, 'Quero jogar video-game', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(21, 'Qual será o jantar?', 'xxxxxxxxxxxxxxxxxxxxxx', 2),
+(23, 'Abra a Cortina', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(24, 'Feche a porta', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(27, 'Abra a porta', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(28, 'Desligue a televisão', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(29, 'Eu ', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
+(30, 'Eu coloquei a cortina', 'xxxxxxxxxxxxxxxxxxxxxx', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `frase_palavra`
+--
+
+CREATE TABLE `frase_palavra` (
+  `id_frase_palavra` int(11) NOT NULL,
   `cod_palavra` int(11) NOT NULL,
-  PRIMARY KEY (`id_frase`),
-  KEY `cod_palavra` (`cod_palavra`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
-=======
->>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
+  `cod_frase` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `frase_palavra`
+--
+
+INSERT INTO `frase_palavra` (`id_frase_palavra`, `cod_palavra`, `cod_frase`) VALUES
+(24, 8, 17),
+(29, 16, 20),
+(20, 20, 16),
+(27, 22, 18),
+(46, 22, 29),
+(36, 23, 23),
+(49, 23, 30),
+(38, 25, 24),
+(41, 25, 27),
+(43, 28, 28),
+(17, 41, 15),
+(33, 44, 21),
+(16, 117, 15),
+(19, 117, 16),
+(22, 117, 17),
+(44, 117, 29),
+(47, 117, 30),
+(21, 119, 16),
+(42, 119, 28),
+(35, 120, 23),
+(40, 120, 27),
+(45, 120, 29),
+(23, 121, 17),
+(39, 121, 24),
+(18, 133, 15),
+(26, 133, 18),
+(30, 134, 20),
+(48, 135, 30),
+(32, 137, 21);
 
 -- --------------------------------------------------------
 
@@ -101,20 +151,12 @@ CREATE TABLE IF NOT EXISTS `frase` (
 -- Estrutura da tabela `palavra`
 --
 
-CREATE TABLE IF NOT EXISTS `palavra` (
-  `id_palavra` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `palavra` (
+  `id_palavra` int(11) NOT NULL,
   `palavra` varchar(100) NOT NULL,
   `video_sinal` varchar(500) NOT NULL,
-<<<<<<< HEAD
-  `cod_subfase` int(11) NOT NULL,
-  PRIMARY KEY (`id_palavra`),
-  UNIQUE KEY `palavra` (`palavra`),
-  KEY `cod_subfase` (`cod_subfase`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
-=======
   `cod_subfase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
->>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
 
 --
 -- Extraindo dados da tabela `palavra`
@@ -199,8 +241,8 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 (98, 'X', 'alfabeto/X.gif', 8),
 (99, 'Y', 'alfabeto/Y.gif', 8),
 (100, 'Z', 'alfabeto/Z.gif', 8),
-(101, '0', 'numeral/0.gif', 7),
-(102, '1', 'numeral/1.gif', 7),
+(101, '23', 'numeral/0.gif', 7),
+(102, '67', 'numeral/1.gif', 7),
 (103, '2', 'numeral/2.gif', 7),
 (104, '3', 'numeral/3.gif', 7),
 (105, '4', 'numeral/4.gif', 7),
@@ -208,12 +250,19 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 (107, '6', 'numeral/6.gif', 7),
 (108, '7', 'numeral/7.gif', 7),
 (109, '8', 'numeral/8.gif', 7),
-<<<<<<< HEAD
-(110, '9', 'numeral/9.gif', 7);
-=======
 (110, '9', 'numeral/9.gif', 7),
-(111, 'TESTE', 'xxxxxxxxxx', 8);
->>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
+(115, 'TESTE', 'xxxxxxxxxx', 7),
+(117, 'EU', 'xxxxxx', 9),
+(118, 'ligar', 'xxxxx', 10),
+(119, 'desligar', 'xxxx', 10),
+(120, 'abrir', 'xxxxxx', 10),
+(121, 'fechar', 'xxxxxx', 10),
+(123, 'TU', 'xxxxxxxxxx', 9),
+(133, 'pegar', 'xxxxxxxxxx', 10),
+(134, 'querer', 'xxxxxxxxxx', 10),
+(135, 'colocar', 'xxxxxxxxxx', 10),
+(137, 'ser', 'xxxxxxxxxx', 10),
+(139, 'estar', 'xxxxxxxxxx', 10);
 
 -- --------------------------------------------------------
 
@@ -221,16 +270,12 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `video_sinal`, `cod_subfase`) VA
 -- Estrutura da tabela `resposta`
 --
 
-CREATE TABLE IF NOT EXISTS `resposta` (
+CREATE TABLE `resposta` (
   `id_resposta` int(11) DEFAULT NULL,
   `resposta` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `cod_subfase` int(11) NOT NULL,
-  `cod_palavra` int(11) NOT NULL,
-  PRIMARY KEY (`resposta`,`cod_usuario`,`cod_subfase`,`cod_palavra`),
-  KEY `cod_subfase` (`cod_subfase`),
-  KEY `cod_palavra` (`cod_palavra`),
-  KEY `cod_usuario` (`cod_usuario`) USING BTREE
+  `cod_palavra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -241,20 +286,19 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 8, 54, 2, 8),
 (NULL, 8, 70, 2, 8),
 (NULL, 8, 71, 2, 8),
-(NULL, 8, 73, 2, 8),
-(NULL, 8, 73, 2, 46),
 (NULL, 8, 79, 2, 8),
 (NULL, 8, 81, 2, 8),
 (NULL, 8, 94, 2, 8),
 (NULL, 8, 125, 2, 8),
+(NULL, 8, 146, 2, 8),
 (NULL, 9, 54, 2, 9),
 (NULL, 9, 70, 2, 9),
-(NULL, 9, 73, 2, 9),
 (NULL, 9, 79, 2, 9),
 (NULL, 9, 81, 2, 9),
 (NULL, 9, 94, 2, 9),
 (NULL, 9, 125, 2, 9),
 (NULL, 9, 125, 2, 41),
+(NULL, 9, 146, 2, 9),
 (NULL, 10, 57, 4, 10),
 (NULL, 10, 70, 4, 10),
 (NULL, 10, 75, 4, 10),
@@ -263,30 +307,29 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 10, 96, 4, 10),
 (NULL, 11, 54, 2, 11),
 (NULL, 11, 70, 2, 11),
-(NULL, 11, 73, 2, 11),
 (NULL, 11, 79, 2, 11),
 (NULL, 11, 81, 2, 11),
 (NULL, 11, 94, 2, 11),
+(NULL, 11, 146, 2, 38),
 (NULL, 12, 54, 3, 12),
 (NULL, 12, 70, 3, 12),
 (NULL, 12, 79, 3, 12),
 (NULL, 12, 81, 3, 12),
 (NULL, 12, 94, 3, 12),
+(NULL, 12, 146, 3, 12),
 (NULL, 15, 54, 1, 15),
 (NULL, 15, 69, 1, 15),
 (NULL, 15, 70, 1, 15),
-(NULL, 15, 73, 1, 15),
-(NULL, 15, 73, 1, 28),
 (NULL, 15, 79, 1, 15),
 (NULL, 15, 81, 1, 15),
 (NULL, 15, 82, 1, 15),
 (NULL, 15, 94, 1, 15),
 (NULL, 15, 101, 1, 15),
 (NULL, 15, 103, 1, 15),
+(NULL, 15, 146, 1, 15),
 (NULL, 16, 54, 1, 16),
 (NULL, 16, 69, 1, 16),
 (NULL, 16, 70, 1, 16),
-(NULL, 16, 73, 1, 16),
 (NULL, 16, 74, 1, 16),
 (NULL, 16, 79, 1, 16),
 (NULL, 16, 81, 1, 16),
@@ -295,6 +338,7 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 16, 94, 1, 16),
 (NULL, 16, 101, 1, 16),
 (NULL, 16, 103, 1, 24),
+(NULL, 16, 146, 1, 16),
 (NULL, 18, 39, 1, 25),
 (NULL, 18, 40, 1, 18),
 (NULL, 18, 41, 1, 18),
@@ -309,12 +353,11 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 18, 97, 1, 18),
 (NULL, 18, 101, 1, 18),
 (NULL, 18, 103, 1, 27),
+(NULL, 18, 146, 1, 18),
 (NULL, 20, 41, 1, 20),
 (NULL, 20, 54, 1, 20),
 (NULL, 20, 69, 1, 20),
 (NULL, 20, 70, 1, 20),
-(NULL, 20, 73, 1, 18),
-(NULL, 20, 73, 1, 20),
 (NULL, 20, 74, 1, 20),
 (NULL, 20, 79, 1, 20),
 (NULL, 20, 81, 1, 20),
@@ -323,21 +366,21 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 20, 101, 1, 20),
 (NULL, 20, 103, 1, 20),
 (NULL, 20, 143, 1, 20),
+(NULL, 20, 146, 1, 20),
 (NULL, 22, 54, 1, 22),
 (NULL, 22, 69, 1, 22),
 (NULL, 22, 70, 1, 22),
-(NULL, 22, 73, 1, 22),
 (NULL, 22, 79, 1, 22),
 (NULL, 22, 81, 1, 22),
 (NULL, 22, 82, 1, 22),
 (NULL, 22, 94, 1, 22),
 (NULL, 22, 101, 1, 22),
 (NULL, 22, 103, 1, 22),
+(NULL, 22, 146, 1, 22),
 (NULL, 23, 54, 1, 23),
 (NULL, 23, 69, 1, 23),
 (NULL, 23, 70, 1, 23),
 (NULL, 23, 72, 1, 20),
-(NULL, 23, 73, 1, 23),
 (NULL, 23, 79, 1, 23),
 (NULL, 23, 81, 1, 23),
 (NULL, 23, 82, 1, 23),
@@ -345,10 +388,10 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 23, 101, 1, 23),
 (NULL, 23, 103, 1, 23),
 (NULL, 23, 143, 1, 27),
+(NULL, 23, 146, 1, 23),
 (NULL, 24, 54, 1, 24),
 (NULL, 24, 69, 1, 24),
 (NULL, 24, 70, 1, 24),
-(NULL, 24, 73, 1, 24),
 (NULL, 24, 79, 1, 24),
 (NULL, 24, 79, 1, 26),
 (NULL, 24, 81, 1, 24),
@@ -356,16 +399,17 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 24, 94, 1, 24),
 (NULL, 24, 101, 1, 24),
 (NULL, 24, 103, 1, 28),
+(NULL, 24, 146, 1, 24),
 (NULL, 25, 54, 1, 25),
 (NULL, 25, 69, 1, 25),
 (NULL, 25, 70, 1, 25),
-(NULL, 25, 73, 1, 25),
 (NULL, 25, 79, 1, 25),
 (NULL, 25, 81, 1, 25),
 (NULL, 25, 82, 1, 25),
 (NULL, 25, 85, 1, 25),
 (NULL, 25, 94, 1, 25),
 (NULL, 25, 101, 1, 25),
+(NULL, 25, 146, 1, 25),
 (NULL, 26, 69, 1, 26),
 (NULL, 26, 70, 1, 26),
 (NULL, 26, 74, 1, 15),
@@ -374,10 +418,10 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 26, 94, 1, 26),
 (NULL, 26, 101, 1, 26),
 (NULL, 26, 125, 1, 16),
+(NULL, 26, 146, 1, 26),
 (NULL, 27, 54, 1, 27),
 (NULL, 27, 69, 1, 27),
 (NULL, 27, 70, 1, 27),
-(NULL, 27, 73, 1, 27),
 (NULL, 27, 74, 1, 27),
 (NULL, 27, 79, 1, 27),
 (NULL, 27, 81, 1, 27),
@@ -385,28 +429,28 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 27, 94, 1, 27),
 (NULL, 27, 101, 1, 27),
 (NULL, 27, 103, 1, 25),
+(NULL, 27, 146, 1, 27),
 (NULL, 28, 54, 1, 26),
 (NULL, 28, 54, 1, 28),
 (NULL, 28, 69, 1, 28),
 (NULL, 28, 70, 1, 28),
-(NULL, 28, 73, 1, 26),
 (NULL, 28, 79, 1, 28),
 (NULL, 28, 81, 1, 28),
 (NULL, 28, 82, 1, 28),
 (NULL, 28, 94, 1, 28),
 (NULL, 28, 101, 1, 28),
 (NULL, 28, 103, 1, 18),
+(NULL, 28, 146, 1, 28),
 (NULL, 37, 54, 2, 37),
 (NULL, 37, 70, 2, 37),
-(NULL, 37, 73, 2, 39),
 (NULL, 37, 79, 2, 37),
 (NULL, 37, 81, 2, 37),
 (NULL, 37, 94, 2, 37),
 (NULL, 37, 125, 2, 37),
 (NULL, 37, 125, 2, 43),
+(NULL, 37, 146, 2, 37),
 (NULL, 38, 54, 2, 38),
 (NULL, 38, 70, 2, 38),
-(NULL, 38, 73, 2, 38),
 (NULL, 38, 79, 2, 38),
 (NULL, 38, 81, 2, 38),
 (NULL, 38, 86, 2, 38),
@@ -418,47 +462,47 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 39, 81, 2, 39),
 (NULL, 39, 94, 2, 39),
 (NULL, 39, 125, 2, 39),
+(NULL, 39, 146, 2, 39),
 (NULL, 40, 37, 2, 39),
 (NULL, 40, 54, 2, 40),
 (NULL, 40, 70, 2, 40),
 (NULL, 40, 71, 2, 40),
-(NULL, 40, 73, 2, 40),
-(NULL, 40, 73, 2, 44),
 (NULL, 40, 79, 2, 40),
 (NULL, 40, 81, 2, 40),
 (NULL, 40, 94, 2, 40),
 (NULL, 40, 125, 2, 40),
+(NULL, 40, 146, 2, 11),
+(NULL, 40, 146, 2, 40),
 (NULL, 41, 54, 2, 41),
 (NULL, 41, 70, 2, 41),
-(NULL, 41, 73, 2, 41),
 (NULL, 41, 79, 2, 41),
 (NULL, 41, 81, 2, 41),
 (NULL, 41, 94, 2, 41),
+(NULL, 41, 146, 2, 41),
 (NULL, 42, 54, 2, 42),
 (NULL, 42, 70, 2, 42),
 (NULL, 42, 71, 2, 42),
-(NULL, 42, 73, 2, 42),
 (NULL, 42, 79, 2, 42),
 (NULL, 42, 81, 2, 42),
 (NULL, 42, 94, 2, 42),
 (NULL, 42, 125, 2, 42),
+(NULL, 42, 146, 2, 42),
 (NULL, 43, 54, 2, 43),
 (NULL, 43, 70, 2, 43),
-(NULL, 43, 73, 2, 43),
 (NULL, 43, 79, 2, 43),
 (NULL, 43, 81, 2, 43),
 (NULL, 43, 94, 2, 43),
+(NULL, 43, 146, 2, 43),
 (NULL, 44, 54, 2, 44),
 (NULL, 44, 70, 2, 44),
-(NULL, 44, 73, 2, 37),
 (NULL, 44, 79, 2, 44),
 (NULL, 44, 81, 2, 44),
 (NULL, 44, 94, 2, 44),
 (NULL, 44, 125, 2, 44),
+(NULL, 44, 146, 2, 44),
 (NULL, 45, 54, 2, 45),
 (NULL, 45, 70, 2, 45),
 (NULL, 45, 71, 2, 45),
-(NULL, 45, 73, 2, 45),
 (NULL, 45, 79, 2, 45),
 (NULL, 45, 81, 2, 45),
 (NULL, 45, 86, 2, 45),
@@ -466,12 +510,14 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 45, 125, 2, 11),
 (NULL, 45, 125, 2, 45),
 (NULL, 45, 125, 2, 46),
+(NULL, 45, 146, 2, 45),
 (NULL, 46, 54, 2, 46),
 (NULL, 46, 70, 2, 46),
 (NULL, 46, 71, 2, 46),
 (NULL, 46, 79, 2, 46),
 (NULL, 46, 81, 2, 46),
 (NULL, 46, 94, 2, 46),
+(NULL, 46, 146, 2, 46),
 (NULL, 47, 53, 3, 12),
 (NULL, 47, 53, 3, 47),
 (NULL, 47, 54, 3, 47),
@@ -480,48 +526,56 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 47, 79, 3, 47),
 (NULL, 47, 81, 3, 47),
 (NULL, 47, 94, 3, 47),
+(NULL, 47, 146, 3, 47),
 (NULL, 48, 53, 3, 48),
 (NULL, 48, 54, 3, 48),
 (NULL, 48, 70, 3, 48),
 (NULL, 48, 79, 3, 48),
 (NULL, 48, 81, 3, 48),
 (NULL, 48, 94, 3, 48),
+(NULL, 48, 146, 3, 48),
 (NULL, 49, 53, 3, 49),
 (NULL, 49, 54, 3, 49),
 (NULL, 49, 70, 3, 49),
 (NULL, 49, 79, 3, 49),
 (NULL, 49, 81, 3, 49),
 (NULL, 49, 94, 3, 49),
+(NULL, 49, 146, 3, 49),
 (NULL, 50, 53, 3, 50),
 (NULL, 50, 54, 3, 50),
 (NULL, 50, 70, 3, 50),
 (NULL, 50, 79, 3, 50),
 (NULL, 50, 81, 3, 50),
 (NULL, 50, 94, 3, 50),
+(NULL, 50, 146, 3, 50),
 (NULL, 51, 53, 3, 51),
 (NULL, 51, 54, 3, 51),
 (NULL, 51, 70, 3, 51),
 (NULL, 51, 79, 3, 51),
 (NULL, 51, 81, 3, 51),
 (NULL, 51, 94, 3, 51),
+(NULL, 51, 146, 3, 51),
 (NULL, 52, 53, 3, 52),
 (NULL, 52, 54, 3, 52),
 (NULL, 52, 70, 3, 52),
 (NULL, 52, 79, 3, 52),
 (NULL, 52, 81, 3, 52),
 (NULL, 52, 94, 3, 52),
+(NULL, 52, 146, 3, 52),
 (NULL, 53, 53, 3, 53),
 (NULL, 53, 54, 3, 53),
 (NULL, 53, 70, 3, 53),
 (NULL, 53, 79, 3, 53),
 (NULL, 53, 81, 3, 53),
 (NULL, 53, 94, 3, 53),
+(NULL, 53, 146, 3, 53),
 (NULL, 54, 53, 3, 54),
 (NULL, 54, 54, 3, 54),
 (NULL, 54, 70, 3, 54),
 (NULL, 54, 79, 3, 54),
 (NULL, 54, 81, 3, 54),
 (NULL, 54, 94, 3, 54),
+(NULL, 54, 146, 3, 54),
 (NULL, 55, 53, 3, 55),
 (NULL, 55, 54, 3, 55),
 (NULL, 55, 70, 3, 55),
@@ -529,6 +583,7 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 55, 79, 3, 55),
 (NULL, 55, 81, 3, 55),
 (NULL, 55, 94, 3, 55),
+(NULL, 55, 146, 3, 55),
 (NULL, 56, 53, 3, 56),
 (NULL, 56, 54, 3, 56),
 (NULL, 56, 70, 3, 56),
@@ -536,12 +591,14 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 56, 79, 3, 56),
 (NULL, 56, 81, 3, 56),
 (NULL, 56, 94, 3, 56),
+(NULL, 56, 146, 3, 56),
 (NULL, 57, 53, 3, 57),
 (NULL, 57, 54, 3, 57),
 (NULL, 57, 70, 3, 57),
 (NULL, 57, 79, 3, 57),
 (NULL, 57, 81, 3, 57),
 (NULL, 57, 94, 3, 57),
+(NULL, 57, 146, 3, 57),
 (NULL, 58, 53, 3, 58),
 (NULL, 58, 54, 3, 58),
 (NULL, 58, 70, 3, 58),
@@ -549,18 +606,21 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 58, 79, 3, 58),
 (NULL, 58, 81, 3, 58),
 (NULL, 58, 94, 3, 58),
+(NULL, 58, 146, 3, 58),
 (NULL, 59, 53, 3, 59),
 (NULL, 59, 54, 3, 59),
 (NULL, 59, 70, 3, 59),
 (NULL, 59, 79, 3, 59),
 (NULL, 59, 81, 3, 59),
 (NULL, 59, 94, 3, 59),
+(NULL, 59, 146, 3, 59),
 (NULL, 60, 53, 3, 60),
 (NULL, 60, 54, 3, 60),
 (NULL, 60, 70, 3, 60),
 (NULL, 60, 79, 3, 60),
 (NULL, 60, 81, 3, 60),
 (NULL, 60, 94, 3, 60),
+(NULL, 60, 146, 3, 60),
 (NULL, 63, 54, 4, 63),
 (NULL, 63, 57, 4, 63),
 (NULL, 63, 70, 4, 63),
@@ -674,8 +734,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 76, 70, 8, 76),
 (NULL, 76, 71, 8, 76),
 (NULL, 76, 72, 8, 76),
-(NULL, 76, 73, 8, 75),
-(NULL, 76, 73, 8, 81),
 (NULL, 76, 79, 8, 76),
 (NULL, 76, 81, 8, 76),
 (NULL, 76, 93, 8, 76),
@@ -691,7 +749,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 77, 70, 8, 77),
 (NULL, 77, 71, 8, 77),
 (NULL, 77, 72, 8, 77),
-(NULL, 77, 73, 8, 77),
 (NULL, 77, 79, 8, 77),
 (NULL, 77, 81, 8, 77),
 (NULL, 77, 82, 8, 77),
@@ -708,7 +765,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 78, 70, 8, 78),
 (NULL, 78, 71, 8, 78),
 (NULL, 78, 72, 8, 78),
-(NULL, 78, 73, 8, 78),
 (NULL, 78, 79, 8, 78),
 (NULL, 78, 81, 8, 78),
 (NULL, 78, 82, 8, 78),
@@ -724,7 +780,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 79, 70, 8, 79),
 (NULL, 79, 71, 8, 79),
 (NULL, 79, 72, 8, 79),
-(NULL, 79, 73, 8, 79),
 (NULL, 79, 79, 8, 79),
 (NULL, 79, 81, 8, 79),
 (NULL, 79, 82, 8, 79),
@@ -768,7 +823,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 82, 54, 8, 82),
 (NULL, 82, 69, 8, 82),
 (NULL, 82, 72, 8, 82),
-(NULL, 82, 73, 8, 82),
 (NULL, 82, 79, 8, 82),
 (NULL, 82, 81, 8, 82),
 (NULL, 82, 82, 8, 82),
@@ -783,7 +837,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 83, 70, 8, 83),
 (NULL, 83, 71, 8, 83),
 (NULL, 83, 72, 8, 83),
-(NULL, 83, 73, 8, 83),
 (NULL, 83, 79, 8, 83),
 (NULL, 83, 81, 8, 83),
 (NULL, 83, 82, 8, 83),
@@ -800,7 +853,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 84, 70, 8, 84),
 (NULL, 84, 71, 8, 81),
 (NULL, 84, 71, 8, 84),
-(NULL, 84, 73, 8, 84),
 (NULL, 84, 79, 8, 84),
 (NULL, 84, 81, 8, 84),
 (NULL, 84, 82, 8, 84),
@@ -819,8 +871,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 85, 70, 8, 85),
 (NULL, 85, 71, 8, 85),
 (NULL, 85, 72, 8, 85),
-(NULL, 85, 73, 8, 76),
-(NULL, 85, 73, 8, 85),
 (NULL, 85, 79, 8, 85),
 (NULL, 85, 81, 8, 85),
 (NULL, 85, 82, 8, 85),
@@ -839,7 +889,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 86, 70, 8, 86),
 (NULL, 86, 71, 8, 86),
 (NULL, 86, 72, 8, 86),
-(NULL, 86, 73, 8, 86),
 (NULL, 86, 79, 8, 86),
 (NULL, 86, 81, 8, 86),
 (NULL, 86, 82, 8, 86),
@@ -849,7 +898,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 86, 99, 8, 86),
 (NULL, 86, 125, 8, 86),
 (NULL, 86, 125, 8, 94),
-(NULL, 86, 139, 8, 86),
 (NULL, 87, 41, 8, 87),
 (NULL, 87, 47, 8, 87),
 (NULL, 87, 54, 8, 87),
@@ -857,7 +905,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 87, 70, 8, 87),
 (NULL, 87, 71, 8, 87),
 (NULL, 87, 72, 8, 87),
-(NULL, 87, 73, 8, 87),
 (NULL, 87, 79, 8, 87),
 (NULL, 87, 81, 8, 87),
 (NULL, 87, 82, 8, 87),
@@ -874,7 +921,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 88, 70, 8, 88),
 (NULL, 88, 71, 8, 88),
 (NULL, 88, 72, 8, 88),
-(NULL, 88, 73, 8, 88),
 (NULL, 88, 79, 8, 88),
 (NULL, 88, 81, 8, 88),
 (NULL, 88, 82, 8, 88),
@@ -891,7 +937,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 89, 70, 8, 89),
 (NULL, 89, 71, 8, 89),
 (NULL, 89, 72, 8, 89),
-(NULL, 89, 73, 8, 89),
 (NULL, 89, 79, 8, 89),
 (NULL, 89, 81, 8, 89),
 (NULL, 89, 82, 8, 89),
@@ -907,7 +952,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 90, 70, 8, 90),
 (NULL, 90, 71, 8, 90),
 (NULL, 90, 72, 8, 95),
-(NULL, 90, 73, 8, 91),
 (NULL, 90, 79, 8, 90),
 (NULL, 90, 81, 8, 90),
 (NULL, 90, 82, 8, 90),
@@ -926,7 +970,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 91, 70, 8, 91),
 (NULL, 91, 71, 8, 91),
 (NULL, 91, 72, 8, 91),
-(NULL, 91, 73, 8, 80),
 (NULL, 91, 79, 8, 91),
 (NULL, 91, 81, 8, 91),
 (NULL, 91, 82, 8, 91),
@@ -943,7 +986,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 92, 69, 8, 92),
 (NULL, 92, 70, 8, 92),
 (NULL, 92, 71, 8, 92),
-(NULL, 92, 73, 8, 92),
 (NULL, 92, 79, 8, 92),
 (NULL, 92, 81, 8, 92),
 (NULL, 92, 82, 8, 92),
@@ -960,8 +1002,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 93, 71, 8, 93),
 (NULL, 93, 72, 8, 92),
 (NULL, 93, 72, 8, 93),
-(NULL, 93, 73, 8, 93),
-(NULL, 93, 73, 8, 98),
 (NULL, 93, 79, 8, 93),
 (NULL, 93, 81, 8, 93),
 (NULL, 93, 82, 8, 93),
@@ -977,7 +1017,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 94, 71, 8, 94),
 (NULL, 94, 72, 8, 90),
 (NULL, 94, 72, 8, 94),
-(NULL, 94, 73, 8, 94),
 (NULL, 94, 79, 8, 94),
 (NULL, 94, 81, 8, 94),
 (NULL, 94, 93, 8, 94),
@@ -991,7 +1030,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 95, 70, 8, 95),
 (NULL, 95, 71, 8, 95),
 (NULL, 95, 72, 8, 84),
-(NULL, 95, 73, 8, 95),
 (NULL, 95, 79, 8, 95),
 (NULL, 95, 81, 8, 95),
 (NULL, 95, 82, 8, 76),
@@ -1007,7 +1045,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 96, 70, 8, 96),
 (NULL, 96, 71, 8, 96),
 (NULL, 96, 72, 8, 96),
-(NULL, 96, 73, 8, 96),
 (NULL, 96, 79, 8, 96),
 (NULL, 96, 81, 8, 96),
 (NULL, 96, 82, 8, 96),
@@ -1023,7 +1060,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 97, 70, 8, 97),
 (NULL, 97, 71, 8, 97),
 (NULL, 97, 72, 8, 97),
-(NULL, 97, 73, 8, 97),
 (NULL, 97, 79, 8, 97),
 (NULL, 97, 81, 8, 97),
 (NULL, 97, 82, 8, 97),
@@ -1040,7 +1076,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 98, 71, 8, 82),
 (NULL, 98, 71, 8, 98),
 (NULL, 98, 72, 8, 98),
-(NULL, 98, 73, 8, 90),
 (NULL, 98, 79, 8, 98),
 (NULL, 98, 81, 8, 98),
 (NULL, 98, 82, 8, 98),
@@ -1055,7 +1090,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 99, 70, 8, 99),
 (NULL, 99, 71, 8, 99),
 (NULL, 99, 72, 8, 99),
-(NULL, 99, 73, 8, 99),
 (NULL, 99, 79, 8, 99),
 (NULL, 99, 81, 8, 99),
 (NULL, 99, 82, 8, 99),
@@ -1072,7 +1106,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 100, 70, 8, 100),
 (NULL, 100, 71, 8, 100),
 (NULL, 100, 72, 8, 100),
-(NULL, 100, 73, 8, 100),
 (NULL, 100, 79, 8, 100),
 (NULL, 100, 81, 8, 100),
 (NULL, 100, 82, 8, 100),
@@ -1087,7 +1120,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 101, 69, 7, 101),
 (NULL, 101, 70, 7, 101),
 (NULL, 101, 71, 7, 101),
-(NULL, 101, 73, 7, 101),
 (NULL, 101, 75, 7, 101),
 (NULL, 101, 79, 7, 101),
 (NULL, 101, 81, 7, 101),
@@ -1100,7 +1132,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 101, 97, 7, 101),
 (NULL, 101, 101, 7, 101),
 (NULL, 101, 125, 7, 101),
-(NULL, 101, 139, 7, 101),
 (NULL, 101, 141, 7, 101),
 (NULL, 101, 141, 7, 105),
 (NULL, 102, 54, 7, 102),
@@ -1120,7 +1151,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 102, 97, 7, 102),
 (NULL, 102, 101, 7, 102),
 (NULL, 102, 125, 7, 102),
-(NULL, 102, 139, 7, 102),
 (NULL, 102, 141, 7, 108),
 (NULL, 103, 41, 7, 103),
 (NULL, 103, 46, 7, 103),
@@ -1143,7 +1173,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 103, 101, 7, 103),
 (NULL, 103, 125, 7, 103),
 (NULL, 103, 125, 7, 107),
-(NULL, 103, 139, 7, 103),
 (NULL, 103, 141, 7, 103),
 (NULL, 104, 41, 7, 104),
 (NULL, 104, 54, 7, 104),
@@ -1152,8 +1181,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 104, 69, 7, 104),
 (NULL, 104, 70, 7, 104),
 (NULL, 104, 71, 7, 104),
-(NULL, 104, 73, 7, 104),
-(NULL, 104, 73, 7, 109),
 (NULL, 104, 75, 7, 104),
 (NULL, 104, 79, 7, 104),
 (NULL, 104, 81, 7, 104),
@@ -1165,7 +1192,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 104, 97, 7, 104),
 (NULL, 104, 101, 7, 104),
 (NULL, 104, 125, 7, 104),
-(NULL, 104, 139, 7, 104),
 (NULL, 104, 141, 7, 104),
 (NULL, 104, 141, 7, 107),
 (NULL, 105, 54, 7, 105),
@@ -1174,7 +1200,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 105, 69, 7, 105),
 (NULL, 105, 70, 7, 105),
 (NULL, 105, 71, 7, 105),
-(NULL, 105, 73, 7, 105),
 (NULL, 105, 75, 7, 105),
 (NULL, 105, 79, 7, 105),
 (NULL, 105, 81, 7, 105),
@@ -1186,14 +1211,12 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 105, 97, 7, 105),
 (NULL, 105, 101, 7, 105),
 (NULL, 105, 125, 7, 105),
-(NULL, 105, 139, 7, 105),
 (NULL, 106, 54, 7, 106),
 (NULL, 106, 58, 7, 106),
 (NULL, 106, 63, 7, 106),
 (NULL, 106, 69, 7, 106),
 (NULL, 106, 70, 7, 106),
 (NULL, 106, 71, 7, 106),
-(NULL, 106, 73, 7, 106),
 (NULL, 106, 75, 7, 106),
 (NULL, 106, 79, 7, 106),
 (NULL, 106, 81, 7, 106),
@@ -1205,7 +1228,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 106, 97, 7, 106),
 (NULL, 106, 101, 7, 106),
 (NULL, 106, 125, 7, 106),
-(NULL, 106, 139, 7, 106),
 (NULL, 106, 141, 7, 102),
 (NULL, 106, 141, 7, 106),
 (NULL, 107, 41, 7, 107),
@@ -1216,8 +1238,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 107, 69, 7, 107),
 (NULL, 107, 70, 7, 107),
 (NULL, 107, 71, 7, 107),
-(NULL, 107, 73, 7, 102),
-(NULL, 107, 73, 7, 107),
 (NULL, 107, 75, 7, 107),
 (NULL, 107, 79, 7, 107),
 (NULL, 107, 81, 7, 107),
@@ -1232,8 +1252,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 108, 69, 7, 108),
 (NULL, 108, 70, 7, 108),
 (NULL, 108, 71, 7, 108),
-(NULL, 108, 73, 7, 103),
-(NULL, 108, 73, 7, 108),
 (NULL, 108, 75, 7, 108),
 (NULL, 108, 79, 7, 108),
 (NULL, 108, 81, 7, 108),
@@ -1244,7 +1262,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 108, 97, 7, 108),
 (NULL, 108, 101, 7, 108),
 (NULL, 108, 125, 7, 108),
-(NULL, 108, 139, 7, 108),
 (NULL, 109, 54, 7, 109),
 (NULL, 109, 58, 7, 109),
 (NULL, 109, 63, 7, 109),
@@ -1267,7 +1284,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 110, 69, 7, 110),
 (NULL, 110, 70, 7, 110),
 (NULL, 110, 71, 7, 110),
-(NULL, 110, 73, 7, 110),
 (NULL, 110, 75, 7, 110),
 (NULL, 110, 79, 7, 110),
 (NULL, 110, 81, 7, 110),
@@ -1281,9 +1297,6 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 (NULL, 110, 101, 7, 110),
 (NULL, 110, 125, 7, 109),
 (NULL, 110, 125, 7, 110),
-(NULL, 110, 139, 7, 107),
-(NULL, 110, 139, 7, 109),
-(NULL, 110, 139, 7, 110),
 (NULL, 110, 141, 7, 110);
 
 -- --------------------------------------------------------
@@ -1292,14 +1305,11 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 -- Estrutura da tabela `subfase`
 --
 
-CREATE TABLE IF NOT EXISTS `subfase` (
-  `id_subfase` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subfase` (
+  `id_subfase` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `cod_fase` int(11) NOT NULL,
-  PRIMARY KEY (`id_subfase`),
-  KEY `cod_fase` (`cod_fase`),
-  KEY `cod_fase_2` (`cod_fase`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+  `cod_fase` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `subfase`
@@ -1314,9 +1324,8 @@ INSERT INTO `subfase` (`id_subfase`, `nome`, `cod_fase`) VALUES
 (6, 'RECEPÇÃO', 3),
 (7, 'NUMEROS', 4),
 (8, 'LETRAS', 4),
-(20, 'TESTE', 4),
-(21, 'TESTE', 2),
-(22, 'TESTE', 2);
+(9, 'PRONOME', 4),
+(10, 'VERBO', 4);
 
 -- --------------------------------------------------------
 
@@ -1324,17 +1333,15 @@ INSERT INTO `subfase` (`id_subfase`, `nome`, `cod_fase`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `data_nascimento` date NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `sexo` char(1) NOT NULL,
-  `condicao_auditiva` char(1) NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
+  `condicao_auditiva` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -1363,7 +1370,6 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (70, 'Estêvão Furquim', '1988-03-04', 'estevaofurquim@gmail.com', 'dd63d1ea7fba5e8d36e6164040d8211a', 'm', 'o'),
 (71, 'Raquel Adriana Betoni Ventrigl', '1977-04-11', 'grazizi.ventri@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'f', 'o'),
 (72, 'Amalia Melo', '2002-06-30', 'amalia.melo@aluno.ifsp.edu.br', '827ccb0eea8a706c4c34a16891f84e7b', 'f', 'o'),
-(73, 'Lívia Deco ', '2002-11-05', 'Gustavolivia18@gmail.com ', '2532caf938a893870a2283b82aaf4e47', 'f', 'o'),
 (74, 'Keller', '1976-10-18', 'kellerbsouza@gmail.com', '1e8608169c241f27ab2867101009d5e7', 'f', 'o'),
 (75, 'bruno', '2000-05-24', 'brunoyansartori@gmail.com', 'b822cfcfebbe230b56e0928d25bd3798', 'm', 'o'),
 (79, 'Eder Faria Junior', '1987-09-21', 'eder_fariajunior@hotmail.com', 'f585d179ffda2cdbb57235fa7c89092b', 'm', 'o'),
@@ -1401,16 +1407,36 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (136, 'Heitor Nunes', '2002-05-14', 'heitor@email.com', '1cc39ffd758234422e1f75beadfc5fb2', 'm', 'o'),
 (137, 'Paula Souza', '2000-12-20', 'paulo@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o'),
 (138, 'Gustavo Deleo', '2003-04-20', 'gustavo@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o'),
-(139, 'José Melo', '1999-06-06', 'josé@email.com', '202cb962ac59075b964b07152d234b70', 'm', 's'),
 (140, 'Júlia Regina Sampaio Napoleão', '2003-07-11', 'Juliaregina03@outlook.com', '67a8dbb4028e85272b6835650642635e', 'f', 'o'),
 (141, 'Fernando ', '1998-06-22', 'fernando@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o'),
 (142, 'milena', '2000-11-02', 'milena@email.com', '202cb962ac59075b964b07152d234b70', 'f', 's'),
-(143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o');
+(143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o'),
+(144, 'Amália  Melo', '2002-06-20', 'amali2@email.com', '202cb962ac59075b964b07152d234b70', 'f', 'o'),
+(146, 'Amália Melo', '2002-06-30', 'amalia@email.com', '202cb962ac59075b964b07152d234b70', 'f', 'o');
+
+-- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
--- Constraints for dumped tables
-=======
+-- Estrutura da tabela `usuario_subfase`
+--
+
+CREATE TABLE `usuario_subfase` (
+  `id_usuario_subfase` int(11) NOT NULL,
+  `cod_usuario` int(11) NOT NULL,
+  `cod_subfase` int(11) NOT NULL,
+  `qtd_acertos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario_subfase`
+--
+
+INSERT INTO `usuario_subfase` (`id_usuario_subfase`, `cod_usuario`, `cod_subfase`, `qtd_acertos`) VALUES
+(5, 146, 1, 11),
+(6, 146, 2, 11),
+(7, 146, 3, 15);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -1425,6 +1451,21 @@ ALTER TABLE `adiministrador`
 --
 ALTER TABLE `fase`
   ADD PRIMARY KEY (`id_fase`);
+
+--
+-- Índices para tabela `frase`
+--
+ALTER TABLE `frase`
+  ADD PRIMARY KEY (`id_frase`),
+  ADD KEY `cod_subfase` (`cod_subfase`);
+
+--
+-- Índices para tabela `frase_palavra`
+--
+ALTER TABLE `frase_palavra`
+  ADD PRIMARY KEY (`id_frase_palavra`),
+  ADD KEY `cod_palavra` (`cod_palavra`,`cod_frase`),
+  ADD KEY `frase_palavra_ibfk_1` (`cod_frase`);
 
 --
 -- Índices para tabela `palavra`
@@ -1459,6 +1500,14 @@ ALTER TABLE `usuario`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Índices para tabela `usuario_subfase`
+--
+ALTER TABLE `usuario_subfase`
+  ADD PRIMARY KEY (`id_usuario_subfase`),
+  ADD KEY `cod_usuario` (`cod_usuario`),
+  ADD KEY `cod_subfase` (`cod_subfase`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -1472,30 +1521,60 @@ ALTER TABLE `adiministrador`
 -- AUTO_INCREMENT de tabela `fase`
 --
 ALTER TABLE `fase`
-  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `frase`
+--
+ALTER TABLE `frase`
+  MODIFY `id_frase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de tabela `frase_palavra`
+--
+ALTER TABLE `frase_palavra`
+  MODIFY `id_frase_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `palavra`
 --
 ALTER TABLE `palavra`
-  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de tabela `subfase`
 --
 ALTER TABLE `subfase`
-  MODIFY `id_subfase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_subfase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
->>>>>>> 3227fbad6f67d2835f34d3d4843fefc26c0573ba
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+
+--
+-- AUTO_INCREMENT de tabela `usuario_subfase`
+--
+ALTER TABLE `usuario_subfase`
+  MODIFY `id_usuario_subfase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Restrições para despejos de tabelas
 --
 
 --
 -- Limitadores para a tabela `frase`
 --
 ALTER TABLE `frase`
-  ADD CONSTRAINT `frase_ibfk_1` FOREIGN KEY (`id_frase`) REFERENCES `palavra` (`id_palavra`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `frase_ibfk_1` FOREIGN KEY (`cod_subfase`) REFERENCES `subfase` (`id_subfase`);
+
+--
+-- Limitadores para a tabela `frase_palavra`
+--
+ALTER TABLE `frase_palavra`
+  ADD CONSTRAINT `frase_palavra_ibfk_1` FOREIGN KEY (`cod_frase`) REFERENCES `frase` (`id_frase`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `frase_palavra_ibfk_2` FOREIGN KEY (`cod_palavra`) REFERENCES `palavra` (`id_palavra`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `palavra`
@@ -1516,6 +1595,14 @@ ALTER TABLE `resposta`
 --
 ALTER TABLE `subfase`
   ADD CONSTRAINT `subfase_ibfk_1` FOREIGN KEY (`cod_fase`) REFERENCES `fase` (`id_fase`) ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `usuario_subfase`
+--
+ALTER TABLE `usuario_subfase`
+  ADD CONSTRAINT `usuario_subfase_ibfk_1` FOREIGN KEY (`cod_subfase`) REFERENCES `subfase` (`id_subfase`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_subfase_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

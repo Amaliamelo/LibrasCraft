@@ -3,9 +3,8 @@
  $fase_anterior = "";
  $subfase_anterior ="";
  $primeiro = true;
- 
  echo '	<!-- A - div principal-->
- <main class="body'.$linha["nome"].'" style="height:100%;">
+ <main class="body'.$linha["nome"].'" >
     <div class="container align-middle" >
      <!-- B (filha da principal - A)-->
      <div class="row justify-content-center">
@@ -42,28 +41,43 @@
                 </tr>';
         $fase_anterior = $fase_atual;
     }
+
+   
+
     $subfase_atual = $linha["subfase"];
     if($subfase_anterior!=$subfase_atual){
         
         if($subfase_usuario[$linha["id_subfase"]]==$subfase[$linha["id_subfase"]]){
-        $acerto = $acerto_subfase_usuario[$linha["id_subfase"]];
-        $qtd_questoes = $subfase[$linha["id_subfase"]];
-        $nota = number_format((($acerto/$qtd_questoes)*100),2);
-        if($nota>=75){
-            $status_fase="green";
-            $msg_status = "<h1>APROVADO</h1>";
-
-            //desabilitar frase
-            //tabela usuario_subfase - cod_usuario,cod_subfase
-            //selecionar no banco se não existir cod_usuario e cod_subfase -- inserir
-            //se inserir --- abilitar botão frase 
-            
-        }
-        else{
-            $status_fase="#EE2C2C";
-            $msg_status = "<h2>REPROVADO</h2>
-            <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
-        }
+            $acerto = $acerto_subfase_usuario[$linha["id_subfase"]];
+            $qtd_questoes = $subfase[$linha["id_subfase"]];
+            $nota = number_format((($acerto/$qtd_questoes)*100),2);
+            if($nota>=75){
+                $status_fase="green";
+                $msg_status = "<h1>APROVADO</h1>";
+                print_r($pagina);
+                if($pagina!="scores"){
+                    $usuario_seleciona=$_SESSION["autorizado"];
+                    $subfase_seleciona=$linha['id_subfase'];
+                    $qtd_acerto_seleciona=$acerto_subfase_usuario[$linha["id_subfase"]];
+        
+                    $seleciona = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase=$subfase_seleciona";
+                    $resultado_seleciona = mysqli_query($conexao,$seleciona) or  die(mysqli_error($conexao));
+                    if(mysqli_num_rows($resultado_seleciona)==0){
+                        $insert = "INSERT INTO usuario_subfase(cod_usuario,cod_subfase,qtd_acertos) VALUES (
+                            '$usuario_seleciona',
+                            '$subfase_seleciona',
+                            '$qtd_acerto_seleciona'
+                            )";
+                        mysqli_query($conexao,$insert)
+                        or die(mysqli_error($conexao).$insert);    
+                    }
+                }
+            }
+            else{
+                $status_fase="#EE2C2C";
+                $msg_status = "<h2>REPROVADO</h2>
+                <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
+            }
         
         }
         else{
@@ -81,35 +95,35 @@
         }
         $porcentagem = number_format($porcentagem*100,2);
         echo '
-            <tr id="id_'.$subfase_atual.'">
-                <td class="m-3" colspan="3"  style="background-color:'.$status_fase.';color:white;">               
-                <h5>SUBFASE: <b> '.$subfase_atual.'</br></b>
-                Respondido: ('.$subfase_usuario[$linha["id_subfase"]].' de 
-                '.$subfase[$linha["id_subfase"]].')</h5>
-                <b>Acertos</b>:
-                '.$qtd_acerto.'/'.
-                    $subfase[$linha["id_subfase"]].' - '.$porcentagem.'%
-                <br />
-                '.$msg_status.'   
-                <br />         
-                <h4 style="cursor:pointer;">Clique aqui para verificar suas respostas</h4>
-                </td>
-            </tr>
-            <script>
-                $(function(){
-                    var status_'.$subfase_atual.' = true;
-                    $("#id_'.$subfase_atual.'").click(function(){
-                        if(status_'.$subfase_atual.'){
-                            $(".subfase_'.$subfase_atual.'").fadeIn();
-                            status_'.$subfase_atual.' = false;
-                        }
-                        else{
-                            $(".subfase_'.$subfase_atual.'").fadeOut();
-                            status_'.$subfase_atual.' = true;
-                        }
-                    });
+        <tr id="id_'.$subfase_atual.'">
+            <td class="m-3" colspan="3"  style="background-color:'.$status_fase.';color:white;">               
+            <h5>SUBFASE: <b> '.$subfase_atual.'</br></b>
+            Respondido: ('.$subfase_usuario[$linha["id_subfase"]].' de 
+            '.$subfase[$linha["id_subfase"]].')</h5>
+            <b>Acertos</b>:
+            '.$qtd_acerto.'/'.
+                $subfase[$linha["id_subfase"]].' - '.$porcentagem.'%
+            <br />
+            '.$msg_status.'   
+            <br />         
+            <h4 style="cursor:pointer;">Clique aqui para verificar suas respostas</h4>
+            </td>
+        </tr>
+        <script>
+            $(function(){
+                var status_'.$subfase_atual.' = true;
+                $("#id_'.$subfase_atual.'").click(function(){
+                    if(status_'.$subfase_atual.'){
+                        $(".subfase_'.$subfase_atual.'").fadeIn();
+                        status_'.$subfase_atual.' = false;
+                    }
+                    else{
+                        $(".subfase_'.$subfase_atual.'").fadeOut();
+                        status_'.$subfase_atual.' = true;
+                    }
                 });
-            </script>';
+            });
+        </script>';
 
         echo '<tr class="subfase_'.$subfase_atual.'" style="display:none;"><th>O Exercício</th><th>Sua Resposta</th><th>STATUS</th></tr>';     
         $subfase_anterior = $subfase_atual;

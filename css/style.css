@@ -8,6 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+
 .bodyIndex{
     background-image: url("../img/fundo/index.png");
     background-size: cover;
@@ -101,10 +102,9 @@
     height: 100vh;
 }
 .bodySALA{
-    background: url("../img/fundo/SALA.png");
+    background: url("../img/fundo/SALA.png")no-repeat center;
     background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh;;
 }
 .bodyCOZINHA{
     background: url("../img/fundo/COZINHA.png");
@@ -124,7 +124,7 @@
     height: 100vh;
 }
 .bodyscores{
-    background: url("../img/fundo/scores.png")no-repeat center top fixed;
+    background: url("../img/fundo/scores.png")no-repeat center;
     background-size: cover;
     height: 100vh;
 
@@ -196,11 +196,16 @@ footer {
 .sala:hover, .cozinha:hover, .banheiro:hover, .quarto:hover, .abc:hover, .casa:hover{
     opacity:0.5;
 }
-
+.frase_letras{
+    width: 30px;
+}
 @media only screen and (max-device-width: 600px) {
     .iframe_video{
         width: 320px;
         height:200px;
+    }
+    .frase_letras{
+        width: 14px;
     }
     .img_datilografia{
         width: 24px;

@@ -81,21 +81,24 @@ if(isset($_GET["pagina"])){
   $select.= " AND subfase.id_subfase='".$_GET["pagina"]."' ";
 }
 $select.= "  INNER JOIN fase ON 
-                       subfase.cod_fase = fase.id_fase";
+                       subfase.cod_fase = fase.id_fase ORDER BY resposta.cod_subfase";
  $resultado = mysqli_query($conexao,$select)
    or die(mysqli_error($conexao));
 ///////////////////////////////////////////////////////////////
 
 //NOME DA SUBFASE
-if(isset($_GET["pagina"])){
-    $pagina=$_GET["pagina"];
-    $consulta2 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
-    $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
-    $linha = mysqli_fetch_assoc($resultado2);
+$i=0;
+  if(isset($_GET["pagina"])){
+      $pagina=$_GET["pagina"];
+      $consulta2 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
+      $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
+      $linha = mysqli_fetch_assoc($resultado2);
   }
-  else{
-    $linha["nome"]="scores";
-}
+    else{
+      $linha["nome"]="scores";
+      $pagina="scores";
+
+  }
 
 include "pagina_score.php";
 ?>
