@@ -8,6 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+
 .bodyIndex{
     background-image: url("../img/fundo/index.png");
     background-size: cover;
@@ -195,11 +196,16 @@ footer {
 .sala:hover, .cozinha:hover, .banheiro:hover, .quarto:hover, .abc:hover, .casa:hover{
     opacity:0.5;
 }
-
+.frase_letras{
+    width: 30px;
+}
 @media only screen and (max-device-width: 600px) {
     .iframe_video{
         width: 320px;
         height:200px;
+    }
+    .frase_letras{
+        width: 14px;
     }
     .img_datilografia{
         width: 24px;

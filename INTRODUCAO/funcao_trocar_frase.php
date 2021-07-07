@@ -29,32 +29,14 @@
 			video=videos[posicao];
 			
 
-			$("#texto_palavra").html(""); // limpa tabela 
-			tr="<tr>"; // troca a letra da tabela
-				for(i=0;i<palavra.length;i++) // faz a mesma coisa q strlen, pega o tamanho do vetor
-				{							  // strlen é para php, lenght é para java
-					tr+="<th>"+palavra[i]+"</th>";
+			$("#texto_palavra").html(""); 
+			tr="<tr>"; 
+				for(i=0;i<palavra.length;i++) {
+					tr+="<th><div class='frase_letras'>"+palavra[i]+"</div></th>";
 				}
 			tr+="</tr>";
 			
-			tr+="<tr>"; // troca a imagem da tabela
-				for(i=0;i<palavra.length;i++)
-				{
-					if(palavra[i]==" ")
-					{
-						tr+="<td><div style='width:20px;'></div> </td>";
-					}
-					else if(palavra[i]=="-")
-					{
-						tr+="<td><div style='width:20px; font-size:30px;'>-</div> </td>";
-					}
-					else
-					{
-						tr+="<td><img src= '../img/alfabeto/"+palavra[i]+".gif' class='img_datilografia' /></td>";
-					}
-					
-				}
-			tr+="</tr>";
+				
 			$("#texto_palavra").html(tr);// muda o valor da tabela 
 			palavra= palavra.toLowerCase(); // transforma palavra em minuscula
 			palavra= palavra.normalize("NFD").replace(/[\u0300-\u036f]/g, ''); // transforma caracteres especiais de acentuação, tirando os acentos 	
@@ -76,10 +58,10 @@
 				troca_palavra(-1);
 			});
 
-	 // MODAL FINALIZAR ---------------------------------------------------------------------------------
-	 $("#btn-modal-finalizar").click(function(){
-                $("#modal-mensagem-finalizar").modal();
-                });
-            }); 
+			 // MODAL FINALIZAR ---------------------------------------------------------------------------------
+			$("#btn-modal-finalizar").click(function(){
+				$("#modal-mensagem-finalizar").modal();
+			});
+    	}); 
 		
 </script>
