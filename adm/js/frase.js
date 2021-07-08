@@ -13,7 +13,6 @@ function carrega_palavra(subfase, fase, nome_filtro, id){
 				atual = $(id).html(); // recebe o valor do subfase
 				option="<option value='" + dados[i].id_palavra + "'>" + dados[i].palavra + "</option>"; 
 				$(id).html(atual+option);
-				console.log(option);
 			}
 			
 		}else
@@ -379,7 +378,7 @@ $(document).on('click', '.alterar_frase', function () {
             id:$("input[name='id_frase_alterar']").val(),
             aux:3
         };
-    
+		
     	$.post("alterar.php", {tabela:t, coluna:c, atualizar:atualizar}, function(r){
 			console.log(r);
 			if(r=="1"){
