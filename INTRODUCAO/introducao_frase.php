@@ -107,7 +107,7 @@ include "funcao_trocar_frase.php";
                     <br />
                     <button class="btn btn-lg btn-google btn-block text-uppercase" 
                     style="border-color:#828282;background-color:#828282;color:white;" 
-                    type="button" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=<?php echo $pagina ?> '"> Sim, vamos lá!</button>
+                    type="button" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>_frase.php?pagina=<?php echo $pagina ?> '"> Sim, vamos lá!</button>
                     <button class="btn btn-lg btn-google btn-block text-uppercase" 
                     style="border-color:#828282;background-color:#828282;color:white;" 
                     type="submit" onclick = "location.href='../mapa.php'"> Não, voltar para o mapa!</button>
