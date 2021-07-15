@@ -136,7 +136,7 @@
                 $resultado_seleciona_banheiro = mysqli_query($conexao,$seleciona_banheiro) or  die(mysqli_error($conexao));
 
                 if(mysqli_num_rows($resultado_seleciona_banheiro)==1){
-                    echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
+                    echo '<a href="introducao_frase.php?pagina=3" class="btn btn-lg btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
                     echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"">Atividades</a>';
                 }
                 else{

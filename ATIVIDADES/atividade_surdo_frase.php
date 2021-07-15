@@ -15,12 +15,12 @@ include "alternativas_frase_surdo.php";
 							<?php
 							if($qtd>0){
                                 if( $_SESSION['condicao_auditiva'] == "o"){
-									$objeto = "as palavras";
-									$veiculo = "do video";
-								}
-								else{
 									$objeto = "os videos";
 									$veiculo = "da frase";
+								}
+								else{
+									$objeto = "as palavras";
+									$veiculo = "do video";
 								}   
 								//monta html com os dados coletados
 								?>
@@ -37,30 +37,37 @@ include "alternativas_frase_surdo.php";
 							</div>
 						
 							<div class="row">
-								<div class="col justify-content-center  align-items-center mr-3">											
-										<input type="text" name="resposta" class="resposta form-control m-2" />
-										<div id="msg_cod_palavra" class="m-3"></div>
-										<input type="button" name="verifica_resposta" value="Verificar Resposta" class="form-control btn-info m-3" />
-										<input type="button" style="display:none;color:white;"  name="envia_resposta" value="Enviar Resposta" class="form-control btn-success m-2" />
-										<input type='hidden' name='resposta_correta' value='<?php echo $cod_correto;?>' />
+								<div class="col justify-content-center  align-items-center mr-3">	
+										<form>										
+											<input type="text" name="resposta" class="resposta form-control m-2" />
+											<input type="reset" name="limpar" class="form-control m-2" />
+											<div class="row justify-content-end">
+											<input type="reset" name="limpar" class="btn btn-secondary m-2" />
+											<button type="button" name="enviar_resposta_frase" class="btn btn-primary enviar_resposta_frase m-2">Enviar Resposta</button>
+
+											</div>
+										</form>
 										<br />
 								</div>								
 							</div>
 
                             <div class="col">
                                 <div class="row justify-content-center align-items-center">		
-                                        <?php for($i=0;$i<=7;$i++){?>
-                                        <button type="button" value="<?php echo $codigo[$i];?>"  class="resposta_frase m-3 btn  text-uppercase text-dark" ><?php echo $palavras[$i];?></button>
-                                        <?php }?>
-                                        <input type='hidden' name='resposta_correta' value='<?php echo $cod_correto;?>' />
+                                        <?php foreach($p_final as $cod => $p){?>
+                                        <button type="button" value="<?php echo $cod;?>"  class="resposta_frase m-3 btn  text-uppercase text-dark" ><?php echo $p;?></button>
+                                        <?php 
+										}foreach($codigo_palavras_corretas as $c){?>
+                                        <button type='hidden' class='resposta_correta_frase' value='<?php echo $c;?>'></button>
+											<?php 
+											}
+										// foreach vetor resposta correta --- sequencia 
+										// input respo_usuario vazio a cada click na palavra  ?>
                                         <br />
                                 </div>								
                             </div>				
 
 							<?php
-							} // fim do if que verifica se ainda há itens sem resposta.
-							else{
-								//acabou as palavras... acabou a atividade da subfase
+							} else{
 									header("location: score.php?pagina=".$_GET["pagina"]);
 								}
 							?>
@@ -70,10 +77,41 @@ include "alternativas_frase_surdo.php";
 		</div>
 <!-- FIM DA MONTAGEM PARA O USUARIO --------------->
 <script>
-
+	var palavras_usuario = new Array();
+	var i=0;
 	$(".resposta_frase").click(function(){
-		console.log($(".resposta_frase").html());
-		$("input[name='resposta']").html($(".resposta_frase").html());
-	})
+		valor_anterior=$("input[name='resposta']").val();
+		$("input[name='resposta']").val(valor_anterior+ ' '+$(this).html());
+		console.log(valor_anterior);
+		$(this).prop('disabled',true);
+		palavras_usuario[i]=$(this).val();
+		i++;
+		console.log(palavras_usuario);
 
+	})
+	$("input[name='limpar']").click(function(){
+		$(".resposta_frase").prop('disabled',false);
+		for(j=0;j<i;j++){
+			palavras_usuario[j]= jQuery.grep(palavras_usuario, function(value) {
+				return value != palavras_usuario[j];
+			});
+		}
+		i=0;
+		console.log(palavras_usuario);
+	});
+	$(".enviar_resposta_frase").click(function(){
+		r=palavras_usuario;
+		c = $(".resposta_correta_frase").val();
+        sf = "<?php echo $_GET["pagina"];?>";
+        post = {resposta:r, correto:c,subfase:sf};
+		console.log(post);
+        /*$.post("salva_resposta.php",post,function(r){
+            if(r=="1"){					
+                location.href='atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina='+sf;
+            }
+            else{
+                console.log(r);
+            }
+        });*/
+	});
 </script>
