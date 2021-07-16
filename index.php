@@ -1,6 +1,7 @@
 <?php
+session_start();
     include "cabecalho.php";
-    session_start();
+    
 ?>
 
     <main class="bodyIndex">

@@ -109,6 +109,7 @@ $(".btn_cadastra_frase").click(function(){
 								setTimeout(function(){ 
 									jQuery('#close_frase')[0].click();
 								}, 20000);
+								location.reload();
 							}
 							else{
 								$("#status_frase").html("ERRO AO CADASTRAR")

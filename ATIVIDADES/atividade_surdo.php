@@ -74,8 +74,8 @@ if($qtd>0){
 									
 									<input type="text" name="resposta" class="resposta form-control m-3" placeholder="Digite aqui o que significa este símbolo..." />
 									<div id="msg_cod_palavra" class="m-3"></div>
-									<input type="button" name="verifica_resposta" value="Verificar Resposta" class="form-control btn-info m-3" />
 									<input type="button" style="display:none;color:white;"  name="envia_resposta" value="Enviar Resposta" class="form-control btn-success m-3" />
+									<input type="button" name="verifica_resposta" value="Verificar Resposta" class="form-control btn-info m-3" />
 									<input type='hidden' name='resposta_enviar' value='' />
 									<input type='hidden' name='resposta_correta' value='<?php echo $cod_correto;?>' />
 									<br />

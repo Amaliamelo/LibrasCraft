@@ -76,7 +76,7 @@ switch($_POST["atualizar"]["aux"]){
     $delete_frase_palavra = "DELETE FROM frase_palavra WHERE cod_frase=$id";
         $resultado_delete = mysqli_query($conexao,$delete_frase_palavra) or die(mysqli_error($conexao));
 
-
+    
 
     $insert_pronome = "INSERT INTO frase_palavra(cod_frase,cod_palavra)
                 VALUES ('$id','$pronome')";
