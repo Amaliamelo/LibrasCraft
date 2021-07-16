@@ -56,10 +56,11 @@ include "alternativas_frase_surdo.php";
                                         <?php foreach($p_final as $cod => $p){?>
                                         <button type="button" value="<?php echo $cod;?>"  class="resposta_frase m-3 btn  text-uppercase text-dark" ><?php echo $p;?></button>
                                         <?php 
-										}foreach($codigo_palavras_corretas as $c){?>
-                                        <button type='hidden' class='resposta_correta_frase' value='<?php echo $c;?>'></button>
-											<?php 
-											}
+										}
+										foreach($codigo_palavras_corretas as $c){?>
+                                        	<button type='hidden' class='resposta_correta_frase' value='<?php echo $c;?>'></button>
+										<?php 
+										}
 										// foreach vetor resposta correta --- sequencia 
 										// input respo_usuario vazio a cada click na palavra  ?>
                                         <br />
@@ -77,6 +78,8 @@ include "alternativas_frase_surdo.php";
 		</div>
 <!-- FIM DA MONTAGEM PARA O USUARIO --------------->
 <script>
+	$(function(){
+
 	var palavras_usuario = new Array();
 	var i=0;
 	$(".resposta_frase").click(function(){
@@ -88,13 +91,15 @@ include "alternativas_frase_surdo.php";
 		i++;
 		console.log(palavras_usuario);
 
+		palavra_correta=$(".resposta_correta_frase").val();
+		console.log(palavra_correta);
+
+
 	})
 	$("input[name='limpar']").click(function(){
 		$(".resposta_frase").prop('disabled',false);
 		for(j=0;j<i;j++){
-			palavras_usuario[j]= jQuery.grep(palavras_usuario, function(value) {
-				return value != palavras_usuario[j];
-			});
+			palavras_usuario[j]= '';
 		}
 		i=0;
 		console.log(palavras_usuario);
@@ -114,4 +119,6 @@ include "alternativas_frase_surdo.php";
             }
         });*/
 	});
+});
+
 </script>

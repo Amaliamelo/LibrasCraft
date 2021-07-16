@@ -99,6 +99,7 @@ if($qtd>0){
             }
         }
     }
+    print_r($p_final);
 //NOME DA SUBFASE
 $consulta4 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
 $resultado4 = mysqli_query($conexao,$consulta4) or die("Erro na consulta2");
