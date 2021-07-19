@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2021 at 12:34 AM
+-- Generation Time: Jul 19, 2021 at 08:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -91,7 +91,6 @@ INSERT INTO `frase` (`id_frase`, `frase`, `video_frase`, `cod_subfase`) VALUES
 (24, 'Feche a porta', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
 (27, 'Abra a porta', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
 (28, 'Desligue a televisão', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
-(30, 'Abra a Cortina', 'xxxxxxxxxxxxxxxxxxxxxx', 1),
 (31, 'Eu fechei a geladeira', 'xxxxxxxxxxxxxxxxxxxxxx', 2);
 
 -- --------------------------------------------------------
@@ -1302,11 +1301,21 @@ INSERT INTO `resposta` (`id_resposta`, `resposta`, `cod_usuario`, `cod_subfase`,
 
 CREATE TABLE `resposta_frase` (
   `id_resposta_frase` int(11) NOT NULL,
-  `resposta_frase` int(11) NOT NULL,
+  `resposta_frase_correta` varchar(100) NOT NULL,
+  `resposta_frase_usuario` varchar(100) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `cod_subfase` int(11) NOT NULL,
   `cod_frase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `resposta_frase`
+--
+
+INSERT INTO `resposta_frase` (`id_resposta_frase`, `resposta_frase_correta`, `resposta_frase_usuario`, `cod_usuario`, `cod_subfase`, `cod_frase`) VALUES
+(2, '-119-28', '-119-28', 148, 1, 28),
+(3, '-141-142-16', '-118-28', 148, 1, 20),
+(4, '-120-25', '-133-22', 148, 1, 27);
 
 -- --------------------------------------------------------
 
@@ -1422,7 +1431,8 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nascimento`, `email`, `senha`
 (143, 'Carlos Chaves', '2008-05-25', 'carlos@email.com', '202cb962ac59075b964b07152d234b70', 'm', 'o'),
 (144, 'Amália  Melo', '2002-06-20', 'amali2@email.com', '202cb962ac59075b964b07152d234b70', 'f', 'o'),
 (147, 'Amália Melo', '2002-03-20', 'amalia@email.com', '202cb962ac59075b964b07152d234b70', 'f', 'o'),
-(148, 'Pablo Silva', '1999-04-23', 'pablo@email.com', '202cb962ac59075b964b07152d234b70', 'm', 's');
+(148, 'Pablo Silva', '1999-04-23', 'pablo@email.com', '202cb962ac59075b964b07152d234b70', 'm', 's'),
+(149, 'natalia melo', '2000-12-20', 'natalia@email.com', '202cb962ac59075b964b07152d234b70', 'f', 'o');
 
 -- --------------------------------------------------------
 
@@ -1498,7 +1508,7 @@ ALTER TABLE `resposta`
 -- Indexes for table `resposta_frase`
 --
 ALTER TABLE `resposta_frase`
-  ADD PRIMARY KEY (`id_resposta_frase`,`resposta_frase`,`cod_usuario`,`cod_subfase`,`cod_frase`),
+  ADD PRIMARY KEY (`id_resposta_frase`,`resposta_frase_usuario`,`cod_usuario`,`cod_subfase`,`cod_frase`),
   ADD KEY `cod_frase` (`cod_frase`),
   ADD KEY `cod_subfase` (`cod_subfase`),
   ADD KEY `cod_usuario` (`cod_usuario`);
@@ -1552,7 +1562,7 @@ ALTER TABLE `frase`
 -- AUTO_INCREMENT for table `frase_palavra`
 --
 ALTER TABLE `frase_palavra`
-  MODIFY `id_frase_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_frase_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `palavra`
@@ -1564,7 +1574,7 @@ ALTER TABLE `palavra`
 -- AUTO_INCREMENT for table `resposta_frase`
 --
 ALTER TABLE `resposta_frase`
-  MODIFY `id_resposta_frase` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_resposta_frase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subfase`
@@ -1576,7 +1586,7 @@ ALTER TABLE `subfase`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT for table `usuario_subfase`
