@@ -49,12 +49,20 @@ include "alternativas_frase_surdo.php";
                                         <button type="button" value="<?php echo $cod;?>"  class="resposta_frase m-3 btn  text-uppercase text-dark" ><?php echo $p;?></button>
                                         <?php 
 										}
+										?>
+										<script> j=0; resposta_correta_frase= new Array(); </script>
+										<?php
 										foreach($codigo_palavras_corretas as $c){?>
-                                        	<button type='hidden' class='resposta_correta_frase' value='<?php echo $c;?>'></button>
+											<script> 
+												resposta_correta_frase[j]=<?php echo $c;?>;
+												j++;
+											</script>
 										<?php 
 										}
+										
 										// foreach vetor resposta correta --- sequencia 
 										// input respo_usuario vazio a cada click na palavra  ?>
+
                                         <br />
                                 </div>								
                             </div>				
@@ -80,7 +88,6 @@ include "alternativas_frase_surdo.php";
 <!-- FIM DA MONTAGEM PARA O USUARIO --------------->
 <script>
 	$(function(){
-
 	var palavras_usuario = new Array();
 	var i=0;
 	$(".resposta_frase").click(function(){
@@ -92,33 +99,29 @@ include "alternativas_frase_surdo.php";
 		i++;
 		console.log(palavras_usuario);
 
-		palavra_correta=$(".resposta_correta_frase").val();
-		console.log(palavra_correta);
-
-
 	})
 	$("input[name='limpar']").click(function(){
 		$(".resposta_frase").prop('disabled',false);
-		for(j=0;j<i;j++){
-			palavras_usuario[j]= '';
-		}
+
+		palavras_usuario.splice(0,i);
 		i=0;
 		console.log(palavras_usuario);
 	});
 	$(".enviar_resposta_frase").click(function(){
 		r=palavras_usuario;
-		c = $(".resposta_correta_frase").val();
+		c = resposta_correta_frase;
         sf = "<?php echo $_GET["pagina"];?>";
-        post = {resposta:r, correto:c,subfase:sf};
+		cod_frase ="<?php echo $linha_frase['id_frase'];?>";
+        post = {resposta:r, correto:c,subfase:sf, cod_frase:cod_frase};
 		console.log(post);
-        /*$.post("salva_resposta.php",post,function(r){
+        $.post("salva_resposta_frase.php",post,function(r){
             if(r=="1"){					
-                location.href='atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina='+sf;
+                location.href='atividade_<?php echo $_SESSION['condicao_auditiva'];?>_frase.php?pagina='+sf;
             }
             else{
                 console.log(r);
             }
-        });*/
+        });
 	});
 });
 

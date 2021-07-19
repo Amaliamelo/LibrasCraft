@@ -82,7 +82,7 @@ if(isset($_GET["pagina"])){
 }
 $select.= "  INNER JOIN fase ON 
                        subfase.cod_fase = fase.id_fase ORDER BY resposta.cod_subfase";
- $resultado = mysqli_query($conexao,$select)
+ $resultado = mysqli_query($conexao,$select) 
    or die(mysqli_error($conexao));
 ///////////////////////////////////////////////////////////////
 
