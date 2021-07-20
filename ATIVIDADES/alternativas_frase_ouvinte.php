@@ -44,7 +44,7 @@ if($qtd>0){
     
     //SELECIONANDO VERBOS ERRADOS
     $select_verbo = "SELECT id_palavra,palavra, video_sinal FROM palavra WHERE cod_subfase ='10'
-    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 3";
+    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 2";
     
     $resultado_verbo = mysqli_query($conexao,$select_verbo);
     while($linha_verbo=mysqli_fetch_assoc($resultado_verbo)){
@@ -55,7 +55,7 @@ if($qtd>0){
 
     //SELECIONANDO PRONOMES ERRADOS
     $select_pronome = "SELECT id_palavra,palavra, video_sinal FROM palavra WHERE cod_subfase ='9'
-    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 3";
+    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 2";
     
     $resultado_pronome = mysqli_query($conexao,$select_pronome);
 
@@ -68,7 +68,7 @@ if($qtd>0){
     
     //SELECIONANDO PALAVRAS ERRADAS
     $select_palavra= "SELECT id_palavra,palavra, video_sinal FROM palavra WHERE cod_subfase = $pagina 
-    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 3";
+    AND id_palavra NOT IN ($id_corretos) ORDER BY RAND() LIMIT 2";
     
     $resultado_palavra= mysqli_query($conexao,$select_palavra);
 
@@ -88,6 +88,7 @@ if($qtd>0){
         $palavra[$codigo_palavra_errada[$cod]]=$p;
     }
 
+    print_r($palavra);
 
     $palavra_aux = $palavra;
     shuffle($palavra_aux);
@@ -100,6 +101,7 @@ if($qtd>0){
             }
         }
     }
+    print_r($p_final);
 //NOME DA SUBFASE
 $consulta4 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
 $resultado4 = mysqli_query($conexao,$consulta4) or die("Erro na consulta2");

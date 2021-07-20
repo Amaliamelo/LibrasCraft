@@ -68,7 +68,7 @@ or die(mysqli_error($conexao));
                    subfase.nome as subfase, 
                    subfase.id_subfase as id_subfase,
                    resposta_frase_usuario, 
-                   resposta_frase.cod_frase as questao 
+                   resposta_frase.resposta_frase_correta as questao 
            FROM `resposta_frase` 
                INNER JOIN frase ON  
                        resposta_frase.cod_frase = frase.id_frase

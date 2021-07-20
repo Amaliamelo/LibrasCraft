@@ -117,18 +117,34 @@
     else{
         $img_status = "incorreto";
     }
+    $r_correto="";
+    $r_usuario="";
 
+    $resposta_usuario=explode("-",$linha["resposta_frase_usuario"]);
+    $resposta_correta=explode("-",$linha["questao"]);
+    foreach($resposta_usuario as $i => $r){
+        if($i!=0){
+            $r_usuario.=" ".$palavra[$r];
+        }
+    }
+    foreach($resposta_correta as $i => $r){
+        if($i!=0){
+            $r_correto.=" ".$palavra[$r];
+        }
+    }
    echo '<tr class=" subfase_'.$subfase_atual.'_frase" style="display:none;">
             <th style="height:70px;">                                                
-                '.$frase[$linha["questao"]].'
+                '.$r_correto.'
             </th>
             <th>
-                '.$frase[$linha["resposta_frase_usuario"]].'
+                '.$r_usuario.'
             </th>
             <th>
                 <img src="../img/icones/score/'.$img_status.'.png" width="50px" />
             </th>
         </tr>';
+    $r_correto=null;
+    $r_usuario=null;
    
    $primeiro = false; 
  }
