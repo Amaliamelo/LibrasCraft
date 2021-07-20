@@ -86,7 +86,7 @@ if($qtd>0){
 							} // fim do if que verifica se ainda há itens sem resposta.
 							else{
 								//acabou as palavras... acabou a atividade da subfase
-									header("location: score.php?pagina=".$_GET["pagina"]);
+									header("location: ../SCORE/score.php?pagina=".$_GET["pagina"]);
 								}
 							?>
 				

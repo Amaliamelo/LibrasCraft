@@ -30,7 +30,7 @@
 
                 <br />
                 <label> <h4 class="card-title text-center"style="color:#828282;">  PALAVRA </h4> </label><br />
-                <button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='introducao.php?pagina=1'"> Introdução </button>
+                <button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='introducao.php?pagina=1'" > Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=1'">Atividades</button>
                 <br />
                 <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label><br />
@@ -39,12 +39,12 @@
                 $resultado_seleciona_casa = mysqli_query($conexao,$seleciona_casa) or  die(mysqli_error($conexao));
 
                 if(mysqli_num_rows($resultado_seleciona_casa)==1){
-                    echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="" > Introdução </a>';
+                    echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type=""> Introdução </a>';
                     echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=1"">Atividades</a>';
                 }
                 else{
-                    echo '<a class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=1""  disabled> Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=1"" disabled>Atividades</a>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=1"" disabled> Introdução </button>';
+                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=1"" disabled>Atividades</button>';
            
                 }
                 
@@ -93,8 +93,8 @@
                     echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
                 }
                 else{
-                    echo '<a class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</a>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
+                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</button>';
            
                 }
                 ?>
@@ -140,8 +140,8 @@
                     echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"">Atividades</a>';
                 }
                 else{
-                    echo '<a class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=1""  disabled> Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"" disabled>Atividades</a>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
+                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"" disabled>Atividades</button>';
            
                 }
                 
@@ -190,8 +190,8 @@
                     echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
                 }
                 else{
-                    echo '<a class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</a>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
+                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</button   >';
            
                 }
                 ?>

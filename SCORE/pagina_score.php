@@ -4,19 +4,19 @@
  $subfase_anterior ="";
  $primeiro = true;
  echo '	<!-- A - div principal-->
- <main class="body'.$linha["nome"].'" >
-    <div class="container align-middle" >
+ <main class="body'.$linha["nome"].'" style="height: 100%;" >
+    <div class="container align-middle"   >
      <!-- B (filha da principal - A)-->
-     <div class="row justify-content-center">
+     <div class="row justify-content-center" >
          <div class="row card_atv">
-             <div class="col d-flex justify-content-center align-items-center">
+             <div class="col justify-content-center align-items-center">
                  <!-- C (filha da div B) -->
                  <div class="col border bg-white">
                      <!-- D (filha da div C) : LINHA -->
          
                      <div class="row">
                          <div class="col py-3 px-md-3  bg-light d-flex flex-column justify-content-center align-items-center" style="color:#828282;">
-                             <h4 style="text-align:center;">PONTUAÇÃO GERAL DAS ATIVIDADES</h4>
+                             <h4 style="text-align:center;">PONTUAÇÃO GERAL DAS ATIVIDADES DO NIVEL PALAVRA</h4>
                              <h5 style="text-align:center;"> Lembre-se, você deve acertar no minimo 75% das atividades para passar para o proximo nível</h5>
                          </div>
                          
@@ -54,7 +54,6 @@
             if($nota>=75){
                 $status_fase="green";
                 $msg_status = "<h1>APROVADO</h1>";
-                print_r($pagina);
                 if($pagina!="scores"){
                     $usuario_seleciona=$_SESSION["autorizado"];
                     $subfase_seleciona=$linha['id_subfase'];
@@ -140,7 +139,7 @@
         $img_status = "incorreto";
     }
 
-   echo '<tr class=" subfase_'.$subfase_atual.'" style="display:none;">
+   echo '<tr class="subfase_'.$subfase_atual.'" style="display:none;">
             <th style="height:70px;">                                                
                 '.$palavra[$linha["questao"]].'
             </th>
@@ -164,10 +163,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+           
 ";
-include "../rodape.php";
 ?>

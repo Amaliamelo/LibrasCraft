@@ -28,7 +28,7 @@
                                 <a href="mapa.php" style="color:white;"> <i class="fas fa-undo-alt"></i></a>
                             </li>
                             <li class="nav-item active  mr-5 ml-5">
-                                <a href="ATIVIDADES/score.php" style="color:white;"><img height= "50vh" width="50vw" src="img/icones/menu/score.png" alt="Score" ><alt</a>
+                                <a href="SCORE/score.php" style="color:white;"><img height= "50vh" width="50vw" src="img/icones/menu/score.png" alt="Score" ><alt</a>
                             </li>
                         </ul> 
                         <ul class="navbar-nav">

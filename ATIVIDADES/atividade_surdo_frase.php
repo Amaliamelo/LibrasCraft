@@ -78,7 +78,7 @@ include "alternativas_frase_surdo.php";
 
 							<?php
 							} else{
-									header("location: score.php?pagina=".$_GET["pagina"]);
+									header("location: ../SCORE/score.php?pagina=".$_GET["pagina"]);
 								}
 							?>
 					</div>
