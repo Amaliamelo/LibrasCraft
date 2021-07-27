@@ -89,7 +89,7 @@
     align-items: center; 
     justify-content: center;
 }
-.bodyLETRAS, .bodyNUMEROS, .bodyABC{
+.bodyLETRAS, .bodyNUMEROS, .bodyABC, .bodyPRONOME, .bodyVERBO{
     background: url('../img/fundo/sub_abc.png');
     background-size: cover;
     background-repeat: no-repeat;
