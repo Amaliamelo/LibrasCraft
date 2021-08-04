@@ -5,10 +5,10 @@
     $usuario = "bsts_librascraft";
     $senha = "lib15900!";
     $bd = "bsts_librascraft";*/
-    $local = "localhost";
-	$bd = "bsts_librascraft";
-	$usuario = "root";
-    $senha = "";
+    $local = "us-mm-auto-dca-04-a.cleardb.net";
+	$bd = "heroku_40a387c8584725b";
+	$usuario = "b7440030167e1c";
+    $senha = "cc79340c";
 
     $conexao = mysqli_connect($local,$usuario,$senha,$bd) 
                     or die("ERRO");

@@ -4,7 +4,7 @@
      include 'menu_abc.php';
 
 ?>
-<main class="bodyABC" >
+<main class="bodyABC" style="height: 100%;padding-bottom:4.6%;">
     <div class="row container justify-content-center align-items-center"> 
         <div class="row justify-content-center alfabeto_numeral">
             <div class="col m-5 ">

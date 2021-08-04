@@ -4,7 +4,7 @@
         include "../conexao.php";
         include "../ABC/menu_abc.php";
 ?>
-<main class="bodyscores"  >
+<main class="bodyscores" style="height: 100%; padding-bottom:19.5%;" >
 	<div class="container" >
 			<div class="row justify-content-center ">
 				<div class="row-lg-12 row-md-6 card_atv">

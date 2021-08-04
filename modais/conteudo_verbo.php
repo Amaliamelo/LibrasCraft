@@ -4,23 +4,22 @@
         $consulta = "SELECT id_palavra,palavra, video_sinal FROM palavra WHERE cod_subfase = 10"; 
         
         $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta".$consulta);
-        $qtd = mysqli_num_rows($resultado);
+        $qtd_verbo = mysqli_num_rows($resultado);
     ?>
-    <script> j=0; verbos= new Array(); </script>
+    <script> j=0; verbos= new Array(); link_video_verbo= new Array(); </script>
     <?php  while( $linha = mysqli_fetch_assoc($resultado) ){?>
-    <script> verbos[j] = "<?php echo $linha['palavra'];?>"; j++; </script>
-    <?php } echo '<input type="hidden" value="'.$qtd.'" name="qtd_verbos"/>'?>
+    <script> verbos[j] = "<?php echo $linha['palavra'];?>"; 
+             link_video_verbo[j] = "<?php echo $linha['video_sinal'];?>";j++; </script>
+    <?php } echo '<input type="hidden" value="'.$qtd_verbo.'" name="qtd_verbos"/>'?>
 
 <script>
       
         posicao=0; 
-        qtd=$("input[name='qtd_verbos']").val();
-        console.log(verbos);
-        console.log(qtd);
+        qtd_verbo=$("input[name='qtd_verbos']").val();
+
         function troca_verbo(acao) // PROXIMA verbo
         {
             posicao = posicao + acao;
-            console.log(posicao);
             if(posicao!=0) 
             {
                 $("#anterior_verbo").show();
@@ -30,7 +29,7 @@
             {
                 $("#anterior_verbo").hide();// ESCONDE BOTAO ANTERIOR
             }
-            if(posicao!=qtd) 
+            if(posicao!=qtd_verbo) 
             {
                 $("#proximo_verbo").show();
                 $("#btn-modal-finalizar-verbo").hide(); // ESCONDE BOTAO FINALIZAR
@@ -41,9 +40,9 @@
                 $("#btn-modal-finalizar-verbo").show(); // MOSTRA BOTAO FINALIZAR
             }
             verbo=verbos[posicao];
+            link_verbo=link_video_verbo[posicao];
             $("#texto_verbo").html(verbo.toUpperCase());
-            link_img="../img/verbo/"+verbo.toUpperCase()+".gif";
-            $("#img_verbo").attr("src",link_img);
+            $("#img_verbo").attr("src","https://www.youtube.com/embed/"+link_verbo+"?");
         }
         $(document).ready(function(){             
                $("#proximo_verbo").click(
@@ -70,15 +69,14 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title text-center"style="color:#828282;">Bem-vindo(a) a introdução do tema verbo!</h4><br />
+                            <h4 class="card-title text-center"style="color:#828282;">Bem-vindo(a) a introdução do tema verbo!</h4>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <h1 class="card-title text-center" id="texto_verbo" style="color:#828282;font-size:50px;"></h1> <!-- verbo -->
+                            <div class="col-12">
+                                <h1 class="card-title text-center" id="texto_verbo" style="color:#828282;font-size:50px;">Ligar</h1> <!-- verbo -->
                             </div>
-                            <div class="col">
-                                <img id="img_verbo"  style="width:85%"> <!--IMAGEM DA verbo -->
-                            </div>
+                            <div class="col-12">
+                            <iframe class="iframe_video rounded mx-auto d-block" id="img_verbo" style="width:85%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/ligar?"></iframe>                            </div>
                         </div>                      
                         <div class="modal-footer">
                             <button class="btn btn-lg btn-secondary text-uppercase" id="anterior_verbo" style="display:none;">Anterior</button>

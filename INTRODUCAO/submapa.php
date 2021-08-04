@@ -90,7 +90,8 @@
 
                 if(mysqli_num_rows($resultado_seleciona_cozinha)==1){
                     echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
+                    echo '
+                    <a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
                 }
                 else{
                     echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
@@ -128,7 +129,9 @@
                 <label> <h4 class="card-title text-center"style="color:#828282;">  PALAVRA </h4> </label><br />
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=3'"> Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=3'">Atividades</button>
-                <br /><label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label><br />
+                <br />
+                <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label>
+                <br />
                 <?php
 
 
@@ -137,11 +140,13 @@
 
                 if(mysqli_num_rows($resultado_seleciona_banheiro)==1){
                     echo '<a href="introducao_frase.php?pagina=3" class="btn btn-lg btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"">Atividades</a>';
+                    echo '
+                    <a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"">Atividades</a>';
                 }
                 else{
-                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
-                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3"" disabled>Atividades</button>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" href="introducao_frase.php?pagina=3""  disabled> Introdução </button>';
+                    echo '
+                    <button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=3""" disabled>Atividades</button>';
            
                 }
                 
@@ -187,11 +192,11 @@
 
                 if(mysqli_num_rows($resultado_seleciona_quarto)==1){
                     echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
-                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
+                    echo '<a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=4""">Atividades</a>';
                 }
                 else{
                     echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
-                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</button   >';
+                    echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=4""" disabled>Atividades</button   >';
            
                 }
                 ?>

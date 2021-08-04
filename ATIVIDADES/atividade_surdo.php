@@ -53,16 +53,20 @@ if($qtd>0){
 									$objeto = "a letra";
 									$veiculo = "da imagem";
 								}
-								if( $linha["nome"] == "NUMEROS"){
+								elseif( $linha["nome"] == "NUMEROS"){
 									$objeto = " o número";
 									$veiculo = "da imagem";
 								}
-								if( $linha["nome"] == "VERBO"){
+								elseif( $linha["nome"] == "VERBO"){
 									$objeto = "o verbo";
 									$veiculo = " do video";
 								}
-								if( $linha["nome"] == "PRONOME"){
+								elseif( $linha["nome"] == "PRONOME"){
 									$objeto = "o pronome";
+									$veiculo = " do video";
+								}
+								else{
+									$objeto = "a palavra";
 									$veiculo = " do video";
 								}
 								

@@ -1,6 +1,7 @@
 <?php
+
 include "alternativas_frase_surdo.php";
-?>
+?>  
 
 <main class="body<?php echo $linha["nome"];?>" style="height:100%;">
 <!-- A - div principal-->
@@ -13,7 +14,7 @@ include "alternativas_frase_surdo.php";
 						<div class="col-lg-8 col-md-6 border bg-white">
 							<!-- D (filha da div C) : LINHA -->
 							<?php
-							if($qtd>0){
+							if($qtd_frase>0){
                                 if( $_SESSION['condicao_auditiva'] == "o"){
 									$objeto = "os videos";
 									$veiculo = "da frase";

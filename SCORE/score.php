@@ -100,8 +100,9 @@ $i=0;
 
   }
 
-include "pagina_score.php";
 include "score_frase.php";
+
+include "pagina_score.php";
 include "pagina_score_frase.php";
 ?>
 

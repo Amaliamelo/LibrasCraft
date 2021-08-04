@@ -13,14 +13,13 @@ $consulta = "SELECT id_frase, frase, video_frase FROM frase WHERE cod_subfase = 
            )
 
            ORDER BY RAND() LIMIT 1";
-
 $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
-$qtd = mysqli_num_rows($resultado);
+$qtd_frase = mysqli_num_rows($resultado);
 $linha_frase= mysqli_fetch_assoc($resultado);
 
 
 
-if($qtd>0){
+if($qtd_frase>0){
     $atividade= '<iframe id="link_video" class="iframe_video" src="https://www.youtube.com/embed/'.$linha_frase["video_frase"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     //SELECIONANDO IDS NA TABELA FRASE_PALAVRA
     $consulta2 = "SELECT  cod_palavra, palavra FROM frase_palavra INNER JOIN palavra 

@@ -79,10 +79,10 @@ include "funcao_trocar_frase.php";
 							</div>
 						</div>
                         <!-- IMAGEM DO OBJETO -->
-                        <div class="row m-2">
+                        <div class="row ">
                             <!-- VIDEO EM LIBRAS -->
-                            <div class="col d-flex flex-column justify-content-center align-items-center bg-light" >
-                                <div class="video"  style="margin-left:10px;"><iframe id="link_video" width="360" height="200" src="<?php echo $video_sinal; ?>" class="rounded float-right" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                            <div class="col p-3 d-flex flex-column justify-content-center align-items-center border bg-light" >
+                                <div  style="margin-left:10px;"><iframe id="link_video" width="360" height="200" src="<?php echo $video_sinal; ?>" class="rounded float-right iframe_video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                             </div>
                         </div>
                         <!-- BOTOES -->

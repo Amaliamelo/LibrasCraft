@@ -4,7 +4,7 @@
  $subfase_anterior ="";
  $primeiro = true;
  echo '	<!-- A - div principal-->
- <main class="body'.$linha["nome"].'" style="height: 100%;padding-bottom:7.2%;" >
+ <main class="body'.$linha["nome"].'" style="height: 100%; padding-bottom:24%;" >
     <div class="container align-middle"   >
      <!-- B (filha da principal - A)-->
      <div class="row justify-content-center" >

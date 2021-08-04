@@ -22,6 +22,10 @@
 .img_datilografia{
     width: 70px;
 }
+.img_parametros{
+    width: 840px;
+    height:500px;
+}
 .iframe_video{
     width: 540px;
     height:300px;
@@ -124,13 +128,14 @@
     height: 100vh;
 }
 .bodyscores{
-    background: url("../img/fundo/scores.png")no-repeat center;
+    background: url("../img/fundo/scores.png")no-repeat;
     background-size: cover;
-    height: 100vh;
-
+    min-height: 100%;
 }
 .bodyABC-parametros{
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
+    background-size: cover;
+
 }
 .card_atv{
     margin-top: 8%;
@@ -204,6 +209,10 @@ footer {
         width: 320px;
         height:200px;
     }
+    .img_parametros{
+        width: 240px;
+        height:200px;
+    }
     .frase_letras{
         width: 14px;
     }
@@ -247,10 +256,6 @@ footer {
         display: flex; 
         align-items: center; 
         justify-content: center;
-    }
-    .bodyABC-parametros{
-        background: url('../img/fundo/sub_abc_mobile.png') no-repeat; 
-
     }
     
     .bodyLETRAS, .bodyNUMEROS, .bodyABC{
