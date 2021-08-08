@@ -90,19 +90,26 @@ $select.= "  INNER JOIN fase ON
 $i=0;
   if(isset($_GET["pagina"])){
       $pagina=$_GET["pagina"];
-      $consulta2 = "SELECT nome FROM subfase WHERE id_subfase = $pagina";
+      $consulta2 = "SELECT nome, cod_fase FROM subfase WHERE id_subfase = $pagina";
       $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
       $linha = mysqli_fetch_assoc($resultado2);
+      if($linha["cod_fase"]!="4"){
+        include "score_frase.php";
+
+        include "pagina_score.php";
+        include "pagina_score_frase.php";
+      }
+      else{
+        include "pagina_score.php";
+      }
   }
     else{
       $linha["nome"]="scores";
       $pagina="scores";
+      
+      include "score_frase.php";
+      include "pagina_score.php";
+      include "pagina_score_frase.php";
 
   }
-
-include "score_frase.php";
-
-include "pagina_score.php";
-include "pagina_score_frase.php";
-?>
 
