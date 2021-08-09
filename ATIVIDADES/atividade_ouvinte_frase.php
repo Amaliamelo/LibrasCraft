@@ -95,7 +95,8 @@ include "alternativas_frase_ouvinte.php";
 
 							<?php
 							} else{
-									header("location: ../SCORE/score.php?pagina=".$_GET["pagina"]);
+								print_r($qtd);
+									//header("location: ../SCORE/score.php?pagina=".$_GET["pagina"]);
 								}
 							?>
 					</div>

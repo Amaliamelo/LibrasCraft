@@ -15,6 +15,7 @@ $consulta = "SELECT id_frase, frase, video_frase FROM frase WHERE cod_subfase = 
            ORDER BY RAND() LIMIT 1";
 $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
 $qtd_frase = mysqli_num_rows($resultado);
+
 $linha_frase= mysqli_fetch_assoc($resultado);
 
 

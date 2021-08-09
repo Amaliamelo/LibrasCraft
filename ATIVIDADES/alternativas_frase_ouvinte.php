@@ -17,6 +17,7 @@ $consulta = "SELECT id_frase, frase, video_frase FROM frase WHERE cod_subfase = 
 
 $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
 $qtd = mysqli_num_rows($resultado);
+print_r($qtd);
 $linha_frase= mysqli_fetch_assoc($resultado);
 
 

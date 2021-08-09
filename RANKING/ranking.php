@@ -9,6 +9,7 @@ include "../ABC/menu_abc.php";
     on usuario_subfase.cod_usuario=usuario.id_usuario INNER JOIN subfase on 
     subfase.id_subfase=usuario_subfase.cod_subfase GROUP BY usuario.nome,cod_fase 
     ORDER BY acertos_total DESC";
+    
     $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
 ?>
 <main class="bodyscores" style="padding-top:3%; padding-bottom:15.7%" >

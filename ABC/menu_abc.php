@@ -25,8 +25,8 @@
             <div class='collapse navbar-collapse menu' id='menucollapse'>
                         <ul class="navbar-nav mr-auto"  >
                             <li class="nav-item active  mr-5 ml-5">
-                                <!--<i class="fas fa-award"></i> <i class="fas fa-medal"></i>-->
-                                <a href="../RANKING/ranking.php" style="color:white;"><i class="fas fa-code fa-3x fa-trophy"></i></a>
+                                <!--<i class="fas fa-award"></i> <i class="fas fa-medal"></i> <i class="fas  fa-trophy"></i>-->
+                                <a href="../RANKING/ranking.php" style="color:white;"><i class="fas fa-3x fa-trophy"></i></a>
                             </li>
                             <li class="nav-item active  mr-5 ml-5">
                                 <a href="../SCORE/score.php" style="color:white;"><img height= "50vh" width="50vw" src="../img/icones/menu/score.png" alt="Score" ><alt</a>

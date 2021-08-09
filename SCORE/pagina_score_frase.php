@@ -49,7 +49,18 @@
             if($nota_frase>=75){
                 $status_fase_frase="green";
                 $msg_status_frase = "<h1>APROVADO</h1>";
-               
+                if($pagina!="scores"){
+                    $usuario_seleciona=$_SESSION["autorizado"];
+                    $subfase_seleciona=$linha['id_subfase'];
+                    $qtd_acerto_seleciona=$acerto_subfase_usuario_frase[$linha["id_subfase"]];
+        
+                    $seleciona = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase=$subfase_seleciona";
+                    $resultado_seleciona = mysqli_query($conexao,$seleciona) or  die(mysqli_error($conexao));
+                    if(mysqli_num_rows($resultado_seleciona)==1){
+                        $insert = "UPDATE usuario_subfase SET qtd_acertos = qtd_acertos + $qtd_acerto_seleciona WHERE cod_usuario = $usuario_seleciona AND cod_subfase= $subfase_seleciona";                        mysqli_query($conexao,$insert)
+                        or die(mysqli_error($conexao).$insert);    
+                    }
+                }
             }
             else{
                 $status_fase_frase="#EE2C2C";
