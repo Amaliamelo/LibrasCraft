@@ -130,8 +130,7 @@
 .bodyscores{
     background: url("../img/fundo/scores.png")no-repeat;
     background-size: cover;
-    min-height: 100%;
-}
+    }
 .bodyABC-parametros{
     background: url('../img/fundo/sub_abc.png') no-repeat center top fixed; 
     background-size: cover;
@@ -276,6 +275,11 @@ footer {
         display: flex; 
         align-items: center; 
         justify-content: center;
+    }
+    .bodyscores{
+        background: url("../img/fundo/score_mobile.png")no-repeat;
+        background-size: cover;
+        padding-bottom:100%;
     }
     .sala{
         position: absolute;
