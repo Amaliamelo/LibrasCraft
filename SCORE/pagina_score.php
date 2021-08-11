@@ -48,35 +48,44 @@
     if($subfase_anterior!=$subfase_atual){
         
         if($subfase_usuario[$linha["id_subfase"]]==$subfase[$linha["id_subfase"]]){
-            $acerto = $acerto_subfase_usuario[$linha["id_subfase"]];
-            $qtd_questoes = $subfase[$linha["id_subfase"]];
-            $nota = number_format((($acerto/$qtd_questoes)*100),2);
-            if($nota>=75){
-                $status_fase="green";
-                $msg_status = "<h1>APROVADO</h1>";
-                if($pagina!="scores"){
-                    $usuario_seleciona=$_SESSION["autorizado"];
-                    $subfase_seleciona=$linha['id_subfase'];
-                    $qtd_acerto_seleciona=$acerto_subfase_usuario[$linha["id_subfase"]];
-        
-                    $seleciona = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase=$subfase_seleciona";
-                    $resultado_seleciona = mysqli_query($conexao,$seleciona) or  die(mysqli_error($conexao));
-                    if(mysqli_num_rows($resultado_seleciona)==0){
-                        $insert = "INSERT INTO usuario_subfase(cod_usuario,cod_subfase,qtd_acertos) VALUES (
-                            '$usuario_seleciona',
-                            '$subfase_seleciona',
-                            '$qtd_acerto_seleciona'
-                            )";
-                        mysqli_query($conexao,$insert)
-                        or die(mysqli_error($conexao).$insert);    
+            if(isset($acerto_subfase_usuario[$linha["id_subfase"]])){
+                $acerto = $acerto_subfase_usuario[$linha["id_subfase"]];
+                $qtd_questoes = $subfase[$linha["id_subfase"]];
+                $nota = number_format((($acerto/$qtd_questoes)*100),2);
+                if($nota>=75){
+                    $status_fase="green";
+                    $msg_status = "<h1>APROVADO</h1>";
+                    if($pagina!="scores"){
+                        $usuario_seleciona=$_SESSION["autorizado"];
+                        $subfase_seleciona=$linha['id_subfase'];
+                        $qtd_acerto_seleciona=$acerto_subfase_usuario[$linha["id_subfase"]];
+            
+                        $seleciona = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase=$subfase_seleciona";
+                        $resultado_seleciona = mysqli_query($conexao,$seleciona) or  die(mysqli_error($conexao));
+                        if(mysqli_num_rows($resultado_seleciona)==0){
+                            $insert = "INSERT INTO usuario_subfase(cod_usuario,cod_subfase,qtd_acertos) VALUES (
+                                '$usuario_seleciona',
+                                '$subfase_seleciona',
+                                '$qtd_acerto_seleciona'
+                                )";
+                            mysqli_query($conexao,$insert)
+                            or die(mysqli_error($conexao).$insert);    
+                        }
                     }
+                }
+                else{
+                    $status_fase="#EE2C2C";
+                    $msg_status = "<h2>REPROVADO</h2>
+                    <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
                 }
             }
             else{
                 $status_fase="#EE2C2C";
                 $msg_status = "<h2>REPROVADO</h2>
                 <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
+            
             }
+           
         
         }
         else{

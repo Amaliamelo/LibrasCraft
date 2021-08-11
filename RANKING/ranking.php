@@ -3,37 +3,57 @@
 include "../conexao.php";
 include "../ABC/cabecalho_abc.php";
 include "../ABC/menu_abc.php";
-
-    $consulta = "SELECT usuario.email as email, cod_subfase, sum(usuario_subfase.qtd_acertos) AS acertos_total,
-    subfase.cod_fase as fase, fase.nome as nome_fase, subfase.nome as nome_subfase FROM usuario_subfase INNER JOIN usuario
-    on usuario_subfase.cod_usuario=usuario.id_usuario INNER JOIN subfase on 
-    subfase.id_subfase=usuario_subfase.cod_subfase INNER JOIN fase on subfase.cod_fase=fase.id_fase GROUP BY usuario.nome,cod_fase 
-    ORDER BY acertos_total DESC";
+    /*SELECT COUNT(id_palavra) as qtd,cod_usuario
+        FROM fase INNER JOIN subfase ON fase.id_fase = subfase.cod_fase
+        INNER JOIN palavra ON palavra.cod_subfase=subfase.id_subfase 
+        INNER JOIN resposta ON 
+        resposta.cod_palavra=palavra.id_palavra and resposta.resposta=resposta.cod_palavra 
+        GROUP BY cod_usuario ORDER BY qtd DESC*/
+    $consulta = "SELECT COUNT(id_palavra) as qtd,cod_usuario, usuario.email as email FROM fase INNER JOIN subfase on
+	fase.id_fase = subfase.cod_fase INNER JOIN palavra on
+	palavra.cod_subfase=subfase.id_subfase INNER JOIN resposta ON 
+    resposta.cod_palavra=palavra.id_palavra and resposta.resposta=resposta.cod_palavra 
+    inner join usuario on usuario.id_usuario = resposta.cod_usuario 
+    GROUP BY cod_usuario order by qtd DESC";
     
     $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
+
+    while($linha=mysqli_fetch_assoc($resultado)){
+        $pontuacao[$linha["cod_usuario"]]=$linha["qtd"];
+        $email[$linha["cod_usuario"]]=$linha["email"];
+    }
+
+    $consulta= "SELECT COUNT(id_frase) as qtd, cod_usuario FROM fase
+	INNER JOIN subfase ON fase.id_fase = subfase.cod_fase
+	INNER JOIN frase ON frase.cod_subfase=subfase.id_subfase 
+    INNER JOIN resposta_frase ON resposta_frase.cod_frase=frase.id_frase 
+    and resposta_frase.resposta_frase_correta =resposta_frase.resposta_frase_usuario 
+    GROUP BY cod_usuario order by cod_usuario, qtd desc";
+    
+    $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
+
+     while($linha=mysqli_fetch_assoc($resultado)){
+         $pontuacao[$linha["cod_usuario"]]+=$linha["qtd"];
+     }
 ?>
-<main class="bodyscores" style="padding-top:3%; padding-bottom:15.7%" >
+<main class="bodyscores " style="padding-top:3%; padding-bottom:21.3%" >
 <div class="container align-middle pt-5 mt-5 mp-5">
-    <table class="table border pt-5  table-hover">
-        <thead class="table-success">
+    <table class="table border pt-5 table-hover ranking  ">
+        <thead class="table-success ">
             <tr class="bg-warning">
                 <th scope="col-sm-2">Posição</th>
                 <th scope="col-sm-2">Usuário</th>
                 <th scope="col-sm-2">Acertos</th>
-                <th scope="col-sm-2">Subfase</th>
-                <th scope="col-sm-2">Fase</th>
             </tr>
         </thead>
         <?php 
         $posicao_usuario=0;
-        while($linha=mysqli_fetch_assoc($resultado)){
+        foreach($pontuacao as $cod_usuario => $qtd){
             $posicao_usuario++;
-            echo'<tr class="table-warning flex-column justify-content-center align-items-center">
+            echo'<tr class="table-warning flex-column justify-content-center align-items-center ">
                 <th scope="row-sm-2" >'.$posicao_usuario.'</th>
-                <td >'.$linha["email"].'</td>
-                <td>'.$linha["acertos_total"].'</td>
-                <td>'.$linha["nome_subfase"].'</td>
-                <td>'.$linha["nome_fase"].'</td>
+                <td >'.$email[$cod_usuario].'</td>
+                <td>'.$qtd.'</td>
             </tr>';
 
         }

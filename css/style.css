@@ -203,6 +203,11 @@ footer {
 .frase_letras{
     width: 30px;
 }
+.ranking{
+    box-shadow: 2px 2px 2px 1px rgba(8, 8, 8, 0.2);
+    box-shadow: 10px 5px 5px 5px rgb(10, 10, 10);
+}
+
 @media only screen and (max-device-width: 600px) {
     .iframe_video{
         width: 320px;
