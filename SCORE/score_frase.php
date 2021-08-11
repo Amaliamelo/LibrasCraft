@@ -57,10 +57,11 @@ $select_frase= "SELECT COUNT(resposta_frase_usuario) as qtd, cod_subfase FROM
 
 $resultado_frase = mysqli_query($conexao,$select_frase)
 or die(mysqli_error($conexao));
+  $acerto_subfase_usuario_frase[]=0;
    while($linha_frase=mysqli_fetch_assoc($resultado_frase)){
-     $acerto_subfase_usuario_frase[$linha_frase["cod_subfase"]]=$linha_frase["qtd"];
+      $acerto_subfase_usuario_frase[$linha_frase["cod_subfase"]]=$linha_frase["qtd"];
+    
    }   
-
 /////////////////////////////////////////////////////////////////////////////
 
 ////////Consulta de frases agrupadas pelo id do usuario

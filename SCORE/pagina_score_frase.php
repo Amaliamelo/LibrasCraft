@@ -43,6 +43,7 @@
     if($subfase_anterior_frase!=$subfase_atual_frase){
         
         if($subfase_usuario_frase[$linha["id_subfase"]]==$subfase_frase[$linha["id_subfase"]]){
+            print_r($linha["id_subfase"]);
             $acerto_frase = $acerto_subfase_usuario_frase[$linha["id_subfase"]];
             $qtd_questoes_frase = $subfase_frase[$linha["id_subfase"]];
             $nota_frase = number_format((($acerto_frase/$qtd_questoes_frase)*100),2);
