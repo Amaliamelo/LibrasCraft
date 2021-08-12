@@ -48,6 +48,7 @@ include "../ABC/menu_abc.php";
         </thead>
         <?php 
         $posicao_usuario=0;
+        arsort($pontuacao);
         foreach($pontuacao as $cod_usuario => $qtd){
             $posicao_usuario++;
             echo'<tr class="table-warning flex-column justify-content-center align-items-center ">
