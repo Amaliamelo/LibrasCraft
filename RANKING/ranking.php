@@ -45,7 +45,7 @@ include "../ABC/menu_abc.php";
                 <th scope="col-sm-2">Usuário</th>
                 <th scope="col-sm-2">Acertos</th>
             </tr>
-        </thead><!-- abc = 1; plavra= 2; frase = 3; tentar dividir as fase na mostra do ranking-!>
+        </thead><!--abc = 1; plavra= 2; frase = 3; tentar dividir as fase na mostra do ranking -->
         <?php 
         $posicao_usuario=0;
         arsort($pontuacao);
