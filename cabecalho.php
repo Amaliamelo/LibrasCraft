@@ -10,6 +10,7 @@
         <script src="js/main.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/md5.js"></script>
+        <script src="js/detectmobilebrowser.js"></script>
         <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
     </head>
     <body>
