@@ -7,7 +7,7 @@
 
                 <br />
                 <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ABC/parametros_libras.php'"> 5 Parametros da Libras</button>
-                <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ABC/submapa_abc.php'"> Estudar </button>
+                <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ABC/submapa_abc.php'"> Introdução </button>
                 <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=7'">Atividades Numeros</button>
                 <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=8'">Atividades Letras</button>
                 <button class="btn btn-lg btn-google btn-block text-uppercase btn-secondary" style="background-color:#828282;" type="submit" onclick = "location.href='./ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=9'">Atividades Pronomes</button>

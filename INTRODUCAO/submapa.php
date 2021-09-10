@@ -33,6 +33,7 @@
                 <button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='introducao.php?pagina=1'" > Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=1'">Atividades</button>
                 <br />
+                <hr/>
                 <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label><br />
                 <?php
                 $seleciona_casa = "SELECT * FROM usuario_subfase WHERE cod_usuario=$usuario_seleciona AND cod_subfase='1'";
@@ -81,6 +82,7 @@
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=2'"> Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=2'">Atividades</button>
                 <br />
+                <hr/>
                 <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label><br />
                 <?php
 
@@ -130,6 +132,7 @@
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=3'"> Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=3'">Atividades</button>
                 <br />
+                <hr/>
                 <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label>
                 <br />
                 <?php
@@ -180,8 +183,8 @@
                 <label><h4 class="card-title text-center"style="color:#828282;">  PALAVRA </h4> </label><br />
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='introducao.php?pagina=4'"> Introdução </button>
                 <button class="btn btn-lg btn-secondary text-uppercase  m-3" type="submit" onclick = "location.href='../ATIVIDADES/atividade_<?php echo $_SESSION['condicao_auditiva'];?>.php?pagina=4'">Atividades</button>
-                
                 <br />
+                <hr/>
                 <label> <h4 class="card-title text-center"style="color:#828282;"> FRASE </h4> </label>
                 <br />
                 <?php

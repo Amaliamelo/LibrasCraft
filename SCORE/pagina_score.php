@@ -16,8 +16,8 @@
          
                      <div class="row">
                          <div class="col py-3 px-md-3  bg-light d-flex flex-column justify-content-center align-items-center" style="color:#828282;">
-                             <h4 style="text-align:center;">PONTUAÇÃO GERAL DAS ATIVIDADES DO NIVEL PALAVRA</h4>
-                             <h5 style="text-align:center;"> Lembre-se, você deve acertar no minimo 75% das atividades para passar para o proximo nível</h5>
+                             <h4 style="text-align:center;">ATIVIDADES NÍVEL PALAVRA - PONTUAÇÃO GERAL</h4>
+                             <h6 style="text-align:center;"> Lembre-se, você deve acertar no minimo 75% das atividades para passar para o proximo nível</h6>
                          </div>
                          
                      </div>
@@ -35,7 +35,7 @@
 
         echo '<tbody style="">
                 <tr>
-                    <td colspan="3" style="background-color:#00E5EE;color:white;">                   
+                    <td colspan="3" style="background-color:rgb(133, 199, 253);color:white;">                   
                                 <h5>FASE: <b>'.$fase_atual.'</b></h5>
                     </td>
                 </tr>';
@@ -53,8 +53,8 @@
                 $qtd_questoes = $subfase[$linha["id_subfase"]];
                 $nota = number_format((($acerto/$qtd_questoes)*100),2);
                 if($nota>=75){
-                    $status_fase="green";
-                    $msg_status = "<h1>APROVADO</h1>";
+                    $status_fase="#a6f7a6";
+                    $msg_status = "<h3>APROVADO</h3>";
                     if($pagina!="scores"){
                         $usuario_seleciona=$_SESSION["autorizado"];
                         $subfase_seleciona=$linha['id_subfase'];
@@ -74,14 +74,14 @@
                     }
                 }
                 else{
-                    $status_fase="#EE2C2C";
-                    $msg_status = "<h2>REPROVADO</h2>
+                    $status_fase="#f87c7c";
+                    $msg_status = "<h3>REPROVADO</h3>
                     <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
                 }
             }
             else{
-                $status_fase="#EE2C2C";
-                $msg_status = "<h2>REPROVADO</h2>
+                $status_fase="#f87c7c";
+                $msg_status = "<h3>REPROVADO</h3>
                 <a href='limpar_respostas.php?pagina=".$linha["id_subfase"]."' style='color:white;'>REFAZER TAREFA!</a>";
             
             }
@@ -89,8 +89,8 @@
         
         }
         else{
-        $status_fase="#EEC900";
-        $msg_status = "<h2>EM ANDAMENTO</h2>
+        $status_fase="#ffee57";
+        $msg_status = "<h3>EM ANDAMENTO</h3>
                 <a href='atividade_".$_SESSION["condicao_auditiva"].".php?pagina=".$linha["id_subfase"]."'style='color:white;'>CONTINUAR TAREFA!</a>";
         }
         if(isset($acerto_subfase_usuario[$linha["id_subfase"]])){
@@ -102,9 +102,7 @@
             $porcentagem=0;
         }
         $porcentagem = number_format($porcentagem*100,2);
-        echo '
-        <tr id="id_'.$subfase_atual.'">
-            <td class="m-3" colspan="3"  style="background-color:'.$status_fase.';color:white;">               
+        /*<td class="m-3" colspan="3"  style="background-color:'.$status_fase.';color:white;">               
             <h5>SUBFASE: <b> '.$subfase_atual.'</br></b>
             Respondido: ('.$subfase_usuario[$linha["id_subfase"]].' de 
             '.$subfase[$linha["id_subfase"]].')</h5>
@@ -115,6 +113,21 @@
             '.$msg_status.'   
             <br />         
             <h4 style="cursor:pointer;">Clique aqui para verificar suas respostas</h4>
+            </td>*/
+        echo '
+        <tr id="id_'.$subfase_atual.'" class="table-success">
+            <td class="m-3" colspan="3"  style="background-color:'.$status_fase.'; color:#696969;">               
+            
+                <h5>'.$subfase_atual.'<h5>
+                '.$msg_status.'   
+                <b>Respondido:</b> '.$subfase_usuario[$linha["id_subfase"]].' de 
+                '.$subfase[$linha["id_subfase"]].'<br/>
+                <b>Acertos</b>:
+                '.$qtd_acerto.'/'.
+                    $subfase[$linha["id_subfase"]].' - '.$porcentagem.'%
+                <br />
+                <br />         
+                <h5 style="cursor:pointer;">Clique aqui para verificar suas respostas</h5>
             </td>
         </tr>
         <script>
