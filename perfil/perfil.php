@@ -48,11 +48,6 @@
                                 </ul>
                             </div>
 					    </div>
-                        <div class="col bg-white p-2">
-                                <ul style="list-style: none;" >
-                                        <li class="m-2"><h4> Sem Trofeus</h4></li> 
-                                </ul>      
-                        </div>
 			    </div>
 		    </div>
         </div>

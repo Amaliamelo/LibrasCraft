@@ -20,6 +20,8 @@ include "../ABC/menu_abc.php";
     GROUP BY cod_usuario order by qtd DESC";
      $resultado = mysqli_query($conexao,$consulta) or die("Erro na consulta1");
 
+
+
     while($linha=mysqli_fetch_assoc($resultado)){
             $pontuacao_abc[$linha["cod_usuario"]]=$linha["qtd"];
             $email[$linha["cod_usuario"]]=$linha["email"];
@@ -40,6 +42,10 @@ include "../ABC/menu_abc.php";
     while($linha=mysqli_fetch_assoc($resultado)){
             $pontuacao[$linha["cod_usuario"]]=($linha["qtd"]*2);
             $email[$linha["cod_usuario"]]=$linha["email"];
+            if(!isset($total[$linha["cod_usuario"]])){
+                $total[$linha["cod_usuario"]]=0;
+
+            }
             $total[$linha["cod_usuario"]]+=$pontuacao[$linha["cod_usuario"]];
     }
     
@@ -57,7 +63,7 @@ include "../ABC/menu_abc.php";
         $total[$linha["cod_usuario"]]+= $pontuacao_frase[$linha["cod_usuario"]];
          //print_r($total[$linha["cod_usuario"]]);
     }
-    
+    arsort($total);
     
 ?>
 <main class="bodyscores " style="padding-top:3%; padding-bottom:21.3%" >
@@ -72,9 +78,12 @@ include "../ABC/menu_abc.php";
         </thead>
         <?php 
         $posicao_usuario=0;
-        
+        $pontuacao_anterior=-1;
         foreach($total as $cod_usuario => $qtd){
-            $posicao_usuario++;
+            if($qtd!=$pontuacao_anterior){
+                $posicao_usuario++;
+                $pontuacao_anterior=$qtd;
+            }
             if($cod_usuario == $_SESSION["autorizado"]){
                 echo'<tr class="flex-column justify-content-center align-items-center" style="background-color: #f7db63;">';
                 if($posicao_usuario == 1){
