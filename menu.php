@@ -24,7 +24,7 @@
             </button>
             <div class='collapse navbar-collapse menu' id='menucollapse'>
                         <ul class="navbar-nav mr-auto"  >
-                            <li class="nav-item active  mr-5 ml-5">
+                            <li class="trofeu nav-item active  mr-5 ml-5">
                                 <a href="RANKING/ranking.php" style="color:white;"><i class="fas fa-code fa-3x fa-trophy"></i></a>
                             </li>
                             <li class="nav-item active  mr-5 ml-5">
@@ -35,7 +35,7 @@
                             <li class="nav-item active  mr-5 ml-5">
                             <b><a href="perfil/perfil.php" style="color:white;"><h7 >Bem-Vindo(a) <?php echo $linha["nome"]?></h7></a></b>
                             </li>
-                            <li class="nav-item active mr-5 ml-5 ">
+                            <li class="nav-item active mr-5 ml-2">
                                 <a href="logout.php" style="color:white;"> <i class="fas fa-sign-out-alt"></i> </a>
                             </li>
                         </ul> 
