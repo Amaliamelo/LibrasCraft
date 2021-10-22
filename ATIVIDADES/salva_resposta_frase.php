@@ -5,15 +5,23 @@
     $cod_subfase = $_POST["subfase"];
     $cod_frase=$_POST["cod_frase"];
 
-    $resposta_frase_correta="";
-    foreach($_POST["correto"] as $c){
-        $resposta_frase_correta.= "-".$c;
+    if($_SESSION["condicao_auditiva"]=="surdo"){
+        $resposta_frase_correta=$_POST["correto"];
+        $resposta_frase_usuario=$_POST["resposta"];
+    }else{
+        $resposta_frase_correta="";
+        foreach($_POST["correto"] as $c){
+            $resposta_frase_correta.= "-".$c;
+        }
+       
+
+        $resposta_frase_usuario="";
+        foreach($_POST["resposta"] as $u){
+            $resposta_frase_usuario.= "-".$u;
+        }
     }
 
-    $resposta_frase_usuario="";
-    foreach($_POST["resposta"] as $u){
-        $resposta_frase_usuario.= "-".$u;
-    }
+    
 
     $select = "SELECT * FROM resposta_frase WHERE cod_usuario='$cod_usuario' 
                 AND cod_frase='$cod_frase'";

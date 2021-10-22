@@ -152,19 +152,25 @@
     }
     $r_correto="";
     $r_usuario="";
-
-    $resposta_usuario=explode("-",$linha["resposta_frase_usuario"]);
-    $resposta_correta=explode("-",$linha["questao"]);
-    foreach($resposta_usuario as $i => $r){
-        if($i!=0){
-            $r_usuario.=" ".$palavra[$r];
+    if($_SESSION["condicao_auditiva"]=="surdo"){
+        $r_usuario= $linha["resposta_frase_usuario"];
+        $r_correto= $linha["questao"];
+    }else{
+        $resposta_usuario=explode("-",$linha["resposta_frase_usuario"]);
+        $resposta_correta=explode("-",$linha["questao"]);
+        foreach($resposta_usuario as $i => $r){
+            if($i!=0){
+                $r_usuario.=" ".$palavra[$r];
+            }
+        }
+        foreach($resposta_correta as $i => $r){
+            if($i!=0){
+                $r_correto.=" ".$palavra[$r];
+            }
         }
     }
-    foreach($resposta_correta as $i => $r){
-        if($i!=0){
-            $r_correto.=" ".$palavra[$r];
-        }
-    }
+   
+    
    echo '<tr class=" subfase_'.$subfase_atual_frase.'_frase" style="display:none;">
             <th style="height:70px;">                                                
                 '.$r_correto.'

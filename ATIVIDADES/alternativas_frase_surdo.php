@@ -18,7 +18,7 @@ $qtd_frase = mysqli_num_rows($resultado);
 
 $linha_frase= mysqli_fetch_assoc($resultado);
 
-
+$frase_correta = $linha_frase['frase'];
 
 if($qtd_frase>0){
     $atividade= '<iframe id="link_video" class="iframe_video" src="https://www.youtube.com/embed/'.$linha_frase["video_frase"].'?" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
