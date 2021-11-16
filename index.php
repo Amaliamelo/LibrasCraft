@@ -27,14 +27,22 @@ session_start();
                 echo '<div class="col-ofsset-12 cont2">
                 <div class="linha m-3"> </div>
                 <div class="linha2"> </div>
-                    <div class="row btn1  m-3 "><button  class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal"data-target="#modal_login" name="login" id="log">Entrar</button></div>
+                
+                <div class="row btn1  m-3 ">
+                    <a data-toggle="modal" data-target="#modal_sobre_nos" style="color:black;float: left;">
+                        <img height= "30vh" width="40vw" src="img/icones/menu/sobre_nos.png" alt="Score" />
+                    </a>
+                    <button  class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal"data-target="#modal_login" name="login" id="log">Entrar</button>
+                    </div>
                     <div class="row btn2 m-3"><button class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal" data-target="#modal_cadastro" > Cadastrar</button></div>
-                    </div> ';
+                </div> ';
             }
         ?>
          
     
        <?php
+            //MODAL SOBRE NÓS
+            include "modais/modal_sobre_nos.php";
             //MODAL LOGIN
             include "modais/modal_login.php";
             //MODAL CADASTRO

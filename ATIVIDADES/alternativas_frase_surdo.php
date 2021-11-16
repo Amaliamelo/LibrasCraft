@@ -79,6 +79,7 @@ if($qtd_frase>0){
 
     }
 
+   
     
    foreach($palavras_corretas as $cod => $p ){
      $palavra[$codigo_palavras_corretas[$cod]]=$p;

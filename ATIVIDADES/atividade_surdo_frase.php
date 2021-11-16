@@ -52,6 +52,11 @@ RESPOSTA _FRASE --- tirar resposta corretas
 										<?php foreach($p_final as $cod => $p){?>
                                         <button type="button" value="<?php echo $cod;?>"  class="alternativas_frase m-3 btn  text-uppercase text-dark" disabled><?php echo $p;?></button>
 										<?php }?>
+										<!--ATENÇÃO!! GAMBIARRA A FRENTE...mostrando artigos -->
+										</br>
+										<button type="button" value="A"  class="alternativas_frase m-3 btn  text-uppercase text-dark" disabled>A</button>
+                                        <button type="button" value="O"  class="alternativas_frase m-3 btn  text-uppercase text-dark" disabled>O</button>
+
 										<!-- TIRAR O VETOR E PEGAR O FRASE DA TABELA FRASE-->
 
 										<script> // j=0; resposta_correta_frase= new Array(); </script>
