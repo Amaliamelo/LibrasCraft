@@ -209,11 +209,11 @@ footer {
     box-shadow: 10px 5px 5px 5px rgb(10, 10, 10);
 }
 .iframe_video_sobre{
-    height:40px;
-    width:40px;
+    height:30px;
+    width:30px;
     color:white;
-    margin-left:10%;
-    margin-top:10%;
+    margin-left:5%;
+    margin-top:5%;
 }
 @media only screen and (max-device-width: 500px) and (max-device-width: 640px){
     .iframe_video{
@@ -224,7 +224,7 @@ footer {
         width: 20px;
         height:20px;
         margin-left:10%;
-        margin-top:10%;
+        margin-top:5%;
 
     }
     .img_parametros{
