@@ -15,7 +15,6 @@
         }   
         
     }
-
     $resultado = mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
     while($linha=mysqli_fetch_assoc($resultado))
     {

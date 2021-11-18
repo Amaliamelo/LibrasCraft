@@ -354,7 +354,7 @@ footer {
     }
   }
   /*LAYOUT PARA TABLET*/
-  @media only screen and (min-device-height: 1024px) and (min-device-width: 768px) {
+  @media only screen and (min-device-height: 640px) and (min-device-width: 500px) and (max-device-height: 1400px) and (max-device-width: 1050px){
     .linha3, .linha, .linha2 {
         border-left: 0px solid ;
         height: 0px;

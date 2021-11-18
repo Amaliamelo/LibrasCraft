@@ -10,7 +10,7 @@
 <script>
 $(document).ready(function(){
     function atualiza_tabela(){
-        $.post("carrega_frase.php", function(matriz){
+        $.post("carrega_frase_filtro.php", function(matriz){
 		$("#tb").html("");
 		for (i=0;i<matriz.length;i++) 
 		{

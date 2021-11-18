@@ -1,7 +1,6 @@
 <?php
 $consulta_fase = "SELECT * FROM fase ORDER BY nome ";
 $resultado_fase = mysqli_query($conexao,$consulta_fase) or die ("Erro Fase");
-
 ?>
 
 <div class="modal fade" id="modal_palavra" tabindex="-1" role="dialog">
