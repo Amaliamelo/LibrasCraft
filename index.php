@@ -29,8 +29,8 @@ session_start();
                 <div class="linha2"> </div>
                 
                 <div class="row btn1  m-3 ">
-                    <a data-toggle="modal" data-target="#modal_sobre_nos" style="color:black;float: left;">
-                        <img height= "30vh" width="40vw" src="img/icones/menu/sobre_nos.png" alt="Score" />
+                    <a data-toggle="modal" data-target="#modal_sobre_nos" >
+                        <img class="iframe_video_sobre" src="img/icones/menu/sobre_nos.png" alt="Score" />
                     </a>
                     <button  class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal"data-target="#modal_login" name="login" id="log">Entrar</button>
                     </div>
