@@ -78,7 +78,7 @@ class PHPMailer
      * The From email address for the message.
      * @type string
      */
-    public $From = 'root@localhost';
+    public $From = 'librascraft@smpt.gmail.com';
 
     /**
      * The From name of the message.
@@ -200,7 +200,7 @@ class PHPMailer
      * by SERVER_NAME is used or 'localhost.localdomain'.
      * @type string
      */
-    public $Hostname = '';
+    public $Hostname = 'http://librascraft2.herokuapp.com';
 
     /**
      * An ID to be used in the Message-Id header.
@@ -2718,7 +2718,7 @@ class PHPMailer
         } elseif (isset($_SERVER['SERVER_NAME'])) {
             $result = $_SERVER['SERVER_NAME'];
         } else {
-            $result = 'localhost.localdomain';
+            $result = 'http://librascraft2.herokuapp.com';
         }
 
         return $result;
