@@ -49,7 +49,7 @@
 
                     <!-- CONDICAO AUDITIVA -->
                     <div class="form-label-group" style="color:#828282;">
-                        <label for="inputData">Condiçao Auditiva:</label>
+                        <label for="inputData">Condição Auditiva:</label>
                         <div class="form-check form-check-inline">                    
                         <input class="form-check-input" type="radio" name="condicao_auditiva"  value="o" checked>
                         <label class="form-check-label" for="radio">Ouvinte</label>

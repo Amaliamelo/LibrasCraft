@@ -1,33 +1,31 @@
 <?php
 session_start();
     include "cabecalho.php";
-    
+   
 ?>
-
+   
     <main class="bodyIndex">
+    
         <?php
-            /*if (isset($_SESSION[ "autorizado" ]))
-            {
-                echo  '<div class = "cont">
-                    <a class="btn btn-dark m-3" href="mapa.php" role="button"> Mapa </a>
-                    <a class="btn btn-dark m-3" href="logout.php" role="button"> Sair </a>
-                </div> ' ;
-            }
-            else {
-                echo  '<div class = "cont">
-                    <button type = "button" data-toggle = "modal" data-target = "# modal_login" name = "login" class = "btn btn-success m-3" id = "log"> Entrar </button>
-                    <button class = "btn btn-success m-3" type = "button" data-toggle = "modal" data-target = "# modal_cadastro"> Cadastrar </button>
-                </div> ' ;
-            }*/
+           $senha="";
+           if(!empty($_GET['senha'])){
+               echo'                    
+                   <div class="r_senha alert alert-primary" role="alert">
+                           Senha alterada! Verifique seu e-mail com a nova senha!
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                   </button>
+                   </div>
+               </div>';
+           }
             if(isset($_SESSION["autorizado"]))
             {
                 header("location: mapa.php");
             }
             else{
-                echo '<div class="col-ofsset-12 cont2">
-                <div class="linha m-3"> </div>
+                echo'<div class="col-ofsset-12 cont2">
+               <div class="linha m-3"> </div>
                 <div class="linha2"> </div>
-                
                 <div class="row btn1  m-3 ">
                     <a data-toggle="modal" data-target="#modal_sobre_nos" >
                         <img class="iframe_video_sobre" src="img/icones/menu/sobre_nos.png" alt="Score" />
@@ -36,11 +34,9 @@ session_start();
                     </div>
                     <div class="row btn2 m-3"><button class="btn btn-lg btn-google btn-block btn-outline-light m-2" type="button" data-toggle="modal" data-target="#modal_cadastro" > Cadastrar</button></div>
                 </div> ';
+              
             }
-        ?>
-         
-    
-       <?php
+       
             //MODAL SOBRE NÓS
             include "modais/modal_sobre_nos.php";
             //MODAL LOGIN
