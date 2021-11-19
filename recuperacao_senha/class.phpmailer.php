@@ -200,7 +200,7 @@ class PHPMailer
      * by SERVER_NAME is used or 'localhost.localdomain'.
      * @type string
      */
-    public $Hostname = 'http://librascraft2.herokuapp.com';
+    public $Hostname = 'librascraft2.herokuapp';
 
     /**
      * An ID to be used in the Message-Id header.
@@ -2718,7 +2718,7 @@ class PHPMailer
         } elseif (isset($_SERVER['SERVER_NAME'])) {
             $result = $_SERVER['SERVER_NAME'];
         } else {
-            $result = 'http://librascraft2.herokuapp.com';
+            $result = 'librascraft2.herokuapp';
         }
 
         return $result;
