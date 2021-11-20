@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <input type="password" name="senha_login" id="senha_login" placeholder = "Senha ..." class="form-control" required>
                         <div class="col text-left">
-                             <a href="recuperacao_senha/recuperacao_senha.php">Esqueceu sua senha?</a>
+                             <a href="recuperacao_senha/r_senha.php">Esqueceu sua senha?</a>
                         </div>
                     </div>
                 </form>
