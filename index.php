@@ -11,7 +11,7 @@ session_start();
            if(!empty($_GET['senha'])){
                echo'                    
                    <div class="r_senha alert alert-primary" role="alert">
-                           Senha alterada!!
+                           Senha alterada!
                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                    </button>
