@@ -10,8 +10,8 @@ include '../conexao.php';
     </head>
     <body class="bodyIndex">
         <div class="recupera_senha  w-25">
-            <div class="card" >
-                <div class="card-body">
+            <div class="card row" >
+                <div class="card-body col">
                     <h5 class="modal-title" style="color:#828282; size:50px;">Recuperar senha:</h5>
 
                     <div id="resetSenha">Insira aqui o seu e-mail:</div>
