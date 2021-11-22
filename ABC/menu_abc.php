@@ -3,7 +3,7 @@
     session_start();
     if (!isset($_SESSION[ "autorizado" ]))
     {
-        header("location: index.php");
+        header("location: ../index.php");
     }
     $id_usuario=$_SESSION["autorizado"];
 
