@@ -32,7 +32,6 @@ include "../ABC/cabecalho_abc.php";
             </br>
             <div class="form-label-group">
                 <input type="password" name="senha_alterar"  class="form-control m-2" placeholder = "Digite a senha..." class="form-group">
-                <input type="password" name="confirma_senha_alterar"  class="form-control m-2" placeholder = "Confirmar a senha..." class="form-group">
             </div>
                 <button type="button" data-dismiss="modal" class="btn btn-secondary m-2" id="limpar">Cancelar</button>
                 <button type="submit" class="btn btn-success m-2">Alterar</button>
