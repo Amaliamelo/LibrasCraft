@@ -5,6 +5,9 @@
     $cod_subfase = $_POST["subfase"];
     $cod_frase=$_POST["cod_frase"];
 
+   
+
+
     if($_SESSION["condicao_auditiva"]=="surdo"){
         $resposta_frase_correta=$_POST["correto"];
         $resposta_frase_usuario=$_POST["resposta"];

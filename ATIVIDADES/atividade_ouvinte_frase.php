@@ -119,7 +119,7 @@ $(function(){
 		$(this).prop('disabled',true);
 		palavras_usuario[i]=$(this).val();
 		i++;
-		//console.log(palavras_usuario);
+		console.log(palavras_usuario);
 
 	})
 	$("input[name='limpar']").click(function(){
@@ -132,9 +132,12 @@ $(function(){
 	$(".enviar_resposta_frase").click(function(){
 		r=palavras_usuario;
 		c = resposta_correta_frase;
+		console.log(r);
+		console.log(c);
+
         sf = "<?php echo $_GET["pagina"];?>";
 		cod_frase ="<?php echo $linha_frase['id_frase'];?>";
-        post = {resposta:r, correto:c,subfase:sf, cod_frase:cod_frase};
+        post = {resposta:palavras_usuario, correto:resposta_correta_frase,subfase:sf, cod_frase:cod_frase};
 		//console.log(post);
         $.post("salva_resposta_frase.php",post,function(r){
             if(r=="1"){					

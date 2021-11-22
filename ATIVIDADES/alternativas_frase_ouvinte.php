@@ -26,17 +26,42 @@ if($qtd>0){
     $atividade= $linha_frase['frase'];
     //SELECIONANDO IDS NA TABELA FRASE_PALAVRA
     $consulta2 = "SELECT  cod_palavra, palavra, video_sinal FROM frase_palavra INNER JOIN palavra 
-                  ON palavra.id_palavra = frase_palavra.cod_palavra AND cod_frase ='".$linha_frase['id_frase']."'";
+                  ON palavra.id_palavra = frase_palavra.cod_palavra WHERE cod_subfase ='9'  AND cod_frase ='".$linha_frase['id_frase']."' ";
+
+    
           
     $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
     $i=0;
     while($linha_correto=mysqli_fetch_assoc($resultado2)){
-        //SELECIONANDO PALAVRA NA TABELA PALAVRAS
         $palavras_corretas[$i] = $linha_correto['video_sinal']; 
         $codigo_palavras_corretas[$i] = $linha_correto['cod_palavra']; 
         $i++;
         
 	}
+    $consulta2 = "SELECT  cod_palavra, palavra, video_sinal FROM frase_palavra INNER JOIN palavra 
+                  ON palavra.id_palavra = frase_palavra.cod_palavra WHERE cod_subfase ='10'  AND cod_frase ='".$linha_frase['id_frase']."' ";
+
+    
+          
+    $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
+    while($linha_correto=mysqli_fetch_assoc($resultado2)){
+        $palavras_corretas[$i] = $linha_correto['video_sinal']; 
+        $codigo_palavras_corretas[$i] = $linha_correto['cod_palavra']; 
+        $i++;
+        
+	}
+    $consulta2 = "SELECT  cod_palavra, palavra, video_sinal FROM frase_palavra INNER JOIN palavra 
+                  ON palavra.id_palavra = frase_palavra.cod_palavra WHERE cod_subfase = $pagina  AND cod_frase ='".$linha_frase['id_frase']."' ";
+         
+    $resultado2 = mysqli_query($conexao,$consulta2) or die("Erro na consulta2");
+    while($linha_correto=mysqli_fetch_assoc($resultado2)){
+        $palavras_corretas[$i] = $linha_correto['video_sinal']; 
+        $codigo_palavras_corretas[$i] = $linha_correto['cod_palavra']; 
+        $i++;
+        
+	}
+    print_r($codigo_palavras_corretas);
+
     $j=0;
     $id_corretos="0";
     foreach($codigo_palavras_corretas as $id){
@@ -88,7 +113,6 @@ if($qtd>0){
     foreach($palavra_errada as $cod => $p ){
         $palavra[$codigo_palavra_errada[$cod]]=$p;
     }
-
 
     $palavra_aux = $palavra;
     shuffle($palavra_aux);
