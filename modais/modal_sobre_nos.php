@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-             <iframe id="link_video" width="440px" height="200px" src="https://www.youtube.com/embed/O7HIAIVsW2w" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <iframe id="link_video" src="https://www.youtube.com/embed/O7HIAIVsW2w" class=" iframe_video_sobre rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             </div>
             <div class="modal-footer m-2">
