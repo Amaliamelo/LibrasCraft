@@ -91,12 +91,12 @@
                 $resultado_seleciona_cozinha = mysqli_query($conexao,$seleciona_cozinha) or  die(mysqli_error($conexao));
 
                 if(mysqli_num_rows($resultado_seleciona_cozinha)==1){
-                    echo '<a href="introducao_frase.php?pagina=1" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
+                    echo '<a href="introducao_frase.php?pagina=2" class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="button" > Introdução </a>';
                     echo '
                     <a class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""">Atividades</a>';
                 }
                 else{
-                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=1""  disabled> Introdução </button>';
+                    echo '<button class="btn btn-lg  btn-secondary text-uppercase  m-3 " type="submit" onclick = "location.href="introducao_frase.php?pagina=2""  disabled> Introdução </button>';
                     echo '<button class="btn btn-lg btn-secondary text-uppercase  m-3 " type="submit"  href="../ATIVIDADES/atividade_'.$_SESSION['condicao_auditiva'].'_frase.php?pagina=2""" disabled>Atividades</button>';
            
                 }
