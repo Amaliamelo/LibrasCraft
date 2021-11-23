@@ -9,8 +9,8 @@
 
 
     if($_SESSION["condicao_auditiva"]=="surdo"){
-        $resposta_frase_correta=$_POST["correto"];
-        $resposta_frase_usuario=$_POST["resposta"];
+        $resposta_frase_correta= strtoupper($_POST["correto"]);
+        $resposta_frase_usuario= strtoupper($_POST["resposta"]);
     }else{
         $resposta_frase_correta="";
         foreach($_POST["correto"] as $c){
